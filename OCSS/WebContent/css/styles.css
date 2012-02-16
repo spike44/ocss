@@ -1,0 +1,467 @@
+/*
+Design by Metamorphosis Design
+http://www.metamorphozis.com
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+a:link {
+	color: #ff4200;
+}
+
+a:hover{
+	text-decoration: underline;
+	color: #353535;
+}
+
+a:visited {
+	color: #ff4200;
+}
+
+*
+{
+border: 0;
+margin: 0;
+}
+
+body
+{
+	color: #666666;
+	background: #000100 url(../images/bg.jpg);
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+#bg_top{
+	background:url(../images/bg_top1.jpg) center top no-repeat;
+}
+
+#main
+{
+margin: 0 auto;
+width: 980px;
+padding-top: 10px;
+}
+
+#header
+{
+width: 980px;
+margin: 0 auto;
+height: 273px;
+background: url(../images/header.png) no-repeat center bottom;
+}
+
+#logo
+{
+padding-left: 40px;
+text-align: left;
+padding-top: 20px;
+
+}
+
+#logo a {
+	text-decoration: none;
+	text-transform: lowercase;
+	font-style: italic;
+	font-size: 36px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+
+#logo H2 a
+{
+	font-size: 14px;
+}
+
+#buttons
+{
+width: 980px;
+height: 39px;
+margin: 0 auto;
+}
+
+#buttons ul {
+   	float:right;
+	padding-right: 40px;
+    margin: 0px;
+}
+
+#buttons li {
+	display: inline;
+}
+
+#buttons a {
+	display: block;
+	float: left;
+	width: 138px;
+	height: 29px;
+	background: url(../images/menu.png) no-repeat;
+	text-align: center;
+	text-decoration: none;
+	color: #7e8901;
+	font-weight: bold;
+	font-size: 14px;
+	padding-top: 10px;
+	margin-right: 2px;
+}
+
+#buttons a:hover {
+	width: 138px;
+    height: 29px;
+	background: url(../images/menuhover.png) no-repeat;
+}
+
+#content
+{
+width: 980px;
+background: #ffffff;
+margin-bottom: 5px;
+padding-top: 20px;
+padding-bottom: 22px;
+}
+
+#left
+{
+width: 700px;
+background:url(../images/leftbor.jpg) repeat-y right;
+}
+
+.text{
+	padding-left: 30px;
+	padding-top: 5px;
+	padding-right: 15px;
+}
+
+#left H1
+{
+color: #7e8901;
+font-size: 28px;
+padding-top: 10px;
+padding-left: 30px;
+font-family: Georgia, "Times New Roman", Times, serif;
+font-weight: normal;
+}
+
+.pred{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #b22d00;
+	padding-left: 30px;
+	padding-top: 15px;
+	margin-bottom: 5px;
+}
+
+#left a
+{
+ color: #ff4200;
+}
+
+#left a:hover{
+	text-decoration: none;
+	color: #353535;
+}
+
+#left a:visited {
+	color: #3a7854;
+}
+
+.date {
+	margin-top: 25px;
+	color: #ff8d00;
+	font-size: 11px;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-weight:bold;
+	background: url(../images/datebg.jpg) no-repeat;
+}
+
+.date a {
+	color: #ff4200;
+	text-decoration:none;
+}
+
+.dateleft{
+	background:url(../images/timeicon.gif) no-repeat left;
+	padding-left: 20px;
+	width:200px;
+	color: #ff4200;
+}
+
+.dateright{
+	float:right;
+	background:url(../images/tages.gif) right no-repeat;
+	padding-right: 20px;
+	text-align:right;
+	height: 16px;
+}
+
+#post{
+	padding-left: 30px;
+}
+
+#col1{
+	width: 188px;
+	float:left;
+}
+
+#col1 ul{
+	padding: 0px;
+}
+
+#col1 ul li{
+	background:url(../images/bg2.gif) no-repeat;
+	width: 188px;
+	height: 21px;
+	list-style: none;
+	padding-left: 30px;
+	margin-bottom: 5px;
+	padding-top: 3px;
+}
+
+#col1 ul li a{
+	color: #c17305;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+#col2{
+	padding-left: 8px;
+}
+
+#col2{
+	width: 188px;
+	float:left;
+}
+
+#col2 ul{
+	padding: 0px;
+}
+
+#col2 ul li{
+	background:url(../images/bg2.gif) no-repeat;
+	width: 188px;
+	height: 21px;
+	list-style: none;
+	padding-left: 30px;
+	margin-bottom: 5px;
+	padding-top: 3px;
+}
+
+#col2 ul li a{
+	color: #c17305;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+#col3{
+	padding-left: 8px;
+}
+
+#col3{
+	width: 188px;
+	float:left;
+}
+
+#col3 ul{
+	padding: 0px;
+}
+
+#col3 ul li{
+	background:url(../images/bg2.gif) no-repeat;
+	width: 188px;
+	height: 21px;
+	list-style: none;
+	padding-left: 30px;
+	margin-bottom: 5px;
+	padding-top: 3px;
+}
+
+#col3 ul li a{
+	color: #c17305;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+#right
+{
+width: 252px;
+padding-right: 7px;
+padding-top: 7px;
+padding-bottom: 7px;
+float:right;
+}
+
+#right ul
+{
+	list-style: none;
+	padding: 5px;
+	margin: 0px;
+	display:block;
+
+}
+
+#right ul li{
+	margin-bottom: 20px;
+	width: 192px;
+}
+
+#categories ul li {
+	margin-bottom: 3px;
+	background: url(../images/ulbgtop.jpg) no-repeat left 3px;
+	padding-left: 12px;
+	height: 21px;
+}
+
+#categories ul li a{
+	color: #b22d00;
+	font-size: 12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#partners ul li {
+	margin-bottom: 5px;
+	background: url(../images/ulbgbot.jpg) no-repeat left 3px;
+	padding-left: 12px;
+	height: 21px;
+}
+
+#partners ul li a{
+	color: #464646;
+	font-size: 12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+
+
+#right h2 {
+color: #7e8901;
+font-size: 23px;
+padding-top: 10px;
+padding-bottom: 10px;
+font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#right a:link {
+	text-decoration: none;
+}
+
+#right a:hover {
+	text-decoration: underline;
+}
+#right a:visited {
+		text-decoration: none;
+}
+
+#right li a {
+	padding-left: 10px;
+	background: url(../images/img09.gif) no-repeat 1px 5px;
+}
+
+#footer
+{
+	height: 37px;
+	width: 444px;
+	font-size: 14px;
+	color: #FFFFFF;
+	padding-top: 5px;
+	text-align: center;
+	clear:both;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+
+}
+
+#footer a
+{
+color: #000000;
+font-size: 10px;
+text-decoration: none;
+}
+.padding
+{
+padding: 10px;
+color:#FF0000;
+font-weight: bold;
+}
+
+
+/*=================================*/
+/* Nivo Slider Demo
+/* November 2010
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+
+#slider-wrapper {
+   width:963px;
+    height: 257px;
+    margin:0 auto;
+	padding-top: 8px;
+}
+
+#slider {
+	position:relative;
+    width: 963px;
+    height: 257px;
+	background:url(../images/loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+#slider a {
+	border:0;
+	display:block;
+}
+
+.nivo-controlNav {
+	position:absolute;
+	left: 440px;
+	bottom:-42px;
+
+}
+.nivo-controlNav a {
+	display:block;
+	width:22px;
+	height:22px;
+	background:url(../images/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:3px;
+	float:left;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(../images/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+a.nivo-prevNav {
+	left:15px;
+}
+
+.nivo-caption {
+    text-shadow:none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.nivo-caption a {
+    color:#efe9d1;
+    text-decoration:underline;
+}
