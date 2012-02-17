@@ -27,8 +27,9 @@ public class MemberService {
 		    }
 		  }
 
-		  public static List<MemberVO> selectAllMember (MemberVO m) throws SQLException {
-		    return sqlMapper.queryForList("select",m);
+		  @SuppressWarnings("unchecked")
+		public static List<MemberVO> selectAllMember (MemberVO m) throws SQLException {
+		    return sqlMapper.queryForList("member.select",m);
 		  }
 
 		  public static void insertMember (MemberVO memberVO) throws SQLException {
