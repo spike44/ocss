@@ -4,20 +4,38 @@
 	<statement id="select" parameterClass="disc.ocss.model.MemberVO"
 		resultClass="disc.ocss.model.MemberVO">
 
-		select * from twitter_User
+		select * from memberr
 
 		<dynamic prepend="where">
 
-			<isNotEmpty property="userId" prepend="and">
-				user_Id=#userId#
+			<isNotEmpty property="memberId" prepend="and">
+				member_Id=#memberId#
 			</isNotEmpty>
-			<isNotEmpty property="userName" prepend="and">
-				user_Name=#userName#
-			</isNotEmpty>
+		
 		</dynamic>
 	</statement>
 
-
-
+	<insert id="insert" parameterClass="disc.ocss.model.MemberVO">
+		
+		insert into memberr values(
+			#memberId#,
+			#password#,
+			#phone#,
+			#email#,
+			#powerList#,
+			#memberImage#,
+			#approval#,
+			sysdate			
+		</insert>
+	<update id="update" parameterClass="disc.ocss.model.MemberVO">
+		passwrod=#password#,
+			phone =#phone#,
+			email= #email#,
+			power_list =#powerList#,
+			member_image =#memberImage#,
+			approval=#approval#,
+		
+		</update>
 </sqlMap>
 
+			

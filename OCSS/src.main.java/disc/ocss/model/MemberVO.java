@@ -1,7 +1,7 @@
 package disc.ocss.model;
 
 public class MemberVO {
-	private String memberID;
+	private String memberId;
 	private String password;
 	private String phone;
 	private String email;
@@ -9,11 +9,12 @@ public class MemberVO {
 	private String memberImage;
 	private int approval;
 	private String joinDate;
-	public String getMemberID() {
-		return memberID;
+
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setMemberID(String memberID) {
-		this.memberID = memberID;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public String getPassword() {
 		return password;
