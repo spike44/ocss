@@ -29,4 +29,34 @@
     <servlet-name>SelectCarTypeServlet</servlet-name>
     <url-pattern>/cartype.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JoinMemberServlet</display-name>
+    <servlet-name>JoinMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.JoinMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JoinMemberServlet</servlet-name>
+    <url-pattern>/join.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditMemberServlet</display-name>
+    <servlet-name>EditMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.EditMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMemberServlet</servlet-name>
+    <url-pattern>/edit.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteMemberServlet</display-name>
+    <servlet-name>DeleteMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DeleteMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMemberServlet</servlet-name>
+    <url-pattern>/DeleteMemberServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
