@@ -19,4 +19,14 @@
     <servlet-name>UploadFileServlet</servlet-name>
     <url-pattern>/uploadfile.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectCarTypeServlet</display-name>
+    <servlet-name>SelectCarTypeServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectCarTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectCarTypeServlet</servlet-name>
+    <url-pattern>/cartype.do</url-pattern>
+  </servlet-mapping>
 </web-app>

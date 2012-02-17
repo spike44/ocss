@@ -5,16 +5,11 @@
  "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 
 <sqlMapConfig>
-    
-    <!-- Configure a built-in transaction manager.  If you're using an
-    app server, you probably want to use its transaction manager
-    and a managed datasource -->
-	
+	<settings enhancementEnabled="true" useStatementNamespaces="true" />
     <transactionManager type="JDBC" commitRequired="false">
         <dataSource type="SIMPLE">
             <property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver"/>
             <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-
             <property name="JDBC.Username" value="scott"/>
             <property name="JDBC.Password" value="tiger"/>
         </dataSource>
@@ -27,7 +22,6 @@
     <sqlMap resource="com/mydomain/data/Order.xml"/>
     <sqlMap resource="com/mydomain/data/Documents.xml"/>
     -->
-    
+    <sqlMap resource="disc/ocss/sqlmap/car-sqlmap.xml"/>
 </sqlMapConfig>
-            <!--	  <property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver"/>
-            <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@10.201.3.62:1521:xe"/> inside server     -->
+          
