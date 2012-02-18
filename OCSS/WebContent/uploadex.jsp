@@ -9,7 +9,7 @@
 <body>
    <form action="uploadfile.do" method="post" enctype="multipart/form-data">
              이름: <input type="text" name="name"/><br/>
-             파일: <input type="file" name="memberImage"/></br/>
+             파일: <input type="file" name="memberImage"/><br>
              <input type="submit" value="전송"/>          
    </form>
 

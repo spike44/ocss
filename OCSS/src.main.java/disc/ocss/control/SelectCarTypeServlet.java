@@ -40,7 +40,14 @@ public class SelectCarTypeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String brand = request.getParameter("sel");
 		HttpSession session = request.getSession();
-		if(brand!=null){
+		if(brand.equals("brand")){
+			CarService carService = new CarService();
+			session.setAttribute("brand", carService.selectCarBrand());
+			response.sendRedirect("select.jsp");
+		}
+		
+		else if(brand!=null){
+			session.setAttribute("sel", brand);
 			CarService carService = new CarService();
 			session.setAttribute("type", carService.selectCarType(brand));
 			response.sendRedirect("select.jsp");

@@ -8,70 +8,53 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
-	/* $(document).ready(function (){
-		document.frm.action = "select.do?sel=brand";
-		document.frm.submit();
-	}); */
-	
-	function getSeondCategory(){
-		document.frm.action = "cartype.do?sel="+$("#first_category").val();
+
+	function getFirstCategory() {
+		document.frm.action = "cartype.do?sel=brand";
 		document.frm.submit();
 	}
-	
-	function ChangeCategory(){
-		$("#test").val($("#second").val());
-	}
-	
-	function brand(brand){
-		document.frm.action = "cartype.do?sel="+brand;
+
+	function getSeondCategory() {
+		document.frm.action = "cartype.do?sel=" + $("#first").val();
 		document.frm.submit();
+	}
+
+	function ChangeCategory() {
+		$("#type").val($("#second").val());
 	}
 </script>
 </head>
 <body>
 <form name="frm" method="POST">
- <select name="first_category" id="first_category"
-		onChange="getSeondCategory()" size=10>
-		<option value="default">차종</option>
-		<option value="현대">현대자동차</option>
-		<option value="기아">기아자동차</option>
-		<option value="GM대우/쉐보레">GM대우</option>
-		<option value="르노삼성">르노삼성</option>
-		<option value="쌍용">쌍용</option>
-	</select>
+<c:if test="${empty brand }">
+	<script type="text/javascript">
+		getFirstCategory();
+	</script>
+</c:if>
+	<input type="hidden" id="brand" value=${sel }>
+	<input type="hidden" id="type">
 	
-	<select name="first_category" id="second"
-		onChange="ChangeCategory()" size=10>
-		<option value="default">촤하하하하</option>
+	<select name="first_category" id="first"
+	onChange="getSeondCategory()" size=6>
+		<c:forEach var="b" items="${brand }">
+		<c:if test="${sel==b }">
+			<option value="${b }" selected="selected">${b }</option>
+		</c:if>
+		<c:if test="${sel!=b }">
+			<option value="${b }">${b }</option>
+		</c:if>
+		</c:forEach>
+	</select>
+	<c:remove var="sel"/>
+	
+	<select name="second_category" id="second"
+		onChange="ChangeCategory()" size=6>
+	<c:if test="${!empty type } "></c:if>
 	 <c:forEach var="t" items="${type }">
 	 	<option value=${t }>${t }</option>
 	</c:forEach>
 	<c:remove var="type"/>
 	</select>
-	
-	<!-- <input type="text" id="test"> -->
-	<input type="hidden" id="type">
-	<%-- <table border="1">
-		<tr>
-			<td>제조사</td>
-			<td>모델</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="javascript:brand('현대');">현대</a><br>
-				<a href="javascript:brand('기아');">기아</a><br>
-				<a href="javascript:brand('GM대우/쉐보레');">GM대우/쉐보레</a><br>
-				<a href="javascript:brand('르노삼성');">르노삼성</a><br>
-				<a href="javascript:brand('쌍용');">쌍용</a><br>
-			</td>
-			<td>
-				<c:forEach var="t" items="${type }">
-					${t }<br>
-				</c:forEach>
-				<c:remove var="type"/>
-			</td>
-		</tr>
-	</table> --%>
 </form>
 </body>
 </html>

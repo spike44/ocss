@@ -3,12 +3,14 @@ package disc.ocss.dao;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
+import disc.ocss.model.CarTypeVO;
 import disc.ocss.model.CarVO;
 
 public class CarDAO {
@@ -25,15 +27,25 @@ public class CarDAO {
 		}
 	}
 	
-	public static List selectCarType (CarVO carVO) {
-		
-		System.out.println(carVO.getBrand());
+	public static ArrayList<CarTypeVO> selectCarType (CarVO carVO) {
+		ArrayList<CarTypeVO> list = new ArrayList<CarTypeVO>();
 	    try {
-			return sqlMapper.queryForList("car.selectCarType",carVO);
+			list=(ArrayList<CarTypeVO>) sqlMapper.queryForList("car.selectCarType",carVO);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    return null;
+	   return list;
 	  }
+	
+	public static ArrayList<CarTypeVO> selectCarBrand(){
+		ArrayList<CarTypeVO> list = new ArrayList<CarTypeVO>();
+		try {
+			list = (ArrayList<CarTypeVO>) sqlMapper.queryForList("car.selectCarBrand");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

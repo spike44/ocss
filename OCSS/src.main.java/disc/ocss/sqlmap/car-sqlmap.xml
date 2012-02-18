@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="car" >
-<typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
-	<resultMap class="carVO" id="carVOList">
-	<result property="carId" column="car_id"/>
-	<result property="memberId" column="member_id"/>
-	<result property="price" column="price"/>
-	<result property="priceEval" column="price_eval"/>
-	<result property="carYear" column="car_year"/>
-	<result property="carYearEval" column="car_year_eval"/>
-	<result property="isAuto" column="is_auto"/>
-	<result property="isAcci" column="is_acci"/>
-	<result property="fuel" column="fuel"/>
-	<result property="carType" column="car_type"/>
-	<result property="fuelEval" column="fuel_eval"/>
-	<result property="color" column="color"/>
-	<result property="totalEval" column="total_eval"/>
-	<result property="descriptionDe" column="description_de"/>
-	<result property="sellingStatus" column="selling_status"/>
-	<result property="title" column="title"/>
-	<result property="brand" column="brand"/>
-	<result property="carLocation" column="carLocation"/>
-	</resultMap>
-	<select id="selectCarType" parameterClass="carVO" resultMap="carVOList">
+    <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
+     <typeAlias alias="carTypeVO" type="disc.ocss.model.CarTypeVO"/>
+    <resultMap class="carTypeVO" id="resultsBrand">
+       <result property="brand" column="brand"/>
+    </resultMap>
+    <resultMap class="carTypeVO" id="resultsType">
+       <result property="carType" column="car_type"/>
+    </resultMap>
+    
+    
+	<statement id="selectCarType" parameterClass="disc.ocss.model.CarVO" resultMap="resultsType">
 		select car_type from cartype
 		where brand = #brand#
-	</select>
+	</statement>
+	<statement id="selectCarBrand" resultMap="resultsBrand">
+		select distinct brand from cartype
+	</statement>
+	
 </sqlMap>
