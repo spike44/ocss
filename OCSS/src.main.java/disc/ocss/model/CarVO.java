@@ -1,54 +1,34 @@
 package disc.ocss.model;
 
 public class CarVO {
-	
+    
 	private int carId;
-	private String memberId;
-	private int price;
-	private int priceEval;
-	private int carYear;
+	private String memberId;      
+	private int price;         
+	private int priceEval;     
+	private int carYear;       
 	private int carYearEval;
 	private int isAuto;
 	private int isAcci;
 	private int fuel;
 	private int fuelEval;
-	private String carType;
 	private String color;
 	private int totalEval;
-	private String descriptionDe;
+	private String carDesc;
 	private String sellingStatus;
 	private String title;
-	private String brand;
-	private String carLocation;
+	private String locationList;
+	private String cartypeCode;
 	
 	
-	
-	
-	public CarVO(int carId, String memberId, int price, int priceEval,
-			int carYear, int carYearEval, int isAuto, int isAcci, int fuel,
-			int fuelEval, String carType, String color, int totalEval,
-			String descriptionDe, String sellingStatus, String title,
-			String brand, String carLocation) {
-		super();
-		this.carId = carId;
-		this.memberId = memberId;
-		this.price = price;
-		this.priceEval = priceEval;
-		this.carYear = carYear;
-		this.carYearEval = carYearEval;
-		this.isAuto = isAuto;
-		this.isAcci = isAcci;
-		this.fuel = fuel;
-		this.fuelEval = fuelEval;
-		this.carType = carType;
-		this.color = color;
-		this.totalEval = totalEval;
-		this.descriptionDe = descriptionDe;
-		this.sellingStatus = sellingStatus;
-		this.title = title;
-		this.brand = brand;
-		this.carLocation = carLocation;
+	public String getTitle() {
+		return title;
 	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+
 	public CarVO() {
 		super();
 	}
@@ -112,12 +92,6 @@ public class CarVO {
 	public void setFuelEval(int fuelEval) {
 		this.fuelEval = fuelEval;
 	}
-	public String getCarType() {
-		return carType;
-	}
-	public void setCarType(String carType) {
-		this.carType = carType;
-	}
 	public String getColor() {
 		return color;
 	}
@@ -130,11 +104,11 @@ public class CarVO {
 	public void setTotalEval(int totalEval) {
 		this.totalEval = totalEval;
 	}
-	public String getDescriptionDe() {
-		return descriptionDe;
+	public String getCarDesc() {
+		return carDesc;
 	}
-	public void setDescriptionDe(String descriptionDe) {
-		this.descriptionDe = descriptionDe;
+	public void setCarDesc(String carDesc) {
+		this.carDesc = carDesc;
 	}
 	public String getSellingStatus() {
 		return sellingStatus;
@@ -142,26 +116,18 @@ public class CarVO {
 	public void setSellingStatus(String sellingStatus) {
 		this.sellingStatus = sellingStatus;
 	}
-	public String getTitle() {
-		return title;
+	public String getLocationList() {
+		return locationList;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setLocationList(String locationList) {
+		this.locationList = locationList;
 	}
-	public String getBrand() {
-		return brand;
+	public String getCartypeCode() {
+		return cartypeCode;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-	public String getCarLocation() {
-		return carLocation;
-	}
-	public void setCarLocation(String carLocation) {
-		this.carLocation = carLocation;
+	public void setCartypeCode(String cartypeCode) {
+		this.cartypeCode = cartypeCode;
 	}
 	
 	
-	
-
 }

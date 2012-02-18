@@ -79,4 +79,14 @@
     <servlet-name>SearchPwServlet</servlet-name>
     <url-pattern>/searchPw.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectCarServlet</display-name>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <url-pattern>/selectcar.do</url-pattern>
+  </servlet-mapping>
 </web-app>

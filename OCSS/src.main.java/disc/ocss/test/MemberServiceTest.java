@@ -43,7 +43,7 @@ public class MemberServiceTest extends TestCase {
 	public void testInsertMember() throws SQLException {
 		MemberVO m = new MemberVO();
 		m.setMemberId("psay");
-		m.setMemberName("문진학");
+		m.setMemberName("x");
 		m.setApproval(0);
 		m.setEmail("dddd");
 		m.setPassword("1234");
