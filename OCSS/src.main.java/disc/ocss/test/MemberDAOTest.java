@@ -30,8 +30,15 @@ public class MemberDAOTest extends TestCase {
 		System.out.println(m2.getMemberName());
 	}
 
-	public void testSearchId() {
-		fail("Not yet implemented");
+	public void testSearchId() throws SQLException {
+		MemberVO m = new MemberVO();
+		m.setMemberName("하종문");
+		m.setEmail("jongmun0816@gmail.com");
+		m.setPhone("01026813062");
+	
+		String result = MemberDAO.searchId(m);
+		System.out.println(result);
+		
 	}
 
 	public void testInsertMember() throws SQLException {

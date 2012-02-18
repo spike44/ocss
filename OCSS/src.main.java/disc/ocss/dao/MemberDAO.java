@@ -49,10 +49,10 @@ public class MemberDAO {
 	}
 
 	public static String searchId(MemberVO m) throws SQLException {
-		return (String) sqlMapper.queryForObject("member.searchId", m);
+		return (String) sqlMapper.queryForObject("member.selectId", m);
 	}
 	public static String searchPw(MemberVO m) throws SQLException {
-		return (String) sqlMapper.queryForObject("member.searchPw", m);
+		return (String) sqlMapper.queryForObject("member.selectPw", m);
 	}
 
 	public static String insertMember(MemberVO memberVO) throws SQLException {

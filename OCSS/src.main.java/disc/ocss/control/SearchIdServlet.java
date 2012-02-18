@@ -53,7 +53,12 @@ public class SearchIdServlet extends HttpServlet {
 		
 		try {
 			String result = memberService.searchId(m);
+			if(result != null) {
 			session.setAttribute("resultId", "귀하의 아이디는 '"+ result + "' 입니다");
+			}
+			else {
+				session.setAttribute("resultId", "등록된 회원정보가 없습니다.");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

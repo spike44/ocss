@@ -8,66 +8,6 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$.validator.setDefaults({
-		submitHandler : function() {
-			alert("submitted!");
-		}
-	});
-
-	$().ready(function() {
-		// validate the comment form when it is submitted
-		// validate signup form on keyup and submit
-		$("#signupForm").validate({
-			rules : {
-
-				memberId : {
-					required : true,
-					minlength : 2
-				},
-				memberName : "required",
-				password : {
-					required : true,
-					minlength : 6
-				},
-				confirm_password : {
-					required : true,
-					minlength : 6,
-					equalTo : "#password"
-				},
-				email : {
-					required : true,
-					email : true
-				},
-				phone : {
-					required : true,
-					tel : true
-				},
-				agree : "required"
-			},
-			messages : {
-
-				memberId : {
-					required : "아이디를 입력해주세요",
-					minlength : "아이디는 2자이상 이어야합니다"
-				},
-				memberName : "이름을 입력해주세요",
-				password : {
-					required : "비밀번호를 입력해주세요",
-					minlength : "비밀번호는 6자 이상이어야 합니다",
-				},
-				confirm_password : {
-					required : "비밀번호를 입력해주세요",
-					minlength : "비밀번호는 6자 이상이어야 합니다",
-					equalTo : "비밀번호가 서로 다릅니다"
-				},
-				email : "유효한 이메일 주소를 입력하세요",
-				phone : "유효한 휴대전화 번호를 입력하세요",
-				agree : "약관에 동의해주세요"
-			}
-		});
-
-	});
-
 
 	function doedit() {
 		document.editForm.action="edit.do"

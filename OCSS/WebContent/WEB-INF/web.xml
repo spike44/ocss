@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>OCSS</display-name>
+<web-app xmlns="web-app_2_5.xsd" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="2.5">
+  <javaee:display-name>OCSS</javaee:display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -10,8 +10,8 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
-    <display-name>UploadFileServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>UploadFileServlet</javaee:display-name>
     <servlet-name>UploadFileServlet</servlet-name>
     <servlet-class>disc.ocss.control.UploadFileServlet</servlet-class>
   </servlet>
@@ -20,8 +20,8 @@
     <url-pattern>/uploadfile.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>SelectCarTypeServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>SelectCarTypeServlet</javaee:display-name>
     <servlet-name>SelectCarTypeServlet</servlet-name>
     <servlet-class>disc.ocss.control.SelectCarTypeServlet</servlet-class>
   </servlet>
@@ -30,8 +30,8 @@
     <url-pattern>/cartype.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>JoinMemberServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>JoinMemberServlet</javaee:display-name>
     <servlet-name>JoinMemberServlet</servlet-name>
     <servlet-class>disc.ocss.control.JoinMemberServlet</servlet-class>
   </servlet>
@@ -40,8 +40,8 @@
     <url-pattern>/join.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>EditMemberServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>EditMemberServlet</javaee:display-name>
     <servlet-name>EditMemberServlet</servlet-name>
     <servlet-class>disc.ocss.control.EditMemberServlet</servlet-class>
   </servlet>
@@ -50,8 +50,8 @@
     <url-pattern>/edit.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>DeleteMemberServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>DeleteMemberServlet</javaee:display-name>
     <servlet-name>DeleteMemberServlet</servlet-name>
     <servlet-class>disc.ocss.control.DeleteMemberServlet</servlet-class>
   </servlet>
@@ -60,8 +60,8 @@
     <url-pattern>/DeleteMemberServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>SearchIdServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>SearchIdServlet</javaee:display-name>
     <servlet-name>SearchIdServlet</servlet-name>
     <servlet-class>disc.ocss.control.SearchIdServlet</servlet-class>
   </servlet>
@@ -70,8 +70,8 @@
     <url-pattern>/searchId.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>SearchPwServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>SearchPwServlet</javaee:display-name>
     <servlet-name>SearchPwServlet</servlet-name>
     <servlet-class>disc.ocss.control.SearchPwServlet</servlet-class>
   </servlet>
@@ -80,8 +80,8 @@
     <url-pattern>/searchPw.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>LoginServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>LoginServlet</javaee:display-name>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>disc.ocss.control.LoginServlet</servlet-class>
   </servlet>
@@ -90,13 +90,41 @@
     <url-pattern>/login.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>IdCheckServlet</display-name>
+    <javaee:description></javaee:description>
+    <javaee:display-name>IdCheckServlet</javaee:display-name>
     <servlet-name>IdCheckServlet</servlet-name>
     <servlet-class>disc.ocss.control.IdCheckServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>IdCheckServlet</servlet-name>
     <url-pattern>/idcheck.do</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <javaee:listener-class>org.apache.tiles.web.startup.TilesListener</javaee:listener-class>
+  </listener>
+  <context-param>
+    <javaee:param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</javaee:param-name>
+    <javaee:param-value>
+           /WEB-INF/tiles-defs.xml
+        </javaee:param-value>
+  </context-param>
+  <servlet>
+    <javaee:display-name>TilesDispatchServlet</javaee:display-name>
+    <servlet-name>TilesDispatchServlet</servlet-name>
+    <servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TilesDispatchServlet</servlet-name>
+    <url-pattern>*.tiles</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>LogoutServlet</javaee:display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>disc.ocss.control.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout.do</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -46,13 +46,18 @@ public class SearchPwServlet extends HttpServlet {
 		MemberVO m = new MemberVO();
 		MemberService memberService = new MemberService();
 		HttpSession session =request.getSession();
-		m.setEmail(request.getParameter("email"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setPhone(request.getParameter("phone"));
-		
+		m.setMemberId(request.getParameter("memberId"));
+		m.setEmail(request.getParameter("email2"));
+		m.setMemberName(request.getParameter("memberName2"));
+			
 		try {
 			String result = memberService.searchPw(m);
+			if(result != null) {
 			session.setAttribute("resultPw","귀하의 비밀번호는 '"+ result + "' 입니다" );
+			}
+			else {
+				session.setAttribute("resultPw", "아이디나 회원정보가 잘못됐습니다.");
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

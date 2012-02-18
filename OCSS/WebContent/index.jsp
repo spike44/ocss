@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -33,12 +34,7 @@
 	</script>
 <c:remove var="edit"/>
 </c:if>
-<c:if test="${!empty l}">
-	<script type="text/javascript">
-	alert("'${login.memberName}'");
-	</script>
-<c:remove var="edit"/>
-</c:if>
+
 <c:if test="${!empty loginfailed}">
 	<script type="text/javascript">
 	alert("'${loginfailed}'");
@@ -218,3 +214,8 @@
 	</div>
 </body>
 </html>
+=======
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<tiles:insertDefinition name="join.page"/>
+>>>>>>> refs/remotes/origin/SungMin
