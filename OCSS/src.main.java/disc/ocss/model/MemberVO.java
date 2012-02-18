@@ -6,10 +6,16 @@ public class MemberVO {
 	private String phone;
 	private String email;
 	private int powerList;
-	private String memberImage;
 	private int approval;
 	private String joinDate;
+	private String MemberName;
 
+	public String getMemberName() {
+		return MemberName;
+	}
+	public void setMemberName(String memberName) {
+		MemberName = memberName;
+	}
 	public String getMemberId() {
 		return memberId;
 	}
@@ -39,12 +45,6 @@ public class MemberVO {
 	}
 	public void setPowerList(int powerList) {
 		this.powerList = powerList;
-	}
-	public String getMemberImage() {
-		return memberImage;
-	}
-	public void setMemberImage(String memberImage) {
-		this.memberImage = memberImage;
 	}
 	public int getApproval() {
 		return approval;

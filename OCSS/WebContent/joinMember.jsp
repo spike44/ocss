@@ -20,11 +20,11 @@
 		$("#signupForm").validate({
 			rules : {
 
-				customerid : {
+				memberId : {
 					required : true,
 					minlength : 2
 				},
-				username : "required",
+				memberName : "required",
 				password : {
 					required : true,
 					minlength : 6
@@ -46,11 +46,11 @@
 			},
 			messages : {
 
-				customerid : {
+				memberId : {
 					required : "아이디를 입력해주세요",
 					minlength : "아이디는 2자이상 이어야합니다"
 				},
-				username : "이름을 입력해주세요",
+				memberName : "이름을 입력해주세요",
 				password : {
 					required : "비밀번호를 입력해주세요",
 					minlength : "비밀번호는 6자 이상이어야 합니다",
@@ -72,7 +72,7 @@
 		$.ajax({
 			url : "idcheck.do",
 			data : ({
-				userid : $("#customerid").val()
+				userid : $("#memberId").val()
 			}),
 			success : function(data) {
 				if (data == "false") {
@@ -86,16 +86,18 @@
 
 	function join() {
 		var re_id = /^[a-z0-9_-]{3,16}$/;
-		if ($("#customerid").val().length <= 0)
+		if ($("#memberId").val().length <= 0)
 			alert("아이디 길이 체크체크");
-		else if (re_id.test($("#customerid").val()) != true) {
+		else if (re_id.test($("#memberId").val()) != true) {
 			alert("유효한 아이디가 아닙니다.");
 		}
 	}
-	function fileUplpad() {
+	function dojoin() {
+		document.signupForm.action="join.do"
+			document.signupForm.submit();
 		
-		location.href="uploadfile.do";
 	}
+	
 </script>
 
 
@@ -118,18 +120,18 @@
 	<div id="main">
 
 
-		<form class="cmxform" id="signupForm" name= "signupFrom" method="post" enctype="multipart/form-data">
+		<form class="cmxform" id="signupForm" name= "signupForm" method="get">
 
 			<fieldset>
 				<legend>회원가입 신청서</legend>
 				<p>
-					<label for="customerid">아이디</label> <input id="customerid"
-						name="customerid" /> <input class=button type="button"
+					<label for="memberId">아이디</label> <input id="memberId"
+						name="memberId" /> <input class=button type="button"
 						name="idCheck" value="중복확인" onclick="checkId()">
 				</p>
 				<p>
-					<label for="username">이름</label> <input id="username"
-						name="username" />
+					<label for="memberName">이름</label> <input id="memberName"
+						name="memberName" />
 				</p>
 				<p>
 					<label for="password">비밀번호</label> <input id="password"
@@ -149,24 +151,21 @@
 				</p>
 
 				<p>
-				<fieldset data-role="controlgroup">
-					<input type="radio" name="powerList" id="seller" value="choice-1"
-						checked="checked" /> <label for="seller">판매자</label> <input
-						type="radio" name="powerList" id="buyer" value="choice-2" /> <label
-						for="buyer">구매자</label>
-				</fieldset>
+				
+					<input type="radio" name="powerList" value="1"
+						/> <label>판매자</label> <input
+						type="radio" name="powerList" value="2" /> <label
+						>구매자</label>
+			
 				</p>
-				<p><label for="memberImage">사진</label>
-					 <input id="memberImage" name="memberImage" type="file" />
-					 <input id="fileUpload" name="btn_file_upload" type="button" value="올리기" onclick="fileUplpad()"/>   
-				</p>
+			
 				<p>
 					<label for="agree">내부 규정에 동의하십니까?</label> <input type="checkbox"
 						class="checkbox" id="agree" name="agree" />
 				</p>
 
 				<p>
-					<input class="button" type="button" name="doJoin" value="회원가입" onclick="join()" />
+					<input class="button" type="button" name="doJoin" value="회원가입" onclick="dojoin()" />
 				</p>
 			</fieldset>
 		</form>

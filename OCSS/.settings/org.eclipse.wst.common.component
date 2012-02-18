@@ -3,7 +3,6 @@
     <wb-module deploy-name="OCSS">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src.main.java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src.test.java"/>
         <property name="context-root" value="OCSS"/>
         <property name="java-output-path" value="/OCSS/build/classes"/>
     </wb-module>

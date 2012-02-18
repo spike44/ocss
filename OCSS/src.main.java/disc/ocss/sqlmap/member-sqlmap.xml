@@ -1,41 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="member" >
-	<statement id="select" parameterClass="disc.ocss.model.MemberVO"
-		resultClass="disc.ocss.model.MemberVO">
-
-		select * from memberr
-
-		<dynamic prepend="where">
-
-			<isNotEmpty property="memberId" prepend="and">
-				member_Id=#memberId#
-			</isNotEmpty>
-		
-		</dynamic>
-	</statement>
-
-	<insert id="insert" parameterClass="disc.ocss.model.MemberVO">
-		
-		insert into memberr values(
-			#memberId#,
-			#password#,
-			#phone#,
-			#email#,
-			#powerList#,
-			#memberImage#,
-			#approval#,
-			sysdate			
-		</insert>
-	<update id="update" parameterClass="disc.ocss.model.MemberVO">
-		passwrod=#password#,
-			phone =#phone#,
-			email= #email#,
-			power_list =#powerList#,
-			member_image =#memberImage#,
-			approval=#approval#,
-		
-		</update>
+<sqlMap namespace="member">
+    <typeAlias alias="MemberVO" type="disc.ocss.model.MemberVO"/>
+    <resultMap id="MemberResult" class="MemberVO">
+        <result property="memberId" column="member_id"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="powerList" column="power_list"/>
+        <result property="approval" column="approval"/>
+        <result property="joinDate" column="join_date"/>
+        <result property="memberName" column="member_name"/>
+      </resultMap>
+    
+    <statement id="selectall" resultMap="MemberResult">
+        
+        select * from memberr
+        
+    </statement>
+    
+    <statement id="select" parameterClass="MemberVO"
+     resultMap="MemberResult">
+        
+        select * from memberr
+        
+        <dynamic prepend="where">
+            
+            <isNotEmpty property="memberId" prepend="or">
+                member_Id=#memberId#
+            </isNotEmpty>
+            <isNotEmpty property="approval" prepend="or">
+                approval=#approval#
+            </isNotEmpty>
+            
+        </dynamic>
+    </statement>
+  
+  <statement id="selectId" parameterClass="MemberVO"
+     resultMap="MemberResult">
+        
+        select member_id from memberr
+		where member_name=#memberName# and email=#email# and phone=#phone#
+        
+     </statement>
+  
+  <statement id="selectPw" parameterClass="MemberVO"
+     resultMap="MemberResult">
+        
+        select password from memberr
+		where member_Id=#memberId# and email=#email# and member_name=#memberName#
+        
+     </statement>	
+	
+	 <statement id="selectMember" parameterClass="MemberVO"
+     resultMap="MemberResult">
+        
+        select * from memberr
+		where member_Id=#memberId# and password=#password#
+        
+     </statement>	
+	
+    <insert id="insert" parameterClass="MemberVO">
+        
+        insert into memberr(
+        member_id,
+        member_name,
+        password,
+        phone,
+        email,
+        power_list,
+        approval,
+        join_date)
+        
+        
+        
+        
+        values(
+        #memberId#,
+        #memberName#,
+        #password#,
+        #phone#,
+        #email#,
+        #powerList#,
+        #approval#,
+        sysdate)
+    </insert>
+    <update id="updateforuser" parameterClass="MemberVO">
+        
+        update memberr set
+        password=#password#,
+        phone =#phone#,
+        email= #email#,
+        member_name=#memberName#
+        where member_Id=#memberId#
+        
+    </update>
+    
+    <update id="updateforadmin" parameterClass="MemberVO">
+        
+        update memberr set
+        approval=#approval#
+        where member_Id=#memberId#
+        
+    </update>
+    <delete id="delete" parameterClass="MemberVO">
+        delete from memberr where member_id=memberId
+        
+    </delete>
+    
 </sqlMap>
 
-			
