@@ -30,13 +30,13 @@ public class MemberServiceTest extends TestCase {
 		MemberVO m = new MemberVO();
 		m.setMemberId("psay");
 		
-		List<MemberVO> list = memberService.selectMember(m);
+//		List<MemberVO> list = memberService.selectMember(m);
 		
-		for(MemberVO m1 : list) {
-			System.out.println(m1.getMemberId());
-			System.out.println(m1.getApproval());
-			System.out.println(m1.getEmail());
-		}
+//		for(MemberVO m1 : list) {
+//			System.out.println(m1.getMemberId());
+//			System.out.println(m1.getApproval());
+//			System.out.println(m1.getEmail());
+//		}
 	}
 
 
@@ -77,10 +77,10 @@ public class MemberServiceTest extends TestCase {
 		m.setMemberId("spike44");
 		m.setPassword("cowboy");
 		
-		List<MemberVO> list = memberService.loginCheck(m);
+//		List<MemberVO> list = memberService.loginCheck(m);
 		
 	
-			System.out.println(list.get(0).getMemberName());
+//			System.out.println(list.get(0).getMemberName());
 	
 	}
 }
