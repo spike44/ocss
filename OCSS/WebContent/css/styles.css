@@ -19,7 +19,7 @@ a:visited {
 
 *
 {
-border: 0;
+border: 1;
 margin: 0;
 }
 
@@ -27,7 +27,7 @@ body
 {
 	color: #666666;
 	background: #000100 url(../images/bg.jpg);
-	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-family: "맑은 고딕";
 	font-size: 16px;
 }
 
@@ -75,7 +75,7 @@ padding-top: 20px;
 
 #buttons
 {
-width: 980px;
+width: 880px;
 height: 39px;
 margin: 0 auto;
 }
@@ -130,6 +130,7 @@ background:url(../images/leftbor.jpg) repeat-y right;
 	padding-left: 30px;
 	padding-top: 5px;
 	padding-right: 15px;
+	font-family:
 }
 
 #left H1
