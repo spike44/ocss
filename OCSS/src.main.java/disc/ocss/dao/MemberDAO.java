@@ -1,5 +1,74 @@
 package disc.ocss.dao;
 
-public class MemberDAO {
+import java.io.IOException;
+import java.io.Reader;
+import java.sql.SQLException;
+import java.util.List;
 
+import com.ibatis.common.resources.Resources;
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+
+import disc.ocss.model.MemberVO;
+
+public class MemberDAO {
+	private static SqlMapClient sqlMapper;
+
+	static {
+		try {
+			Reader reader = Resources
+					.getResourceAsReader("disc/ocss/sqlmap/SqlMapConfig.xml");
+			sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+			reader.close();
+		} catch (IOException e) {
+			// Fail fast.
+			throw new RuntimeException(
+					"Something bad happened while building the SqlMapClient instance."
+							+ e, e);
+		}
+	}
+
+	public static List<MemberVO> selectAllMember() throws SQLException {
+		List<MemberVO> list = sqlMapper.queryForList("member.selectall");
+		if(list.isEmpty()) {
+			return null;
+		}
+		return list;
+	}
+	public static String checkId(String memberId) throws SQLException {
+		return (String) sqlMapper.queryForObject("member.checkId", memberId);
+	}
+
+	public static List<MemberVO> selectMember(MemberVO m) throws SQLException {
+		return sqlMapper.queryForList("member.select", m);
+	}
+
+	public static List<MemberVO> loginCheck(MemberVO m) throws SQLException {
+		return sqlMapper.queryForList("member.selectMember", m);
+
+	}
+
+	public static String searchId(MemberVO m) throws SQLException {
+		return (String) sqlMapper.queryForObject("member.searchId", m);
+	}
+	public static String searchPw(MemberVO m) throws SQLException {
+		return (String) sqlMapper.queryForObject("member.searchPw", m);
+	}
+
+	public static String insertMember(MemberVO memberVO) throws SQLException {
+		 return (String) sqlMapper.insert("member.insert", memberVO);
+	}
+
+	public static int updateMemberInfo(MemberVO memberVO) throws SQLException {
+		return sqlMapper.update("member.updateforuser", memberVO);
+	}
+
+	public static int updateMemberApproval(MemberVO memberVO)
+			throws SQLException {
+		return sqlMapper.update("member.updateforadmin", memberVO);
+	}
+
+	public static int deleteMember(MemberVO memberVO) throws SQLException {
+		return sqlMapper.delete("member.delete", memberVO);
+	}
 }

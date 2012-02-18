@@ -37,15 +37,21 @@
     </statement>
   
   <statement id="selectId" parameterClass="MemberVO"
-     resultMap="MemberResult">
+     resultClass="String">
         
         select member_id from memberr
 		where member_name=#memberName# and email=#email# and phone=#phone#
         
      </statement>
-  
+    <statement id="checkId" parameterClass="MemberVO"
+     resultClass="String">
+        
+        select member_id from memberr
+		where member_id=#memberId# 
+        
+     </statement>
   <statement id="selectPw" parameterClass="MemberVO"
-     resultMap="MemberResult">
+     resultClass="String">
         
         select password from memberr
 		where member_Id=#memberId# and email=#email# and member_name=#memberName#
@@ -84,6 +90,9 @@
         #powerList#,
         #approval#,
         sysdate)
+		<selectKey resultClass="String">
+			select member_name from memberr where member_id=#memberId#
+			</selectKey>
     </insert>
     <update id="updateforuser" parameterClass="MemberVO">
         

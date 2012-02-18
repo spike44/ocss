@@ -1,67 +1,59 @@
 package disc.ocss.service;
 
-import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.ibatis.common.resources.Resources;
 
 import disc.ocss.model.MemberVO;
 
-import java.io.Reader;
-import java.io.IOException;
 import java.util.List;
 import java.sql.SQLException;
+import disc.ocss.dao.MemberDAO;
 
 public class MemberService {
 
-	private static SqlMapClient sqlMapper;
-
-	static {
-		try {
-			Reader reader = Resources
-					.getResourceAsReader("disc/ocss/sqlmap/SqlMapConfig.xml");
-			sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
-			reader.close();
-		} catch (IOException e) {
-			// Fail fast.
-			throw new RuntimeException(
-					"Something bad happened while building the SqlMapClient instance."
-							+ e, e);
-		}
+	public List<MemberVO> selectAllMember() throws SQLException {
+		List<MemberVO> list = MemberDAO.selectAllMember();
+		return list;
 	}
 
-	@SuppressWarnings("unchecked")
-	public static List<MemberVO> selectAllMember() throws SQLException {
-		return sqlMapper.queryForList("member.selectall");
+	public MemberVO selectMember(MemberVO m) throws SQLException {
+		MemberVO result = MemberDAO.selectMember(m).get(0);
+
+		return result;
+
 	}
 
-	public static List<MemberVO> selectMember(MemberVO m) throws SQLException {
-		return sqlMapper.queryForList("member.select", m);
-	}
+	public MemberVO loginCheck(MemberVO m) throws SQLException {
+		MemberVO result = MemberDAO.loginCheck(m).get(0);
 
-	public static List<MemberVO> loginCheck(MemberVO m) throws SQLException {
-		return  sqlMapper.queryForList("member.selectMember", m);
-		
+		return result;
+
 	}
+	public String insertMember(MemberVO memberVO) throws SQLException {
+	return MemberDAO.insertMember(memberVO);
+}
 	
-	public static List<MemberVO> searchId(MemberVO m) throws SQLException {
-		return sqlMapper.queryForList("member.searchId",m);
+	public String checkId(String memberId) throws SQLException {
+	return MemberDAO.checkId(memberId);
+}
+
+	public String searchId(MemberVO m) throws SQLException {
+		return MemberDAO.searchId(m);
 	}
-	
-	public static void insertMember(MemberVO memberVO) throws SQLException {
-		sqlMapper.insert("member.insert", memberVO);
+	public String searchPw(MemberVO m) throws SQLException {
+		return MemberDAO.searchPw(m);
 	}
 
-	public static void updateMemberInfo(MemberVO memberVO) throws SQLException {
-		sqlMapper.update("member.updateforuser", memberVO);
+
+	public int updateMemberInfo(MemberVO memberVO) throws SQLException {
+		return MemberDAO.updateMemberInfo(memberVO);
 	}
 
-	public static void updateMemberApproval(MemberVO memberVO)
+	public int updateMemberApproval(MemberVO memberVO)
 			throws SQLException {
-		sqlMapper.update("member.updateforadmin", memberVO);
+		return MemberDAO.updateMemberApproval(memberVO);
 	}
 
-	public static void deleteMember(MemberVO memberVO) throws SQLException {
-		sqlMapper.delete("member.delete", memberVO);
+	public int deleteMember(MemberVO memberVO) throws SQLException {
+		return MemberDAO.deleteMember(memberVO);
 	}
 
 }

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import disc.ocss.model.MemberVO;
 import disc.ocss.service.MemberService;
@@ -44,19 +45,20 @@ public class SearchIdServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		MemberVO m = new MemberVO();
 		MemberService memberService = new MemberService();
+		HttpSession session =request.getSession();
 		
 		m.setEmail(request.getParameter("email"));
 		m.setMemberName(request.getParameter("memberName"));
 		m.setPhone(request.getParameter("phone"));
 		
 		try {
-			List<MemberVO> list = memberService.searchId(m);
-			out.write(list.get(0).getMemberId());
+			String result = memberService.searchId(m);
+			session.setAttribute("resultId", "귀하의 아이디는 '"+ result + "' 입니다");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+			response.sendRedirect("searchIdPw.jsp");
 	}
 
 }

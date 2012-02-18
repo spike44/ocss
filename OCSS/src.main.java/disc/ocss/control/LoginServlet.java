@@ -1,9 +1,7 @@
 package disc.ocss.control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,15 +13,15 @@ import disc.ocss.model.MemberVO;
 import disc.ocss.service.MemberService;
 
 /**
- * Servlet implementation class SearchPwServlet
+ * Servlet implementation class LoginServlet
  */
-public class SearchPwServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchPwServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,6 +31,7 @@ public class SearchPwServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -42,23 +41,28 @@ public class SearchPwServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		MemberVO m = new MemberVO();
+		HttpSession session = request.getSession();
 		MemberService memberService = new MemberService();
-		HttpSession session =request.getSession();
-		m.setEmail(request.getParameter("email"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setPhone(request.getParameter("phone"));
-		
+		m.setMemberId(request.getParameter("memberId"));
+		m.setPassword(request.getParameter("password"));
 		try {
-			String result = memberService.searchPw(m);
-			session.setAttribute("resultPw","귀하의 비밀번호는 '"+ result + "' 입니다" );
+			MemberVO m2 = memberService.loginCheck(m);
+			if(m2 != null) {
+				session.setAttribute("login", m2);
 			
+			}
+			else {
+				session.setAttribute("loginfailed", "로그인 실패");
+						
+			}
 		} catch (SQLException e) {
+	
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			response.sendRedirect("searchIdPw.jsp");
+		
+		response.sendRedirect("index.jsp");
 	}
 
 }

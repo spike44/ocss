@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import disc.ocss.model.MemberVO;
 import disc.ocss.service.MemberService;
@@ -40,15 +41,23 @@ public class DeleteMemberServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-			
+		HttpSession session = request.getSession();	
 		MemberVO m = new MemberVO();
 		
 		MemberService memberService = new MemberService();
 		
 		m.setMemberId(request.getParameter("memberId"));
-		
+		int result = 0;
 		try {
-			memberService.deleteMember(m);
+			result = memberService.deleteMember(m);
+			if(result != 0) {
+				session.setAttribute("resultdelete", "회원 삭제에 성공했습니다");			
+			}
+			else {
+				session.setAttribute("deletefailed","회원 삭제에 실패했습니다" );
+				
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

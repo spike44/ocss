@@ -79,4 +79,24 @@
     <servlet-name>SearchPwServlet</servlet-name>
     <url-pattern>/searchPw.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>disc.ocss.control.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IdCheckServlet</display-name>
+    <servlet-name>IdCheckServlet</servlet-name>
+    <servlet-class>disc.ocss.control.IdCheckServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IdCheckServlet</servlet-name>
+    <url-pattern>/idcheck.do</url-pattern>
+  </servlet-mapping>
 </web-app>

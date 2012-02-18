@@ -3,27 +3,25 @@ package disc.ocss.control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import disc.ocss.model.MemberVO;
+import disc.ocss.dao.MemberDAO;
 import disc.ocss.service.MemberService;
 
 /**
- * Servlet implementation class SearchPwServlet
+ * Servlet implementation class IdCheckServlet
  */
-public class SearchPwServlet extends HttpServlet {
+public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchPwServlet() {
+    public IdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,6 +31,7 @@ public class SearchPwServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -43,22 +42,24 @@ public class SearchPwServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		MemberVO m = new MemberVO();
+		String memberId = request.getParameter("memberId");
 		MemberService memberService = new MemberService();
-		HttpSession session =request.getSession();
-		m.setEmail(request.getParameter("email"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setPhone(request.getParameter("phone"));
-		
+		String result = "false";
 		try {
-			String result = memberService.searchPw(m);
-			session.setAttribute("resultPw","귀하의 비밀번호는 '"+ result + "' 입니다" );
-			
+			if(memberService.checkId(memberId) != null) {
+				result="true";
+				
+			}
+			else {
+				result="false";
+			}
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			response.sendRedirect("searchIdPw.jsp");
+		
+		out.write(result);
 	}
 
 }
