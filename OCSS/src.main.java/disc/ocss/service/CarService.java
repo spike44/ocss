@@ -4,21 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import disc.ocss.dao.CarDAO;
+import disc.ocss.model.CarTypeVO;
 import disc.ocss.model.CarVO;
 
 public class CarService {
-	
-	public CarService(){
-		System.out.println("test");
-	}
-	
+		
 	public ArrayList<String> selectCarType(String brand){
 		ArrayList<String> result = new ArrayList<String>();
 		CarVO carVO = new CarVO();
 		carVO.setBrand(brand);
+		ArrayList<CarTypeVO> selectCarType = CarDAO.selectCarType(carVO);
+		for (CarTypeVO carTypeVO : selectCarType) {
+			result.add(carTypeVO.getCarType());
+		}
+		return result;
+	}
 	
-		result = (ArrayList<String>) CarDAO.selectCarType(carVO);
-		System.out.println(result.isEmpty());
+	public ArrayList<String> selectCarBrand(){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<CarTypeVO> selectCarType = CarDAO.selectCarBrand();
+		for (CarTypeVO carTypeVO : selectCarType) {
+			result.add(carTypeVO.getBrand());
+		}
 		return result;
 	}
 
