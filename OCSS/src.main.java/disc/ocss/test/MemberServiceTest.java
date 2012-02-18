@@ -79,9 +79,9 @@ public class MemberServiceTest extends TestCase {
 		
 		List<MemberVO> list = memberService.loginCheck(m);
 		
-		for(MemberVO m1 : list) {
-			System.out.println(m1.getMemberName());
-		}
+	
+			System.out.println(list.get(0).getMemberName());
+	
 	}
 }
 

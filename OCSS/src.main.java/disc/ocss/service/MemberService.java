@@ -43,6 +43,10 @@ public class MemberService {
 		
 	}
 	
+	public static List<MemberVO> searchId(MemberVO m) throws SQLException {
+		return sqlMapper.queryForList("member.searchId",m);
+	}
+	
 	public static void insertMember(MemberVO memberVO) throws SQLException {
 		sqlMapper.insert("member.insert", memberVO);
 	}

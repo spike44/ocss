@@ -59,4 +59,24 @@
     <servlet-name>DeleteMemberServlet</servlet-name>
     <url-pattern>/DeleteMemberServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchIdServlet</display-name>
+    <servlet-name>SearchIdServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchIdServlet</servlet-name>
+    <url-pattern>/searchId.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchPwServlet</display-name>
+    <servlet-name>SearchPwServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchPwServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchPwServlet</servlet-name>
+    <url-pattern>/searchPw.do</url-pattern>
+  </servlet-mapping>
 </web-app>

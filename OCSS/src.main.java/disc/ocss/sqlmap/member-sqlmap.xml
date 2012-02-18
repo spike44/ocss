@@ -40,7 +40,7 @@
      resultMap="MemberResult">
         
         select member_id from memberr
-		where member_name=#memberName# and email=#email#
+		where member_name=#memberName# and email=#email# and phone=#phone#
         
      </statement>
   
@@ -48,7 +48,7 @@
      resultMap="MemberResult">
         
         select password from memberr
-		where member_Id=#memberId# and email=#email#
+		where member_Id=#memberId# and email=#email# and member_name=#memberName#
         
      </statement>	
 	

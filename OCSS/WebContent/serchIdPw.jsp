@@ -16,14 +16,16 @@
 }
 -->
         </style>
+        
 </head>
+
 <body>
 <div id="bg_top">
 <div id="main">
 <!-- header begins -->
 <div id="logo"><a href="#">OCSS</a><center>
 <input name="textfield" type="text" id="textfield" size="40"/>
-<input name="mainserch" type="submit" class="botton" id="mainserch" value="검색" size="15" />
+<input name="mainserch" type="button" class="botton" id="mainserch" value="검색" size="15" />
 </center>
   <h2><a href="#" id="metamorph">Oranize Car Selling Service</a></h2>
 </div>
@@ -53,6 +55,18 @@
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
+    function dosearchId() {
+    document.searchForm.method="POST";	
+   	document.searchForm.action="searchId.do";
+   	document.searchForm.submit();
+    	
+    }
+    function dosearchPw() {
+        document.searchForm.method="POST";	
+       	document.searchForm.action="searchPw.do";
+       	document.searchForm.submit();
+        	
+        }
     </script>
 </div>	
 </div>
@@ -75,13 +89,13 @@
                   <br>
                   </center>
                   
-                  <input name="login" type="submit" class="botton" id="login" value="확인" size="15"  />
-                  <input name="join" type="submit" class="botton" id="login" value="회원가입" size="15" />
+                  <input name="login" type="button" class="botton" id="login" value="확인" size="15"  />
+                  <input name="join" type="button" class="botton" id="login" value="회원가입" size="15" />
 				  
                   <br />
                   <label class="label1">
                   <span class="pred">&nbsp;ID,PW를 잊어버리셧습니까?</span></label>
-                  <input name="GO" type="submit" class="botton" id="GO" value="GO" />
+                  <input name="GO" type="button" class="botton" id="GO" value="GO" />
                 </form>
         </div>
 				<div id="partners">
@@ -97,6 +111,7 @@
          </div>
       </div>
           	<div id="left">
+          	<form name="searchForm">
 			<h1>ID/Password 찾기</h1>
             <p class="pred">※ 판매자는 가입승인 이후에 로그인이 가능합니다.</p>			
 				<div class="text">
@@ -119,7 +134,7 @@
                     </tr>
                     <tr>
                       <td height="26"><div align="center"> </div></td>
-                      <td><input class="button" type="button" name="doserchId2" value="Password찾기"/></td>
+                      <td><input class="button" type="button" name="doserchId2" value="Password찾기" onclick="dosearchPw()"/></td>
                     </tr>
                   </table>
                   <table width="44%" border="0">
@@ -140,15 +155,17 @@
                     </tr>
                     <tr>
                       <td><div align="center"> </div></td>
-                      <td><input class="button" type="button" name="doserchId" value="ID찾기"/></td>
+                      <td><input class="button" type="button" name="doserchId" value="ID찾기" onclick="dosearchId()"/></td>
                     </tr>
                   </table>
                   <p>                  <br />
                 </p>
+         
                 <div class="date"> 
                 			<div class="dateright"><a href="#">Comments(14)</a></div>
                 			<div class="dateleft">February 23, 2011</div>                           
                 </div>
+               </form>
             </div>
 			  <h1>OCSS NEWS...</h1>
               <div class="text">
