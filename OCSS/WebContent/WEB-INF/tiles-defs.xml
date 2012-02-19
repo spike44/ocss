@@ -14,7 +14,7 @@
 	<definition name="join.page" template="/ocssMain.jsp">
 		<put-attribute name="header" value="/header.jsp" />
 		<put-attribute name="content" value="/content.jsp" />
-		<put-attribute name="left" value="/join.jsp" />
+		<put-attribute name="left" value="/joinMember.jsp" />
 		<put-attribute name="footer" value="/footer.jsp" />
 	</definition>
 	<definition name="serchIdPw.page" template="/ocssMain.jsp">
