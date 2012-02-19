@@ -100,7 +100,6 @@
         password=#password#,
         phone =#phone#,
         email= #email#,
-        member_name=#memberName#
         where member_Id=#memberId#
         
     </update>
@@ -113,7 +112,7 @@
         
     </update>
     <delete id="delete" parameterClass="MemberVO">
-        delete from memberr where member_id=memberId
+        delete from memberr where member_id=#memberId#
         
     </delete>
     

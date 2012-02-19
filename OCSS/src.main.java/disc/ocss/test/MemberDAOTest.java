@@ -2,6 +2,7 @@ package disc.ocss.test;
 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
+import java.util.List;
 
 import disc.ocss.dao.MemberDAO;
 import disc.ocss.model.MemberVO;
@@ -18,17 +19,27 @@ public class MemberDAOTest extends TestCase {
 		fail("Not yet implemented");
 	}
 
-	public void testSelectMember() {
-		fail("Not yet implemented");
+	public void testSelectMember() throws SQLException {
+		MemberVO m = new MemberVO();
+		m.setApproval(0);
+		
+		List<MemberVO> list = memberDAO.selectMember(m);
+		for(MemberVO m2 : list) {
+			System.out.println(m2.getMemberId());
+		}
+		
+		
 	}
 
 	public void testLoginCheck() throws SQLException {
 		MemberVO m = new MemberVO();
-		m.setMemberId("spike44");
+		m.setMemberId("spik4");
 		m.setPassword("cowboy");
-		MemberVO m2 = MemberDAO.loginCheck(m).get(0);
+		if(MemberDAO.loginCheck(m).isEmpty()) {
+			System.out.println("null");
+		}
 		
-		System.out.println(m2.getMemberName());
+		
 	}
 
 	public void testSearchId() throws SQLException {

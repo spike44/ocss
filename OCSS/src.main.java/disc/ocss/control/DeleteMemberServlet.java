@@ -51,6 +51,7 @@ public class DeleteMemberServlet extends HttpServlet {
 		try {
 			result = memberService.deleteMember(m);
 			if(result != 0) {
+				session.invalidate();
 				session.setAttribute("resultdelete", "회원 삭제에 성공했습니다");			
 			}
 			else {
@@ -62,7 +63,7 @@ public class DeleteMemberServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		response.sendRedirect("index.jsp");
 	}
 
 }

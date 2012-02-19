@@ -13,14 +13,14 @@
 	}
 	function dologin() {
 		document.loginForm.action="login.do";
-			document.loginForm.submit();
+		document.loginForm.submit();
 		
 	}
 	function gosearchidpw() {
 		location.href="searchIdPw.jsp";
 	}
 	function goedit() {
-		location.href="edit.jsp";
+		location.href="updateMember.jsp";
 		
 	}
 	function dologout() {
@@ -30,6 +30,12 @@
 	</script>
 </head>
 <body>
+<c:if test="${!empty loginfailed}">
+	<script type="text/javascript">
+	alert("로그인 실패");
+	</script>
+<c:remove var="loginfailed"/>
+</c:if>
 <c:if test="${empty login}">
   <div id="content">
 	<div id="right">
@@ -61,7 +67,7 @@
       </div>
       </div>
       </c:if>
- <c:if test="${empty !login}">
+ <c:if test="${!empty login}">
   <div id="content">
 	<div id="right">
     	<div id="categories">

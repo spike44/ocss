@@ -135,7 +135,7 @@
 				</tr>
 				<tr>
 					<td><div align="center">휴대폰번호</div></td>
-					<td><input id="phone" name="phone" type="phone" /></td>
+					<td><input id="phone" name="phone" type="tel" /></td>
 				</tr>
 				<tr>
 					<td><div align="center">이메일</div></td>

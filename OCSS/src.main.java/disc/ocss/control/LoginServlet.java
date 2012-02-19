@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			MemberVO m2 = memberService.loginCheck(m);
 			if(m2 != null) {
 				session.setAttribute("login", m2);
-			
+						
 			}
 			else {
 				session.setAttribute("loginfailed", "로그인 실패");

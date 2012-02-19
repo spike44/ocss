@@ -22,9 +22,13 @@ public class MemberService {
 	}
 
 	public MemberVO loginCheck(MemberVO m) throws SQLException {
-		MemberVO result = MemberDAO.loginCheck(m).get(0);
+		if(MemberDAO.loginCheck(m).isEmpty()) {
+			return null;
+		}
 
-		return result;
+		else {
+			return MemberDAO.loginCheck(m).get(0);
+		}
 
 	}
 	public String insertMember(MemberVO memberVO) throws SQLException {

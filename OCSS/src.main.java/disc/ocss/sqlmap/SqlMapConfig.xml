@@ -18,7 +18,8 @@
     <!-- List the SQL Map XML files. They can be loaded from the
     classpath, as they are here (com.domain.data...) -->
     <sqlMap resource="disc/ocss/sqlmap/member-sqlmap.xml"/>
-    <sqlMap resource="disc/ocss/sqlmap/car-sqlmap.xml"/>
+     <!--   <sqlMap resource="disc/ocss/sqlmap/car-sqlmap.xml"/>
     <sqlMap resource="disc/ocss/sqlmap/comment-sqlmap.xml"/>
+	-->
 </sqlMapConfig>
           
