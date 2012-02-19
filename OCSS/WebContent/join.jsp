@@ -1,21 +1,13 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage=""  pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
     <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/validate.js" type="text/javascript"></script>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-</script>
-    <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-    <script type="text/javascript">
+<script type="text/javascript">
 	$.validator.setDefaults({
 		submitHandler : function() {
 			alert("submitted!");
@@ -76,21 +68,6 @@
 
 	});
 
-	function checkId() {
-		$.ajax({
-			url : "idcheck.do",
-			data : ({
-				memberId : $("#memberId").val()
-			}),
-			success : function(data) {
-				if (data == "false") {
-					alert("중복된 아이디입니다.");
-
-				} else
-					alert("사용 가능한 아이디입니다.");
-			}
-		});
-	}
 
 	function join() {
 		var re_id = /^[a-z0-9_-]{3,16}$/;
@@ -108,11 +85,27 @@
 	function cancle() {
 		location.href="index.jsp";
 	}
+
+	function checkId() {
+		$.ajax({
+			url : "idcheck.do",
+			data : ({
+				memberId : $("#memberId").val()
+			}),
+			success : function(data) {
+				if (data == "false") {
+					alert("중복된 아이디입니다.");
+
+				} else
+					alert("사용 가능한 아이디입니다.");
+			}
+		});
+	}
     </script>
 </head>
 
 <body>
-	<form class="cmxform" id="signupForm" name= "signupForm" method="get">
+	<form class="cmxform" id="signupForm" name= "signupForm" method="post">
 	<div id="join">
 		<h1>회원가입</h1>
 		<p class="pred">※ 판매자는 가입승인 이후에 로그인이 가능합니다.</p>
@@ -148,9 +141,9 @@
 				</tr>
 				<tr>
 					<td><div align="center">
-							판매자가입<input type="radio" name="가입유형" value="1" />
+							판매자가입<input type="radio" name="powerList" value="1" />
 						</div></td>
-					<td>구매자가입<input type="radio" name="가입유형" value="2"/></td>
+					<td>구매자가입<input type="radio" name="powerList" value="2"/></td>
 				</tr>
 				<tr>
 					<td><div align="center"></div></td>

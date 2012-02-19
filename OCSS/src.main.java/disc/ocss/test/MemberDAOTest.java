@@ -1,6 +1,7 @@
 package disc.ocss.test;
 
 import java.sql.SQLException;
+import java.sql.SQLWarning;
 
 import disc.ocss.dao.MemberDAO;
 import disc.ocss.model.MemberVO;
@@ -44,8 +45,8 @@ public class MemberDAOTest extends TestCase {
 	public void testInsertMember() throws SQLException {
 		
 		MemberVO m = new MemberVO();
-		m.setMemberId("ahdshfg");
-		m.setMemberName("aaga");
+		m.setMemberId("hjgjdf");
+		m.setMemberName("신충현");
 		m.setApproval(0);
 		m.setEmail("dddd");
 		m.setPassword("1234");
@@ -56,7 +57,14 @@ public class MemberDAOTest extends TestCase {
 		
 		System.out.println(memberDAO.insertMember(m));
 	}
-
+	public void testCheckId() throws SQLException {
+		String id="agfgd";
+		String result = memberDAO.checkId(id);
+		
+		System.out.println(result);
+		
+	}
+ 
 	public void testUpdateMemberInfo() {
 		fail("Not yet implemented");
 	}

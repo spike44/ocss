@@ -44,9 +44,9 @@ public class IdCheckServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String memberId = request.getParameter("memberId");
 		MemberService memberService = new MemberService();
-		String result = "false";
+		String result = null;
 		try {
-			if(memberService.checkId(memberId) != null) {
+			if(memberService.checkId(memberId) == null) {
 				result="true";
 				
 			}

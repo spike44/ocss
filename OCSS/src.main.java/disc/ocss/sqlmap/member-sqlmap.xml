@@ -43,7 +43,7 @@
 		where member_name=#memberName# and email=#email# and phone=#phone#
         
      </statement>
-    <statement id="checkId" parameterClass="MemberVO"
+    <statement id="checkId" parameterClass="String"
      resultClass="String">
         
         select member_id from memberr

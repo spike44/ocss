@@ -32,6 +32,8 @@ public class JoinMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		doPost(request, response);
 	}
 
@@ -58,7 +60,7 @@ public class JoinMemberServlet extends HttpServlet {
 		m.setPassword(request.getParameter("password"));
 		m.setPhone(request.getParameter("phone"));
 		m.setPowerList(Integer.parseInt(request.getParameter("powerList")));
-		
+		System.out.println();
 		try {
 			session.setAttribute("join", memberService.insertMember(m) + "님 가입을 축하드립니다.");
 			response.sendRedirect("index.jsp");
