@@ -89,4 +89,24 @@
     <servlet-name>SelectCarServlet</servlet-name>
     <url-pattern>/selectcar.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertCommServlet</display-name>
+    <servlet-name>insertCommServlet</servlet-name>
+    <servlet-class>disc.ocss.control.insertCommServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertCommServlet</servlet-name>
+    <url-pattern>/insertcomm.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCommServlet</display-name>
+    <servlet-name>DeleteCommServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DeleteCommServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCommServlet</servlet-name>
+    <url-pattern>/deletecomm.do</url-pattern>
+  </servlet-mapping>
 </web-app>

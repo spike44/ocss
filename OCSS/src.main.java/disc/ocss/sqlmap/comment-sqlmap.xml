@@ -16,5 +16,28 @@
 	<statement id="selectComm" parameterClass="commVO" resultMap="resultsComm">
 		select * from comm
 		where car_id=#carId#
+		order by comment_date desc
 	</statement>
+	
+	<insert id="insertComm" parameterClass="commVO">
+		insert into comm(
+			comment_id,
+			comment_date,
+			content_dal,
+			member_id,
+			car_id
+		) values(
+			commm_id_sequence.nextval,
+			sysdate,
+			#contentDal#,
+			#memberId#,
+			#carId#
+		)
+		
+	</insert>
+	
+	<delete id="deleteComm" parameterClass="commVO">
+		delete from comm
+		where comment_id = #commentId#
+	</delete>
 </sqlMap>

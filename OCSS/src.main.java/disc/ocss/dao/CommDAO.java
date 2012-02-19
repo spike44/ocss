@@ -37,5 +37,23 @@ public class CommDAO {
 		
 		return result;
 	}
+	
+	public static void insertComm(CommVO comm){
+		try {
+			sqlMapper.insert("comm.insertComm",comm);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void deleteComm(CommVO comm){
+		try {
+			sqlMapper.delete("comm.deleteComm",comm);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

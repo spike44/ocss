@@ -10,8 +10,15 @@ public class CommService {
 	public ArrayList<CommVO> selectComm(int carId){
 		CommVO comm = new CommVO();
 		comm.setCarId(carId);
-		System.out.println(carId);
 		return CommDAO.selectComm(comm);
+	}
+	
+	public void insertComm(CommVO comm){
+		CommDAO.insertComm(comm);
+	}
+	
+	public void deleteComm(CommVO comm){
+		CommDAO.deleteComm(comm);
 	}
 
 }
