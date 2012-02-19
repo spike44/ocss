@@ -1,6 +1,8 @@
 package disc.ocss.model;
 
-public class CarTypeVO {
+import java.io.Serializable;
+
+public class CarTypeVO{
 	private String carType;
 	private String brand;
 	private String carTypeCode;

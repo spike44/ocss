@@ -1,5 +1,7 @@
 package disc.ocss.model;
 
+import java.io.Serializable;
+
 public class CarVO {
 	
 	private int carId;
