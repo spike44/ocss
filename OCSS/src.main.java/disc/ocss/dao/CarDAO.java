@@ -48,4 +48,15 @@ public class CarDAO {
 		}
 		return list;
 	}
+	
+	public static ArrayList<CarImagesVO> selectImages(CarImagesVO img){
+		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
+		try {
+			result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("car.selectImages",img);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
