@@ -103,6 +103,8 @@
 		select * from car_images
 		where image_id in (select min(image_id) from car_images group by car_id)
 	</statement>
+	
+	
 
 	
 </sqlMap>

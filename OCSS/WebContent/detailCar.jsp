@@ -23,7 +23,11 @@
 		CarService service = new CarService();
 		session.setAttribute("image", service.selectImages(carId));
 		session.setAttribute("detail", detail);
+		
+		CommService comService = new CommService();
+		session.setAttribute("comm", comService.selectComm(carId));
 	%>
+	${empty comm }
 	<table>
 		<tr>
 			<td>
@@ -40,10 +44,17 @@
 			</td>
 		</tr>
 	</table>
-
-
 	<table>
-
+	</table>
+	
+	<table>
+		<c:forEach var="c" items="${comm }">
+			<tr>
+				<td>${c.memberId }</td>
+				<td>${c.contentDal }</td>
+				<td>${c.commentDate }</td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>

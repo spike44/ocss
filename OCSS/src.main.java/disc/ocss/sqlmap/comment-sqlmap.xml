@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap namespace="comm">
+	<typeAlias alias="commVO" type="disc.ocss.model.CommVO"/>
+	 <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
+	 
+	 <resultMap class="carTypeVO" id="resultsBrand">
+       <result property="brand" column="brand"/>
+    </resultMap>
+
+	<statement id="selectComm" parameterClass="commVO">
+		select * from comm
+		where car_id=#carId#
+	</statement>
+</sqlMap>

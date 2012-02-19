@@ -1,6 +1,8 @@
 package disc.ocss.model;
 
-public class CarImagesVO {
+import java.io.Serializable;
+
+public class CarImagesVO{
 	
 	private int imageId;
 	private int carId;
