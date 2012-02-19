@@ -10,7 +10,7 @@ public class CommService {
 	public ArrayList<CommVO> selectComm(int carId){
 		CommVO comm = new CommVO();
 		comm.setCarId(carId);
-		
+		System.out.println(carId);
 		return CommDAO.selectComm(comm);
 	}
 
