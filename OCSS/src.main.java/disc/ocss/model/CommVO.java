@@ -1,11 +1,10 @@
 package disc.ocss.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 public class CommVO{
 	
-	private int commnentId;
+	private int commentId;
 	private Date commentDate;
 	private String contentDal;
 	private String memberId;
@@ -15,11 +14,11 @@ public class CommVO{
 	public CommVO() {
 		super();
 	}
-	public int getCommnentId() {
-		return commnentId;
+	public int getCommentId() {
+		return commentId;
 	}
-	public void setCommnentId(int commnentId) {
-		this.commnentId = commnentId;
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
 	}
 	public Date getCommentDate() {
 		return commentDate;
