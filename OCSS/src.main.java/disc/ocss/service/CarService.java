@@ -10,14 +10,11 @@ import disc.ocss.model.CarVO;
 
 public class CarService {
 		
-	public ArrayList<String> selectCarType(String brand){
-		ArrayList<String> result = new ArrayList<String>();
+	public ArrayList<CarTypeVO> selectCarType(String brand){
+		ArrayList<CarTypeVO> result = new ArrayList<CarTypeVO>();
 		CarTypeVO carTypeVO = new CarTypeVO();
 		carTypeVO.setBrand(brand);
-		ArrayList<CarTypeVO> selectCarType = CarDAO.selectCarType(carTypeVO);
-		for (CarTypeVO carType : selectCarType) {
-			result.add(carType.getCarType());
-		}
+		result = CarDAO.selectCarType(carTypeVO);
 		return result;
 	}
 	
@@ -36,6 +33,12 @@ public class CarService {
 	
 	public ArrayList<CarImagesVO> selectMainImages(){			
 		return CarDAO.selectMainImages();
+	}
+	
+	public ArrayList<CarImagesVO> selectImages(int carId){
+		CarImagesVO img = new CarImagesVO();
+		img.setCarId(carId);
+		return CarDAO.selectImages(img);
 	}
 
 }

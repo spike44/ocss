@@ -3,6 +3,20 @@ package disc.ocss.model;
 public class CarTypeVO {
 	private String carType;
 	private String brand;
+	private String carTypeCode;
+	
+	public CarTypeVO(String carType, String brand, String carTypeCode) {
+		super();
+		this.carType = carType;
+		this.brand = brand;
+		this.carTypeCode = carTypeCode;
+	}
+	public String getCarTypeCode() {
+		return carTypeCode;
+	}
+	public void setCarTypeCode(String carTypeCode) {
+		this.carTypeCode = carTypeCode;
+	}
 	public CarTypeVO() {
 		super();
 	}

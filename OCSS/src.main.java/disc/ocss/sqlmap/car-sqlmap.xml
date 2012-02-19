@@ -9,6 +9,7 @@
        <result property="brand" column="brand"/>
     </resultMap>
     <resultMap class="carTypeVO" id="resultsType">
+    	<result property="carTypeCode" column="cartype_code"/>
        <result property="carType" column="car_type"/>
     </resultMap>
     
@@ -38,7 +39,7 @@
     </resultMap>
     
 	<statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">
-		select car_type from cartype
+		select * from cartype
 		where brand = #brand#
 	</statement>
 	<statement id="selectCarBrand" resultMap="resultsBrand">
@@ -93,7 +94,7 @@
 			order by total_eval desc
 	</statement>
 	
-	<statement id="selectImage" parameterClass="carImageVO" resultMap="resultsImage">
+	<statement id="selectImages" parameterClass="carImageVO" resultMap="resultsImage">
 		select * from car_images
 		where car_id = #carId#
 	</statement>

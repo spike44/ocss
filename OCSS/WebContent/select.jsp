@@ -1,5 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="disc.ocss.service.CarService"%>
+<%@page import="disc.ocss.service.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -21,13 +21,15 @@
 		document.frm.submit();
 	}
 
-	function ChangeCategory() {
+	function typeCategory(){
 		$("#type").val($("#second").val());
 	}
 </script>
 </head>
 <body>
 	<form name="frm" method="POST">
+	
+	<input type="hidden" id="type">
 		<c:if test="${empty brand }">
 			<%
 				CarService service = new CarService();
@@ -46,41 +48,25 @@
 				</c:if>
 			</c:forEach>
 		</select>
+		
+		
 		<c:remove var="sel" />
-
-		<select name="second_category" id="second" onChange="ChangeCategory()"
-			size=6>
-			<c:if test="${!empty type } "></c:if>
+		<select name="second_category" id="second" onChange="typeCategory()" size=6>
 			<c:forEach var="t" items="${type }">
-				<option value=${t }>${t }</option>
+				<option value="${t.carTypeCode }">${t.carType}</option>
 			</c:forEach>
 			<c:remove var="type" />
 		</select>
 
 		<c:if test="${empty carList }">
 			<%
-				CarService service = new CarService();
+					CarService service = new CarService();
 					ArrayList<CarVO> carList = service.selectCar(null);
 
-					ArrayList<CarImagesVO> carImageList = service
-							.selectMainImages();
-					ArrayList<String> iIdList = new ArrayList<String>();
-					ArrayList<String> cIdList = new ArrayList<String>();
-
-					for (CarVO c : carList) {
-						cIdList.add(Integer.toString(c.getCarId()));
-						System.out.println(c.getCarId());
-					}
-
-					for (CarImagesVO img : carImageList) {
-						iIdList.add(Integer.toString(img.getCarId()));
-						System.out.println(img.getCarId());
-					}
+					ArrayList<CarImagesVO> carImageList = service.selectMainImages();
 
 					session.setAttribute("carList", carList);
 					session.setAttribute("carImageList", carImageList);
-					session.setAttribute("iIdList", iIdList);
-					session.setAttribute("cIdList", cIdList);
 			%>
 		</c:if>
 
@@ -98,17 +84,15 @@
 			<c:if test="${!empty carList }">
 				<c:forEach var="c" items="${carList }">
 					<tr>
-						<c:forEach var="image" items="carImageList">
-							<c:forEach var="iId" items="iIdList">
-								<c:forEach var="cId" items="cIdList">
-									<c:if test="${!empty iId}">
-										<td><img src="C:\temp\userpic\bin.jpg"></td>
+						<c:forEach var="image" items="${ carImageList}">
+									<c:if test="${image.carId == c.carId}">
+										<td>
+											<a href="detailCar.jsp?carId=${c.carId }"><img src="C:/temp/${image.path }/${image.images }"></a>
+										</td>
 									</c:if>
-								</c:forEach>
-							</c:forEach>
 						</c:forEach>
 
-						<td>${c.title}</td>
+						<td><a href="detailCar.jsp?carId=${c.carId }">${c.title}</a></td>
 						<td>${c.totalEval }</td>
 						<td>${c.carYear}</td>
 						<td>${c.price }</td>
@@ -118,7 +102,6 @@
 				</c:forEach>
 			</c:if>
 		</table>
-		<c:remove var="carList" />
 	</form>
 </body>
 </html>
