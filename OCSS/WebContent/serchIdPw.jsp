@@ -60,5 +60,7 @@
 						value="ID찾기" /></td>
 				</tr>
 			</table>
+			</div>
+			</div>
 </body>
 </html>
