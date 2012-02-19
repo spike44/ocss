@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap namespace="comm">
+	<typeAlias alias="commVO" type="disc.ocss.model.CommVO"/>
+	 <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
+	 
+	 <resultMap class="commVO" id="resultsComm">
+       <result property="commentId" column="comment_id"/>
+       <result property="commentDate" column="comment_date"/>
+       <result property="contentDal" column="content_dal"/>
+       <result property="memberId" column="member_id"/>
+       <result property="carId" column="car_id"/>                    
+    </resultMap>
+
+	<statement id="selectComm" parameterClass="commVO" resultMap="resultsComm">
+		select * from comm
+		where car_id=#carId#
+		order by comment_date desc
+	</statement>
+	
+	<insert id="insertComm" parameterClass="commVO">
+		insert into comm(
+			comment_id,
+			comment_date,
+			content_dal,
+			member_id,
+			car_id
+		) values(
+			commm_id_sequence.nextval,
+			sysdate,
+			#contentDal#,
+			#memberId#,
+			#carId#
+		)
+		
+	</insert>
+	
+	<delete id="deleteComm" parameterClass="commVO">
+		delete from comm
+		where comment_id = #commentId#
+	</delete>
+</sqlMap>

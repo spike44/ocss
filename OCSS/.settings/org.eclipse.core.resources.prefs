@@ -1,9 +1,10 @@
+<<<<<<< HEAD
 #Sun Feb 19 23:04:27 KST 2012
-=\=\=\=\=\=\=
-<<<<<<<=HEAD
->>>>>>>=refs/remotes/origin/SungMin
+
 eclipse.preferences.version=1
+
 encoding//WebContent/joinMember.jsp=UTF-8
 encoding//WebContent/ocssMain.jsp=UTF-8
+
 encoding/<project>=UTF-8
 encoding/WebContent=UTF-8
