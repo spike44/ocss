@@ -109,4 +109,5 @@
     <servlet-name>DeleteCommServlet</servlet-name>
     <url-pattern>/deletecomm.do</url-pattern>
   </servlet-mapping>
+ 
 </web-app>

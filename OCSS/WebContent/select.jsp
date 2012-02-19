@@ -11,10 +11,6 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
-	function getFirstCategory() {
-		document.frm.action = "cartype.do?sel=brand";
-		document.frm.submit();
-	}
 
 	function getSeondCategory() {
 		document.frm.action = "cartype.do?sel=" + $("#first").val();
@@ -48,9 +44,9 @@
 				</c:if>
 			</c:forEach>
 		</select>
-		
-		
 		<c:remove var="sel" />
+		
+		
 		<select name="second_category" id="second" onChange="typeCategory()" size=6>
 			<c:forEach var="t" items="${type }">
 				<option value="${t.carTypeCode }">${t.carType}</option>

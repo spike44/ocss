@@ -39,18 +39,18 @@ public class SelectCarTypeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String brand = request.getParameter("sel");
-		HttpSession session = request.getSession();
-		if(brand.equals("brand")){
-			CarService carService = new CarService();
-			session.setAttribute("brand", carService.selectCarBrand());
-			response.sendRedirect("select.jsp");
-		}
 		
-		else if(brand!=null){
+		HttpSession session = request.getSession();
+		if(!brand.isEmpty()){
 			session.setAttribute("sel", brand);
 			CarService carService = new CarService();
 			session.setAttribute("type", carService.selectCarType(brand));
-			response.sendRedirect("select.jsp");
+			
+			String page = request.getParameter("page"); 
+			if(page.isEmpty())
+				response.sendRedirect("select.jsp");
+			else
+				response.sendRedirect("insertCar.jsp");
 		}
 		
 	}

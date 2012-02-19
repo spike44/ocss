@@ -1,14 +1,15 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />		
 </head>
 
 <body>
+<form name="frm" method="post">
 	<div id="left">
 	  <h1>차량등록</h1>
 		<p class="pred">※ 아래의 내용을 숙지하신후 동의해주세요.</p>
@@ -43,14 +44,15 @@
 내용 확인을 위하여 차량등록증 확인이 있을 수 있습니다.
 허위매물 등록 시 이용제한기준에 따라 처리됩니다. [자세히보기]
           </textarea>
-		    <br>
+		    <br/>
 		    <br />
 
-		    <input class="button" type="button" name="agree" value="동의합니다"/>&nbsp;&nbsp;
-		    <input class="button" type="button" name="noAgree" value="동의안합니다"/>
+		    <input class="button" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.jsp'"/>&nbsp;&nbsp;
+		    <input class="button" type="button" name="noAgree" value="동의안합니다" onclick="alert('동의하기 버튼을 눌러주세요')"/>
 		    <br />
 	          </div>
 	  </div>
 	</div>
+	</form>
 </body>
 </html>
