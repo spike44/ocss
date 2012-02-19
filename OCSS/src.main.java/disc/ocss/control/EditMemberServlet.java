@@ -58,7 +58,7 @@ public class EditMemberServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			}
 			else {
-				session.setAttribute("editfail", "회원 정보 수정에 실패했습니다");
+				session.setAttribute("edit", "회원 정보 수정에 실패했습니다");
 				response.sendRedirect("editMember.jsp");
 			}
 		} catch (SQLException e) {

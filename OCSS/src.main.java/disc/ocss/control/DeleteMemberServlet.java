@@ -42,11 +42,11 @@ public class DeleteMemberServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		HttpSession session = request.getSession();	
-		MemberVO m = new MemberVO();
+		MemberVO m = (MemberVO) session.getAttribute("login");
 		
 		MemberService memberService = new MemberService();
 		
-		m.setMemberId(request.getParameter("memberId"));
+		
 		int result = 0;
 		try {
 			result = memberService.deleteMember(m);
@@ -54,7 +54,7 @@ public class DeleteMemberServlet extends HttpServlet {
 				session.setAttribute("resultdelete", "회원 삭제에 성공했습니다");			
 			}
 			else {
-				session.setAttribute("deletefailed","회원 삭제에 실패했습니다" );
+				session.setAttribute("resultdelete","회원 삭제에 실패했습니다" );
 				
 			}
 			
