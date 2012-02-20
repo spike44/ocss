@@ -39,6 +39,18 @@
 	</script>
 <c:remove var="prelistfail"/>
 </c:if>
+<c:if test="${!empty notifyfail}">
+	<script type="text/javascript">
+	alert("'${notifyfail}'");
+	</script>
+<c:remove var="notifyfail"/>
+</c:if>
+<c:if test="${!empty resultnotify}">
+	<script type="text/javascript">
+	alert("'${resultnotify}'");
+	</script>
+<c:remove var="resultnotify"/>
+</c:if>
           	<div id="left">
 			<h1>OCSS 이달의 Trend</h1>
             <p class="pred">소비자 우롱하는 허위매물 중고차! 싸고 좋은차란 없다!</p>

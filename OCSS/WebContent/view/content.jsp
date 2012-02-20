@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function gojoin() {
 		location.href="join.page.tiles";
@@ -27,6 +29,32 @@
 		document.loginForm2.action="logout.do";
 		document.loginForm2.submit();
 	}
+	$.validator.setDefaults({
+		submitHandler : function() {
+			alert("submitted!");
+		}
+	});
+
+	$().ready(function() {
+		// validate the comment form when it is submitted
+		// validate signup form on keyup and submit
+		$("#signupForm").validate({
+			rules : {
+
+				memberId : "required",
+				password : "required"
+			},
+			messages : {
+
+				memberId : "아이디를 입력해주세요",
+				password : "비밀번호를 입력해주세요"
+	
+			}
+		});
+
+	});
+
+	
 	</script>
 </head>
 <body>

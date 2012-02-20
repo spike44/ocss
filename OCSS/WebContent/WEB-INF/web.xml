@@ -267,4 +267,24 @@
     <servlet-name>CommitServlet</servlet-name>
     <url-pattern>/commit.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManageBadProductServlet</display-name>
+    <servlet-name>ManageBadProductServlet</servlet-name>
+    <servlet-class>disc.ocss.control.ManageBadProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageBadProductServlet</servlet-name>
+    <url-pattern>/manageBadProduct.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertNotifyServlet</display-name>
+    <servlet-name>InsertNotifyServlet</servlet-name>
+    <servlet-class>disc.ocss.control.InsertNotifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertNotifyServlet</servlet-name>
+    <url-pattern>/insertNotify.do</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,29 +1,24 @@
 package disc.ocss.model;
 
-import java.util.Date;
 
 public class CommVO{
 	
 	private int commentId;
-	private Date commentDate;
+	private String commentDate;
 	private String contentDal;
 	private String memberId;
 	private int carId;
 	
-
-	public CommVO() {
-		super();
-	}
 	public int getCommentId() {
 		return commentId;
 	}
 	public void setCommentId(int commentId) {
 		this.commentId = commentId;
 	}
-	public Date getCommentDate() {
+	public String getCommentDate() {
 		return commentDate;
 	}
-	public void setCommentDate(Date commentDate) {
+	public void setCommentDate(String commentDate) {
 		this.commentDate = commentDate;
 	}
 	public String getContentDal() {
@@ -45,6 +40,5 @@ public class CommVO{
 		this.carId = carId;
 	}
 	
-	
-
 }
+	

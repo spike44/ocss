@@ -56,6 +56,10 @@
  <definition name="joinCommit.page" extends = "ocssMainAdmin.page">
   <put-attribute name="left" value="/view/joinCommit.jsp" />
  </definition>
+ <!-- ========================= 허위매물관리 page ============================== -->
+ <definition name="selectNotify.page" extends = "ocssMainAdmin.page">
+  <put-attribute name="left" value="/view/selectNotify.jsp" />
+ </definition>
  <!-- ========================= 판매자용 메인 page ============================== -->
 	<definition name="ocssMainSeller.page" template="ocssMainSeller.jsp">
 		<put-attribute name="header" value="/view/header.jsp" />

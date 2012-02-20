@@ -84,7 +84,7 @@
 			document.signupForm.submit();
 		
 	}
-	function cancle() {
+	function docancel() {
 		location.href="main.page.tiles";
 	}
 
@@ -151,7 +151,7 @@
 					<td><div align="center"></div></td>
 					<td><input name="join" type="button" class="botton" id="join"
 						value="회원가입" size="15" onclick="dojoin()"/> <input class="button" type="button"
-						name="cancel" value="취소" onclick="cancle()"/></td>
+						name="cancel" value="취소" onclick="docancel()"/></td>
 				</tr>
 			</table>
 			</div>

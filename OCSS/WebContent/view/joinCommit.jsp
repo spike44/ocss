@@ -11,7 +11,7 @@
 	media="screen" />
 	<script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
-	function cancel() {
+	function docancel() {
 		
 		location.href = "ocssMainAdmin.page.tiles";
 	}
@@ -72,7 +72,7 @@
  						 <div align="right"><br/>
                         <br/>
                         <input class="button" type="button" name="joinOk" value="가입승인" onclick="docommit()"/>
-                       <input class="button" type="button" name="cancel" value="취소" onclick="cancel()"/>
+                       <input class="button" type="button" name="cancel" value="취소" onclick="docancel()"/>
                       
                     </div>
                     
