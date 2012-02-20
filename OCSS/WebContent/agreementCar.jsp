@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" pageEncoding="UTF-8" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +11,13 @@
 
 <body>
 <form name="frm" method="post">
+<c:remove var="afilename"/>
+<c:remove var="bfilename"/>
+<c:remove var="cfilename"/>
+<c:remove var="dfilename"/>
+<c:remove var="efilename"/>
+<c:remove var="ffilename"/>
+
 	<div id="left">
 	  <h1>차량등록</h1>
 		<p class="pred">※ 아래의 내용을 숙지하신후 동의해주세요.</p>

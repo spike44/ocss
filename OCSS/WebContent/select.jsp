@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 
-	function getSeondCategory() {
+	function getSecondCategory() {
 		document.frm.action = "cartype.do?sel=" + $("#first").val();
 		document.frm.submit();
 	}
@@ -34,7 +34,7 @@
 		</c:if>
 		<input type="hidden" id="brand" value=${sel }> <input
 			type="hidden" id="type"> <select name="first_category"
-			id="first" onChange="getSeondCategory()" size=6>
+			id="first" onChange="getSecondCategory()" size=6>
 			<c:forEach var="b" items="${brand }">
 				<c:if test="${sel==b }">
 					<option value="${b }" selected="selected">${b }</option>
@@ -55,17 +55,38 @@
 		</select>
 
 		<c:if test="${empty carList }">
+			<%! int pageCount=0; %>
 			<%
 					CarService service = new CarService();
+					CarImagesService  iService = new CarImagesService();
 					ArrayList<CarVO> carList = service.selectCar(null);
+					
+					pageCount = carList.size()/20;
+					if(carList.size()%10>0)
+						pageCount++;
 
-					ArrayList<CarImagesVO> carImageList = service.selectMainImages();
+					ArrayList<CarImagesVO> carImageList = iService.selectMainImages();
 
 					session.setAttribute("carList", carList);
 					session.setAttribute("carImageList", carImageList);
 			%>
 		</c:if>
-
+		
+		<%
+			int num;
+			if(request.getParameter("page")==null){
+				num=0;
+			}
+			else{
+				num=Integer.parseInt(request.getParameter("page"))*10;
+			}
+			ArrayList<CarVO> pageList = new ArrayList<CarVO>();
+			ArrayList<CarVO> carList = (ArrayList<CarVO>)session.getAttribute("carList");
+			for(int i=num;i<num+10;i++){
+				pageList.add(carList.get(i));
+			}
+			session.setAttribute("pageList", pageList);
+		%>
 
 		<table border="1">
 			<tr>
@@ -77,13 +98,33 @@
 				<td>판매자</td>
 				<td>지역</td>
 			</tr>
-			<c:if test="${!empty carList }">
+			<c:forEach var="c" items="${pageList }">
+				<tr>
+						<c:forEach var="image" items="${ carImageList}">
+									<c:if test="${image.carId == c.carId}">
+										<td>
+											<a href="detailCar.jsp?carId=${c.carId }"><img src="${image.images }" width="250" height="250"></a>
+										</td>
+									</c:if>
+						</c:forEach>
+
+						<td><a href="detailCar.jsp?carId=${c.carId }">${c.title}</a></td>
+						<td>${c.totalEval }</td>
+						<td>${c.carYear}</td>
+						<td>${c.price }</td>
+						<td>${c.memberId }</td>
+						<td>${c.locationList }</td>
+					</tr>
+				
+			</c:forEach>
+			
+			<%-- <c:if test="${!empty carList }">
 				<c:forEach var="c" items="${carList }">
 					<tr>
 						<c:forEach var="image" items="${ carImageList}">
 									<c:if test="${image.carId == c.carId}">
 										<td>
-											<a href="detailCar.jsp?carId=${c.carId }"><img src="C:/temp/${image.path }/${image.images }"></a>
+											<a href="detailCar.jsp?carId=${c.carId }"><img src="${image.images }" width="250" height="250"></a>
 										</td>
 									</c:if>
 						</c:forEach>
@@ -97,7 +138,11 @@
 					</tr>
 				</c:forEach>
 			</c:if>
-		</table>
+ --%>		</table>
+		
+		<%for(int j=1;j<=pageCount;j++){%>
+			<a href="select.jsp?page=<%=j %>"><%=j %></a>
+		<%} %>
 	</form>
 </body>
 </html>

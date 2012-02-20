@@ -11,60 +11,7 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
-$.validator.setDefaults({
-	submitHandler : function() {
-		alert("submitted!");
-	}
-});
 
-$().ready(function() {
-	// validate the comment form when it is submitted
-	// validate signup form on keyup and submit
-	$("#frm").validate({
-		rules : {
-
-			insertCarName : "required",
-			brand : "required",
-			carType : "required",
-			isAcci : "required",
-			isAuto : "required",
-			fuel : "required",
-			price  : {
-				required : true,
-				tel : true
-			},
-			carYear :  {
-				required : true,
-				tel : true
-			},
-			color : "required",
-			locationList : "required",
-			content : "required"
-			
-		},
-		messages : {
-
-			insertCarName : "차 이름을 입력해주세요",
-			brand : "브랜드를 선택해주세요",
-			carType : "차종을 선택해주세요",
-			isAcci : "사고유무를 선택해주세요",
-			isAuto : "변속기 종류를 선택해주세요",
-			fuel : "연료를 선택해주세요",
-			price  : {
-				required : "가격을 입력해주세요",
-				tel : "숫자만 입력해주세요"
-			},
-			carYear :  {
-				required : "연식을 입력해주세요",
-				tel : "숫자만 입력해주세요"
-			},
-			color : "색상을 입력해주세요",
-			locationList : "지역을 입력해주세요",
-			content : "설명을 입력해주세요"
-		}
-	});
-
-});
 
 	function getSeondCategory() {
 		document.frm.action = "cartype.do?sel=" + $("#brand").val()+"&page=insertCar";
@@ -72,21 +19,58 @@ $().ready(function() {
 	}
 
 	function typeCategory(){
-		$("#type").val($("#second").val());
+		$("#type").val($("#carType").val());
 	}
 	
-	function insertCar(num){
-		window.open('insertImage.jsp','OCSS','width=300, height=150');
-	}
-	
-	function Image(){
+	function insertCar(){
 		
+		if($("#insertCarName").val().length ==0)
+			alert("제목을 입력해주세요");
+		else if($("#brand").val()== "brand"){
+			alert("브랜드를 선택해주세요");
+		}
+		else if($("#carType").val()== "carType"){
+			alert("차종을 선택해주세요");
+		}
+		else if($("#carType").val()== "carType"){
+			alert("차종을 선택해주세요");
+		}
+		else if($("#isAcci").val() == "isAcci"){
+			alert("사고유물를 선택해주세요");
+		}
+		else if($("#isAuto").val() == "isAuto"){
+			alert("변속기를 선택해주세요");
+		}
+		else if($("#fuel").val() == "fuel"){
+			alert("연료를 선택해주세요");
+		}
+		else if($("#price").val().length<=0){
+			alert("가격을 입력해주세요");
+		}
+		else if($("#carYear").val().length<=0){
+			alert("연식을 입력해주세요");
+		}
+		else if($("#color").val().length<=0){
+			alert("가격을 입력해주세요");
+		}
+		else if($("#locationList").val().length<=0){
+			alert("지역을 입력해주세요");
+		}
+		else{
+			alert("hi");
+			document.frm.action = "insertcar.do";
+			document.frm.submit();
+		}
+	}
+	
+	function openImage(){
+		window.open('imagePage.jsp','OCSS','width=500, height=400');
 	}
 </script>
 </head>
 <body>
 <center>
-<form name="frm" method="post" id="frm" action="insertcar.do" enctype="multipart/form-data"> 
+<form name="frm" method="post" id="frm"> 
 
 	<div id="left">
 		<h1>차량등록</h1>
@@ -94,9 +78,12 @@ $().ready(function() {
 		<div class="text">
 		</div>
 	</div>
-
+	<%String title = request.getParameter("insertCarName");
+		if(title==null)
+			title="";
+	%>
 	<br> 제목 :
-	<input name="insertCarName" type="text" size="90" id="insertCarName"/>
+	<input name="insertCarName" type="text" size="90" id="insertCarName" value="${memory.title }"/>
 	<br />
 	<br /> 브랜드 :
 	<c:if test="${empty brand }">
@@ -105,7 +92,7 @@ $().ready(function() {
 					session.setAttribute("brand", service.selectCarBrand());
 			%>
 		</c:if>
-		<input type="hidden" id="type">
+		<input type="hidden" id="type" name="type">
 		
 		<select name="brand" id="brand" onChange="getSeondCategory()">
 			<option value="brand">브랜드</option>
@@ -118,10 +105,11 @@ $().ready(function() {
 				</c:if>
 			</c:forEach>
 		</select>
-		<c:remove var="sel" />
+		<c:remove var="sel"/>
+		
 		차종 :
-	<select name="carType" id="second" onChange="typeCategory()">
-		<option value="type">차종</option>
+	<select name="carType" id="carType" onChange="typeCategory()">
+		<option value="carType">차종</option>
 			<c:forEach var="t" items="${type }">
 				<option value="${t.carTypeCode }">${t.carType}</option>
 			</c:forEach>
@@ -130,51 +118,53 @@ $().ready(function() {
 
 	사고유무
 	<select name="isAcci" id="isAcci">
-		<option>사고유무</option>
-		<option>무</option>
-		<option>유</option>
+		<option value="isAcci">사고유무</option>
+			<option value="1">무</option>
+			<option value="0">유</option>
 	</select> 변속기
 	<select name="isAuto" id="isAuto">
-		<option>변속기</option>
-		<option>오토</option>
-		<option>수동</option>
+		<option value="isAuto">변속기</option>
+			<option value="1">오토</option>
+			<option value="0">수동</option>
+
 	</select> 연료
 	<select name="fuel" id="fuel">
-		<option>휘발유</option>
-		<option>경유</option>
-		<option>LPG</option>
+		<option value="fuel">연료</option>
+			<option value="1">휘발유</option>
+			<option value="2">경유</option>
+			<option value="3">LPG</option>
 	</select>
 	<br />
-	<br /> 가격 :
+	<br />
+	가격 :
+	<c:if test="${memory.price !=0}">
+	<input name="price" id="price" type="text" size="8" id="price" value="${memory.price }"/>만원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</c:if>
+	<c:if test="${memory.price ==0 }">
 	<input name="price" id="price" type="text" size="8" id="price"/>만원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</c:if>
 	연식 :
+	<c:if test="${memory.carYear !=0 }">
+	<input name="carYear" id="carYear" type="text" size="9" id="carYear" value="${memory.carYear }"/>년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</c:if>
+	<c:if test="${memory.carYear==0 }">
 	<input name="carYear" id="carYear" type="text" size="9" id="carYear"/>년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</c:if>
+	
 	색상 :
-	<input name="color" id="color" type="text" size="12" id="color"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="color" id="color" type="text" size="12" id="color" value="${memory.color }"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<br /> 지역 :
-	<input name="locationList" id="locationList" type="text" size="12" id="locatoinList"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="locationList" id="locationList" type="text" size="12" id="locationList" value="${memory.locationList }" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<br />
 	<br /> 내용
 	<br />
-	<textarea name="content" id="content" cols="80" rows="20" id="content"></textarea>
-	<br /> 사진
+	<textarea name="content" id="content" cols="80" rows="20" id="content">${content }</textarea>
+	
+	<c:remove var="memory"/>
+	<c:remove var="content"/>
 	<br />
-	<table width="100" border="1" cellpadding="2">
-		<tr>
-			<td><a href="javascript:insertCar(1)"><img src="images/1.jpg" alt="pic1" width="132" height="104" /></a>
-			</td>
-			<td><a href="javascript:insertCar(2)"><img src="images/2.jpg" alt="pic2" width="132" height="104"/></a></td>
-			<td><a href="javascript:insertCar(3)"><img src="images/3.jpg" alt="pic3" width="132" height="104" /></a></td>
-		</tr>
-		<tr>
-			<td><a href="javascript:insertCar(4)"><img src="images/4.jpg" alt="pic4" width="132" height="104" /></a></td>
-			<td><a href="javascript:insertCar(5)"><img src="images/5.jpg" alt="pic5" width="132" height="104" /></a></td>
-			<td><a href="javascript:insertCar(6)"><img src="images/6.jpg" alt="pic6" width="132" height="104" /></a></td>
-		</tr>
-	</table>
-
-	<br />
-	<input class="button" type="submit" name="ok" value="완료" />
+	<input class="button" type="button" name="imgBtn" value="사진등록" onclick="openImage()"/>
+	<input class="button" type="button" name="ok" value="완료" onclick="insertCar()"/>
 	<br />
 </form>
 	</center>

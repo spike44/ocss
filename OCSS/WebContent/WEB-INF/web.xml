@@ -91,12 +91,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>insertCommServlet</display-name>
-    <servlet-name>insertCommServlet</servlet-name>
-    <servlet-class>disc.ocss.control.insertCommServlet</servlet-class>
+    <display-name>InsertCommServlet</display-name>
+    <servlet-name>InsertCommServlet</servlet-name>
+    <servlet-class>disc.ocss.control.InsertCommServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>insertCommServlet</servlet-name>
+    <servlet-name>InsertCommServlet</servlet-name>
     <url-pattern>/insertcomm.do</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -109,5 +109,14 @@
     <servlet-name>DeleteCommServlet</servlet-name>
     <url-pattern>/deletecomm.do</url-pattern>
   </servlet-mapping>
- 
+  <servlet>
+    <description></description>
+    <display-name>InsertCarServlet</display-name>
+    <servlet-name>InsertCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.InsertCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertCarServlet</servlet-name>
+    <url-pattern>/insertcar.do</url-pattern>
+  </servlet-mapping>
 </web-app>

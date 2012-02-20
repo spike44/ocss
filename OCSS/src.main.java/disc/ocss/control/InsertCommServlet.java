@@ -14,13 +14,13 @@ import disc.ocss.service.CommService;
 /**
  * Servlet implementation class insertCommServlet
  */
-public class insertCommServlet extends HttpServlet {
+public class InsertCommServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public insertCommServlet() {
+    public InsertCommServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,7 +48,7 @@ public class insertCommServlet extends HttpServlet {
 		CommVO comm = new CommVO();
 		comm.setCarId(car.getCarId());
 		comm.setContentDal(contentDal);
-		comm.setMemberId("moon");
+		comm.setMemberId("m001");
 		
 		CommService commService = new CommService();
 		commService.insertComm(comm);

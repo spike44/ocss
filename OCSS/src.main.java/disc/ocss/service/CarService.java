@@ -31,14 +31,13 @@ public class CarService {
 		return CarDAO.selectCar(carVO);
 	}
 	
-	public ArrayList<CarImagesVO> selectMainImages(){			
-		return CarDAO.selectMainImages();
+	
+	
+	public void insertCar(CarVO carVO){
+		CarDAO.insertCar(carVO);
 	}
 	
-	public ArrayList<CarImagesVO> selectImages(int carId){
-		CarImagesVO img = new CarImagesVO();
-		img.setCarId(carId);
-		return CarDAO.selectImages(img);
+	public int nextCarId(){
+		return CarDAO.nextCarId();
 	}
-
 }

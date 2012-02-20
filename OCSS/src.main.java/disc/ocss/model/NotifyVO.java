@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class NotifyVO {
 	private int notifyId;
-	private int memberId;
+	private String memberId;
 	private int carId;
 	private String notifyContent;
 	private String notifyStatus;
-	private Date notifyDate;
+	private String notifyDate;
 	
 	
 	public NotifyVO() {
@@ -20,10 +20,10 @@ public class NotifyVO {
 	public void setNotifyId(int notifyId) {
 		this.notifyId = notifyId;
 	}
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	public int getCarId() {
@@ -44,10 +44,10 @@ public class NotifyVO {
 	public void setNotifyStatus(String notifyStatus) {
 		this.notifyStatus = notifyStatus;
 	}
-	public Date getNotifyDate() {
+	public String getNotifyDate() {
 		return notifyDate;
 	}
-	public void setNotifyDate(Date notifyDate) {
+	public void setNotifyDate(String notifyDate) {
 		this.notifyDate = notifyDate;
 	}
 }
