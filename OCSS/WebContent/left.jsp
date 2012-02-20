@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +8,31 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:if test="${!empty join}">
+	<script type="text/javascript">
+	alert("'${join}'");
+	</script>
+<c:remove var="join"/>
+</c:if>
+<c:if test="${!empty resultdelete}">
+	<script type="text/javascript">
+	alert("'${resultdelete}'");
+	</script>
+<c:remove var="resultdelete"/>
+</c:if>
+<c:if test="${!empty edit}">
+	<script type="text/javascript">
+	alert("'${edit}'");
+	</script>
+<c:remove var="edit"/>
+</c:if>
+<c:if test="${!empty commit}">
+	<script type="text/javascript">
+	alert("'${commit}'");
+	</script>
+<c:remove var="commit"/>
+</c:if>
           	<div id="left">
 			<h1>OCSS 이달의 Trend</h1>
             <p class="pred">소비자 우롱하는 허위매물 중고차! 싸고 좋은차란 없다!</p>
