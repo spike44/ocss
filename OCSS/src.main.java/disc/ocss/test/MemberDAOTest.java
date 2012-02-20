@@ -33,10 +33,13 @@ public class MemberDAOTest extends TestCase {
 
 	public void testLoginCheck() throws SQLException {
 		MemberVO m = new MemberVO();
-		m.setMemberId("spik4");
-		m.setPassword("cowboy");
+		m.setMemberId("admin");
+		m.setPassword("admin");
 		if(MemberDAO.loginCheck(m).isEmpty()) {
 			System.out.println("null");
+		}
+		else {
+			System.out.println(MemberDAO.loginCheck(m).get(0).getPowerList());
 		}
 		
 		
@@ -77,7 +80,11 @@ public class MemberDAOTest extends TestCase {
 	}
  
 	public void testUpdateMemberInfo() {
-		fail("Not yet implemented");
+		MemberVO m = new MemberVO();
+		m.setMemberId("kdytajo");
+		m.setEmail("abcd@abc.com");
+		m.setPassword("4567");
+		m.setPhone("3634634");
 	}
 
 	public void testUpdateMemberApproval() {

@@ -74,9 +74,9 @@ public class MemberServiceTest extends TestCase {
 	}
 	public void logincheck() throws SQLException {
 		MemberVO m = new MemberVO();
-		m.setMemberId("spike44");
-		m.setPassword("cowboy");
-		
+		m.setMemberId("genious");
+		m.setPassword("1234");
+		System.out.println(m.getPowerList());
 //		List<MemberVO> list = memberService.loginCheck(m);
 		
 	

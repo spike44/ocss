@@ -101,6 +101,7 @@ $().ready(function() {
 	<br /> 브랜드 :
 	<c:if test="${empty brand }">
 			<%
+			
 				CarService service = new CarService();
 					session.setAttribute("brand", service.selectCarBrand());
 			%>

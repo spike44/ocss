@@ -99,7 +99,8 @@
         update memberr set
         password=#password#,
         phone =#phone#,
-        email= #email#,
+        email= #email#
+		
         where member_Id=#memberId#
         
     </update>

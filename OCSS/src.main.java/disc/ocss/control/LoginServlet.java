@@ -56,13 +56,29 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("loginfailed", "로그인 실패");
 						
 			}
+			if(m2.getPowerList()==3) {
+				response.sendRedirect("admin.jsp");
+			}
+			else if(m2.getPowerList()==2) {
+				response.sendRedirect("index.jsp");
+			}
+			else if(m2.getPowerList()==1 && m2.getApproval()==1) {
+				response.sendRedirect("index.jsp");
+			}
+			else if(m2.getPowerList()==1 && m2.getApproval()==0) {
+				session.setAttribute("login", null);
+				
+				session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
+				response.sendRedirect("index.jsp");		
+							
+			}
 		} catch (SQLException e) {
 	
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("index.jsp");
+		
 	}
 
 }

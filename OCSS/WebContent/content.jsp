@@ -20,7 +20,7 @@
 		location.href="searchIdPw.jsp";
 	}
 	function goedit() {
-		location.href="updateMember.jsp";
+		location.href="update.jsp";
 		
 	}
 	function dologout() {

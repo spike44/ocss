@@ -51,7 +51,7 @@
 	<definition name="ocssMainAdmin.page" template="/ocssMainAdmin.jsp">
 		<put-attribute name="header" value="/header.jsp" />
 		<put-attribute name="content" value="/content.jsp" />
-		<put-attribute name="left" value="/left.jsp" />
+		<put-attribute name="left" value="/ocssMainAdmin.jsp" />
 		<put-attribute name="footer" value="/footer.jsp" />
 	</definition>
 <!-- ========================= 회원정보조회 page ============================== -->

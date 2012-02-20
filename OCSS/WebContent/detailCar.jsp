@@ -34,6 +34,7 @@ function insertNotify(carId){
 <title>Insert title here</title>
 </head>
 <body>
+
 <form name="frm" method="POST">
 	<%
 		ArrayList<CarVO> carList = (ArrayList<CarVO>) session.getAttribute("carList");

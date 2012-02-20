@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 
+
 	function getSeondCategory() {
 		document.frm.action = "cartype.do?sel=" + $("#first").val();
 		document.frm.submit();
@@ -20,6 +21,7 @@
 	function typeCategory(){
 		$("#type").val($("#second").val());
 	}
+	
 </script>
 </head>
 <body>
