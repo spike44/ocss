@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css"media="screen" />
 </head>
 <body>
+<!-- =================판매자용 ocssMain============= -->
 	<div id="bg_top">
 		<div id="main">
 			<!-- header begins -->
@@ -21,14 +22,14 @@
 					size="40" /> <input name="mainserch" type="submit" class="botton"
 					id="mainserch" value="검색" size="15" /> </center>
 				<h2>
-					<a href="#" id="metamorph">Oranize Car Selling Service</a>
+					<a href="#" id="metamorph">Organize Car Selling Service</a>
 				</h2>
 			</div>
 			<div id="buttons">
 				<ul>
 					<li class="first"><a href="#" title="">차량검색</a></li>
-					<li><a href="#" title="">차량등록</a></li>
 					<li><a href="#" title="">차량비교</a></li>
+					<li><a href="#" title="">차량구입방법</a></li>
 					<li><a href="#" title="">회사소개</a></li>
 
 				</ul>

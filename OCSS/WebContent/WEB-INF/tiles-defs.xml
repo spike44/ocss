@@ -5,22 +5,123 @@
 
 
 <tiles-definitions>
+<!-- ========================= main page ============================== -->
 	<definition name="main.page" template="/ocssMain.jsp">
 		<put-attribute name="header" value="/header.jsp" />
 		<put-attribute name="content" value="/content.jsp" />
 		<put-attribute name="left" value="/left.jsp" />
 		<put-attribute name="footer" value="/footer.jsp" />
 	</definition>
+<!-- ========================= 회원가입페이지 page ============================== -->
 	<definition name="join.page" template="/ocssMain.jsp">
 		<put-attribute name="header" value="/header.jsp" />
 		<put-attribute name="content" value="/content.jsp" />
 		<put-attribute name="left" value="/join.jsp" />
 		<put-attribute name="footer" value="/footer.jsp" />
 	</definition>
+<!-- ========================= ID,PW찾기 page ============================== -->
 	<definition name="serchIdPw.page" template="/ocssMain.jsp">
 		<put-attribute name="header" value="/header.jsp" />
 		<put-attribute name="content" value="/content.jsp" />
 		<put-attribute name="left" value="/serchIdPw.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
+	<definition name="updateMember.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/updateMember.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 차량등록 약관 확인 page ============================== -->
+	<definition name="agreementCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/agreementCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 차량등록  page ============================== -->
+	<definition name="insertCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/insertCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 관리자용 메인 page ============================== -->
+	<definition name="ocssMainAdmin.page" template="/ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/left.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 회원정보조회 page ============================== -->
+	<definition name="selectMember.page" template="/ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/selectMember.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 회원정보상세 page ============================== -->
+	<definition name="detailMember.page" template="/ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/detailMember.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 회원가입승인 page ============================== -->
+	<definition name="joinCommit.page" template="/ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/joinCommit.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ========================= 허위매물관리 page ============================== -->
+	<definition name="selectNotify.page" template="/ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/selectNotify.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 판매차량관리 page ============================== -->
+	<definition name="myCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/myCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 차량정보조회 page ============================== -->
+	<definition name="selectCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/selectCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 차량상세정보조회 page ============================== -->
+	<definition name="detailCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/detailCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 허위매물 신고하기 page ============================== -->
+	<definition name="insertNotify.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/insertNotify.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 관심차량관리하기 page ============================== -->
+	<definition name="cartCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/cartCar.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+<!-- ======================== 차량비교하기 page ============================== -->
+	<definition name="comparisonCar.page" template="/ocssMain.jsp">
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="content" value="/content.jsp" />
+		<put-attribute name="left" value="/comparisonCar.jsp" />
 		<put-attribute name="footer" value="/footer.jsp" />
 	</definition>
 </tiles-definitions>
