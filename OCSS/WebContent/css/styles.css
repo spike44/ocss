@@ -110,11 +110,17 @@ margin: 0 auto;
     height: 29px;
 	background: url(../images/menuhover.png) no-repeat;
 }
-
-#content
+#content_wrapper
 {
 width: 980px;
-background: #ffffff;
+margin-bottom: 5px;
+padding-top: 20px;
+padding-bottom: 22px;
+}
+#content
+{
+width: 280px;
+float: right;
 margin-bottom: 5px;
 padding-top: 20px;
 padding-bottom: 22px;
@@ -123,6 +129,7 @@ padding-bottom: 22px;
 #left
 {
 width: 700px;
+float: left;
 background:url(../images/leftbor.jpg) repeat-y right;
 }
 
@@ -409,7 +416,7 @@ font-weight: bold;
 	position:relative;
     width: 963px;
     height: 257px;
-	background:url(../images/loading.gif) no-repeat 50% 50%;
+	
 }
 #slider img {
 	position:absolute;

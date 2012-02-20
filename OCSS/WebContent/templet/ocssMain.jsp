@@ -20,9 +20,11 @@
 			<!-- header begins -->
 			<div id="logo">
 				<a href="#">OCSS</a>
-				<center> <input name="textfield" type="text" id="textfield"
+				<center> 
+					<input name="textfield" type="text" id="textfield"
 					size="40" /> <input name="mainserch" type="submit" class="botton"
-					id="mainserch" value="검색" size="15" /> </center>
+					id="mainserch" value="검색" size="15" /> 
+				 </center>
 				<h2>
 					<a href="#" id="metamorph">Oranize Car Selling Service</a>
 				</h2>
@@ -42,7 +44,7 @@
 			</div>
 			<!-- header ends -->
 			<!-- content begins -->
-
+			<div id = "content_wrapper">
 			<!-- content 로그인 -->
 			<div id="content">
 				<tiles:insertAttribute name="content" />
@@ -50,6 +52,7 @@
 			<!-- left 내용 -->
 			<div id="left">
 				<tiles:insertAttribute name="left" />
+			</div>
 			</div>
 			<!-- content ends -->
 		</div>

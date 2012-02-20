@@ -20,7 +20,8 @@
 	</definition>
 <!-- ========================= ID,PW찾기 page ============================== -->
 	<definition name="serchIdPw.page" extends = "main.page">
-		<put-attribute name="left" value="/view/serchIdPw.jsp" />
+	  <put-attribute name="title" value="OCSS 메인페이지"/>
+		<put-attribute name="left" value="/view/searchIdPw.jsp" />
 	</definition>
 <!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
 	<definition name="updateMember.page"  extends = "main.page">
@@ -52,6 +53,11 @@
 <!-- ========================= 회원정보상세 page ============================== -->
 	<definition name="detailMember.page"  extends = "ocssMainAdmin.page">
 		<put-attribute name="left" value="/view/detailMember.jsp" />
+	</definition>
+	<!-- ========================= 차량상세 ============================== -->
+	<definition name="iMg.page"  extends = "main.page">
+	  <put-attribute name="title" value="OCSS 메인페이지"/>
+		<put-attribute name="left" value="/view/ocssImg.html" />
 	</definition>
 	
 </tiles-definitions>

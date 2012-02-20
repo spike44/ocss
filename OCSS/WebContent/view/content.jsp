@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function gojoin() {
-		location.href="join.jsp";
+		location.href="join.page.tiles";
 		
 	}
 	function dologin() {
@@ -17,7 +17,7 @@
 		
 	}
 	function gosearchidpw() {
-		location.href="/control/searchIdPw.jsp";
+		location.href="iMg.page.tiles";
 	}
 	function goedit() {
 		location.href="/contrl/update.jsp";
