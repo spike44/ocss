@@ -17,10 +17,10 @@
 		
 	}
 	function gosearchidpw() {
-		location.href="searchIdPw.jsp";
+		location.href="/control/searchIdPw.jsp";
 	}
 	function goedit() {
-		location.href="update.jsp";
+		location.href="/contrl/update.jsp";
 		
 	}
 	function dologout() {

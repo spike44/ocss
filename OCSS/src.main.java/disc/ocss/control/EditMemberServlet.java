@@ -55,11 +55,11 @@ public class EditMemberServlet extends HttpServlet {
 			result = memberService.updateMemberInfo(m);
 			if(result !=0) {
 				session.setAttribute("edit", "회원정보 수정에 성공했습니다.");
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("/index.jsp");
 			}
 			else {
 				session.setAttribute("edit", "회원 정보 수정에 실패했습니다");
-				response.sendRedirect("update.jsp");
+				response.sendRedirect("/control/update.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

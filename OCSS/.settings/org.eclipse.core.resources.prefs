@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-#Sun Feb 19 23:04:27 KST 2012
-
+#Mon Feb 20 12:24:41 KST 2012
+<<<<<<<=HEAD
 eclipse.preferences.version=1
-
-encoding//WebContent/joinMember.jsp=UTF-8
-encoding//WebContent/ocssMain.jsp=UTF-8
-
+encoding//WebContent/templet/ocssMain.jsp=UTF-8
+encoding//WebContent/view/joinMember.jsp=UTF-8
 encoding/<project>=UTF-8
 encoding/WebContent=UTF-8

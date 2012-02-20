@@ -63,7 +63,7 @@ public class SearchPwServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			response.sendRedirect("searchIdPw.jsp");
+			response.sendRedirect("/control/searchIdPw.jsp");
 	}
 
 }
