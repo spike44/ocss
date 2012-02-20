@@ -1,6 +1,5 @@
 package disc.ocss.service;
 
-
 import disc.ocss.model.MemberVO;
 
 import java.util.List;
@@ -14,15 +13,40 @@ public class MemberService {
 		return list;
 	}
 
-	public MemberVO selectMember(MemberVO m) throws SQLException {
-		MemberVO result = MemberDAO.selectMember(m).get(0);
-
-		return result;
-
+	public List<MemberVO> selectmemberpower(int i) throws SQLException {
+		List<MemberVO> list = MemberDAO.selectmemberpower(i);
+		return list;
 	}
 
+	public List<MemberVO> selectmemberapproval(int i) throws SQLException {
+		List<MemberVO> list = MemberDAO.selectmemberapproval(i);
+		return list;
+	}
+
+	public List<MemberVO> selectmembername(String s) throws SQLException {
+		List<MemberVO> list = MemberDAO.selectmembername(s);
+		return list;
+	}
+
+	public List<MemberVO> selectmemberid(String s) throws SQLException {
+		List<MemberVO> list =  MemberDAO.selectmemberid(s);
+		return list;
+	}
+	
+	public List<MemberVO> selectmemberphone(String s) throws SQLException {
+		List<MemberVO> list =  MemberDAO.selectmemberphone(s);
+		return list;
+	}
+	
+	public List<MemberVO> selectmemberemail(String s) throws SQLException {
+		List<MemberVO> list =  MemberDAO.selectmemberemail(s);
+		return list;
+	}
+	
+	
+	
 	public MemberVO loginCheck(MemberVO m) throws SQLException {
-		if(MemberDAO.loginCheck(m).isEmpty()) {
+		if (MemberDAO.loginCheck(m).isEmpty()) {
 			return null;
 		}
 
@@ -31,29 +55,29 @@ public class MemberService {
 		}
 
 	}
+
 	public String insertMember(MemberVO memberVO) throws SQLException {
-	return MemberDAO.insertMember(memberVO);
-}
-	
+		return MemberDAO.insertMember(memberVO);
+	}
+
 	public String checkId(String memberId) throws SQLException {
-	return MemberDAO.checkId(memberId);
-}
+		return MemberDAO.checkId(memberId);
+	}
 
 	public String searchId(MemberVO m) throws SQLException {
 		return MemberDAO.searchId(m);
 	}
+
 	public String searchPw(MemberVO m) throws SQLException {
 		return MemberDAO.searchPw(m);
 	}
-
 
 	public int updateMemberInfo(MemberVO memberVO) throws SQLException {
 		return MemberDAO.updateMemberInfo(memberVO);
 	}
 
-	public int updateMemberApproval(MemberVO memberVO)
-			throws SQLException {
-		return MemberDAO.updateMemberApproval(memberVO);
+	public int updateMemberApproval(String memberId) throws SQLException {
+		return MemberDAO.updateMemberApproval(memberId);
 	}
 
 	public int deleteMember(MemberVO memberVO) throws SQLException {

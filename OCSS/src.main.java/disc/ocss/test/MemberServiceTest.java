@@ -27,16 +27,14 @@ public class MemberServiceTest extends TestCase {
 	}
 	
 	public void testMember() throws SQLException {
-		MemberVO m = new MemberVO();
-		m.setMemberId("psay");
+		String s = "하종문";		
+		List<MemberVO> list = memberService.selectMember();
 		
-//		List<MemberVO> list = memberService.selectMember(m);
-		
-//		for(MemberVO m1 : list) {
-//			System.out.println(m1.getMemberId());
-//			System.out.println(m1.getApproval());
-//			System.out.println(m1.getEmail());
-//		}
+		for(MemberVO m1 : list) {
+			System.out.println(m1.getMemberId());
+			System.out.println(m1.getApproval());
+			System.out.println(m1.getEmail());
+		}
 	}
 
 

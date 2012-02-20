@@ -11,7 +11,7 @@
         <result property="approval" column="approval"/>
         <result property="joinDate" column="join_date"/>
         <result property="memberName" column="member_name"/>
-      </resultMap>
+    </resultMap>
     
     <statement id="selectall" resultMap="MemberResult">
         
@@ -19,53 +19,60 @@
         
     </statement>
     
-    <statement id="select" parameterClass="MemberVO"
+    <statement id="selectmemberid" parameterClass="String"
      resultMap="MemberResult">
-        
-        select * from memberr
-        
-        <dynamic prepend="where">
-            
-            <isNotEmpty property="memberId" prepend="or">
-                member_Id=#memberId#
-            </isNotEmpty>
-            <isNotEmpty property="approval" prepend="or">
-                approval=#approval#
-            </isNotEmpty>
-            
-        </dynamic>
+        select * from memberr where member_Id=#memberId#
     </statement>
-  
-  <statement id="selectId" parameterClass="MemberVO"
+    <statement id="selectmemberapproval" parameterClass="int"
+     resultMap="MemberResult">
+        select * from memberr where approval=#approval#
+    </statement>
+    <statement id="selectmembername" parameterClass="String"
+     resultMap="MemberResult">
+        select * from memberr where member_Name=#memberName#
+    </statement>
+    <statement id="selectmemberphone" parameterClass="String"
+     resultMap="MemberResult">
+        select * from memberr where phone=#phone#
+    </statement>
+    <statement id="selectmemberemail" parameterClass="String"
+     resultMap="MemberResult">
+        select * from memberr where  email=#email#
+    </statement>
+    <statement id="selectmemberpower" parameterClass="int"
+     resultMap="MemberResult">
+        select * from memberr where power_List=#powerList#
+    </statement>
+    <statement id="selectId" parameterClass="MemberVO"
      resultClass="String">
         
         select member_id from memberr
-		where member_name=#memberName# and email=#email# and phone=#phone#
+        where member_name=#memberName# and email=#email# and phone=#phone#
         
-     </statement>
+    </statement>
     <statement id="checkId" parameterClass="String"
      resultClass="String">
         
         select member_id from memberr
-		where member_id=#memberId# 
+        where member_id=#memberId#
         
-     </statement>
-  <statement id="selectPw" parameterClass="MemberVO"
+    </statement>
+    <statement id="selectPw" parameterClass="MemberVO"
      resultClass="String">
         
         select password from memberr
-		where member_Id=#memberId# and email=#email# and member_name=#memberName#
+        where member_Id=#memberId# and email=#email# and member_name=#memberName#
         
-     </statement>	
-	
-	 <statement id="selectMember" parameterClass="MemberVO"
+    </statement>
+    
+    <statement id="selectMember" parameterClass="MemberVO"
      resultMap="MemberResult">
         
         select * from memberr
-		where member_Id=#memberId# and password=#password#
+        where member_Id=#memberId# and password=#password#
         
-     </statement>	
-	
+    </statement>
+    
     <insert id="insert" parameterClass="MemberVO">
         
         insert into memberr(
@@ -90,9 +97,9 @@
         #powerList#,
         #approval#,
         sysdate)
-		<selectKey resultClass="String">
-			select member_name from memberr where member_id=#memberId#
-			</selectKey>
+        <selectKey resultClass="String">
+            select member_name from memberr where member_id=#memberId#
+        </selectKey>
     </insert>
     <update id="updateforuser" parameterClass="MemberVO">
         
@@ -100,15 +107,15 @@
         password=#password#,
         phone =#phone#,
         email= #email#
-		
+        
         where member_Id=#memberId#
         
     </update>
     
-    <update id="updateforadmin" parameterClass="MemberVO">
+    <update id="updateforadmin" parameterClass="String">
         
         update memberr set
-        approval=#approval#
+        approval=1
         where member_Id=#memberId#
         
     </update>

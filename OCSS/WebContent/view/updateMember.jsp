@@ -61,7 +61,16 @@
 
 	});
 	function docancel() {
-		location.href = "index.jsp";
+		if($("#currentpower").val()==3) {
+			location.href = "ocssMainAdmin.page.tiles";
+		}
+		else if($("#currentpower").val()==2) {
+			location.href = "main.page.tiles";
+		}
+		else if($("#currentpower").val()==1) {
+			location.href = "main.page.tiles";
+		}
+		
 	}	
 	function doupdate() {
 		document.deleteForm.action = "edit.do";
@@ -83,6 +92,7 @@
 </script>
 </head>
 <body>
+<input type="hidden" id="currentpower" value="${login.powerList}"/>
 <c:if test="${!empty updatefailed}">
 	<script type="text/javascript">
 	alert("정보변경에 실패했습니다.");

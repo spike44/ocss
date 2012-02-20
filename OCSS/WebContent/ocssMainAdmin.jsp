@@ -29,8 +29,8 @@
 			<div id="buttons">
 				<ul>
 					<li class="first">
-					<li><a href="selectMember.jsp" title="">회원정보조회</a></li>
-					<li><a href="#" title="">회원가입승인</a></li>
+					<li><a href="selectMember.page.tiles" title="">회원정보조회</a></li>
+					<li><a href="searchMemberForApproval.do" title="">회원가입승인</a></li>
 					<li><a href="#" title="">허위매물관리</a></li>
 					<li><a href="#" title="">회사소개</a></li>
 

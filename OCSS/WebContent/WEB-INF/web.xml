@@ -9,34 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <!-- 화면제어를 위한 초기화 코드 -->
-     <listener>
+  <listener>
     <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
   </listener>
-
- <!--  <context-param>
-      <param-name>
-          org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG
-      </param-name>
-      <param-value>
-          /WEB-INF/tiles-defs.xml,/org/apache/tiles/classpath-defs.xml
-      </param-value>
-  </context-param> -->
-
   <context-param>
-        <param-name>
-          org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG
-        </param-name>
-        <param-value>
+    <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+    <param-value>
            /WEB-INF/tiles-defs.xml
         </param-value>
   </context-param>
-
-<!-- TilesDispatchServlet을 이용한 Tiles사용하기 -->
-<!-- Tiles의 Definition을 바로 프로그램에서 불러서 사용할 수 있도록 한다. -->
-<!-- 먼저 web.xml 파일에 TilesDispatchServlet클래스를 서블릿으로 등록해주고  -->
-<!-- *.tiles로 요청이 들어올때 받아서 처리하도록 설정한다.  -->
- <servlet>
+  <servlet>
     <display-name>TilesDispatchServlet</display-name>
     <servlet-name>TilesDispatchServlet</servlet-name>
     <servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
@@ -145,8 +127,7 @@
     <servlet-name>DeleteCommServlet</servlet-name>
     <url-pattern>/deletecomm.do</url-pattern>
   </servlet-mapping>
-
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
@@ -156,7 +137,7 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login.do</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>LogoutServlet</display-name>
     <servlet-name>LogoutServlet</servlet-name>
@@ -166,7 +147,7 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout.do</url-pattern>
   </servlet-mapping>
-      <servlet>
+  <servlet>
     <description></description>
     <display-name>IdCheckServlet</display-name>
     <servlet-name>IdCheckServlet</servlet-name>
@@ -176,5 +157,114 @@
     <servlet-name>IdCheckServlet</servlet-name>
     <url-pattern>/idcheck.do</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>SearchMember</display-name>
+    <servlet-name>SearchMember</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMember</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMember</servlet-name>
+    <url-pattern>/SearchMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberServlet</display-name>
+    <servlet-name>SearchMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberServlet</servlet-name>
+    <url-pattern>/searchMember.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForIdServlet</display-name>
+    <servlet-name>SearchMemberForIdServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForIdServlet</servlet-name>
+    <url-pattern>/searchMemberForId.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForPwServlet</display-name>
+    <servlet-name>SearchMemberForPwServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForPwServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForPwServlet</servlet-name>
+    <url-pattern>/searchMemberForPw.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForPhoneServlet</display-name>
+    <servlet-name>SearchMemberForPhoneServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForPhoneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForPhoneServlet</servlet-name>
+    <url-pattern>/searchMemberForPhone.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForEmailServlet</display-name>
+    <servlet-name>SearchMemberForEmailServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForEmailServlet</servlet-name>
+    <url-pattern>/searchMemberForEmail.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForPowerServlet</display-name>
+    <servlet-name>SearchMemberForPowerServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForPowerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForPowerServlet</servlet-name>
+    <url-pattern>/searchMemberForPower.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForApprovalServlet</display-name>
+    <servlet-name>SearchMemberForApprovalServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForApprovalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForApprovalServlet</servlet-name>
+    <url-pattern>/searchMemberForApproval.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMemberForNameServlet</display-name>
+    <servlet-name>SearchMemberForNameServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchMemberForNameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMemberForNameServlet</servlet-name>
+    <url-pattern>/searchMemberForName.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PreJoinCommitServlet</display-name>
+    <servlet-name>PreJoinCommitServlet</servlet-name>
+    <servlet-class>disc.ocss.control.PreJoinCommitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PreJoinCommitServlet</servlet-name>
+    <url-pattern>/preJoinCommit.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CommitServlet</display-name>
+    <servlet-name>CommitServlet</servlet-name>
+    <servlet-class>disc.ocss.control.CommitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommitServlet</servlet-name>
+    <url-pattern>/commit.do</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,6 +2,7 @@ package disc.ocss.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +14,15 @@ import disc.ocss.model.MemberVO;
 import disc.ocss.service.MemberService;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class SearchMemberForPowerServlet
  */
-public class LoginServlet extends HttpServlet {
+public class SearchMemberForPowerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public SearchMemberForPowerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +32,6 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
 	}
 
 	/**
@@ -41,44 +41,22 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		MemberVO m = new MemberVO();
-		HttpSession session = request.getSession();
 		MemberService memberService = new MemberService();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setPassword(request.getParameter("password"));
+		int i = Integer.parseInt(request.getParameter("powerList"));
+		HttpSession session = request.getSession();
 		try {
-			MemberVO m2 = memberService.loginCheck(m);
-			if(m2 != null) {
-				session.setAttribute("login", m2);
-						
+			List<MemberVO> list = memberService.selectmemberpower(i);
+			if(list != null) {
+				session.setAttribute("member_list", list);
 			}
 			else {
-				session.setAttribute("loginfailed", "로그인 실패");
-						
-			}
-			if(m2.getPowerList()==3) {
-				response.sendRedirect("ocssMainAdmin.page.tiles");
-			}
-			else if(m2.getPowerList()==2) {
-				response.sendRedirect("main.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==1) {
-				response.sendRedirect("main.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==0) {
-				session.setAttribute("login", null);
-				
-				session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
-				response.sendRedirect("main.page.tiles");		
-							
+				session.setAttribute("listfail", "해당하는 결과가 없습니다");
 			}
 		} catch (SQLException e) {
-	
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+		response.sendRedirect("selectMember.page.tiles");
 	}
 
 }

@@ -85,7 +85,7 @@
 		
 	}
 	function cancle() {
-		location.href="index.jsp";
+		location.href="main.page.tiles";
 	}
 
 	function checkId() {

@@ -63,7 +63,7 @@ public class JoinMemberServlet extends HttpServlet {
 		System.out.println();
 		try {
 			session.setAttribute("join", memberService.insertMember(m) + "님 가입을 축하드립니다.");
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("main.page.tiles");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

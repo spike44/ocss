@@ -33,6 +33,12 @@
 	</script>
 <c:remove var="commit"/>
 </c:if>
+<c:if test="${!empty prelistfail}">
+	<script type="text/javascript">
+	alert("'${prelistfail}'");
+	</script>
+<c:remove var="prelistfail"/>
+</c:if>
           	<div id="left">
 			<h1>OCSS 이달의 Trend</h1>
             <p class="pred">소비자 우롱하는 허위매물 중고차! 싸고 좋은차란 없다!</p>

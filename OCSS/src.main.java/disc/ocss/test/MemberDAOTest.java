@@ -19,13 +19,11 @@ public class MemberDAOTest extends TestCase {
 		fail("Not yet implemented");
 	}
 
-	public void testSelectMember() throws SQLException {
-		MemberVO m = new MemberVO();
-		m.setApproval(0);
-		
-		List<MemberVO> list = memberDAO.selectMember(m);
+	public void testSelectMemberId() throws SQLException {
+			
+		List<MemberVO> list = memberDAO.selectmemberapproval(0);
 		for(MemberVO m2 : list) {
-			System.out.println(m2.getMemberId());
+			System.out.println(m2.getMemberName());
 		}
 		
 		
