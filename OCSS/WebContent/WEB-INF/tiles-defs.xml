@@ -19,8 +19,8 @@
 		<put-attribute name="left" value="/view/joinMember.jsp" />
 	</definition>
 <!-- ========================= 공용 ID,PW찾기 page ============================== -->
-	<definition name="serchIdPw.page" extends = "main.page">
-		<put-attribute name="left" value="/view/serchIdPw.jsp" />
+	<definition name="searchIdPw.page" extends ="main.page">
+		<put-attribute name="left" value="/view/searchIdPw.jsp" />
 	</definition>
 <!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
 	<definition name="updateMember.page"  extends = "main.page">
@@ -34,7 +34,6 @@
 	<definition name="insertCar.page"  extends = "main.page">
 		<put-attribute name="left" value="/view/insertCar.jsp" />
 	</definition>
-	
 <!-- ========================= 관리자용 메인 page ============================== -->
 	<definition name="ocssMainAdmin.page" template="ocssMainAdmin.jsp">
 		<put-attribute name="header" value="/view/header.jsp" />
@@ -44,9 +43,7 @@
 	</definition>
 <!-- ========================= 회원정보조회 page ============================== -->
 	<definition name="selectMember.page"  extends = "ocssMainAdmin.page">
-
 		<put-attribute name="left" value="/view/selectMember.jsp" />
-
 	</definition>
 <!-- ========================= 회원정보상세 page ============================== -->
 	<definition name="detailMember.page"  extends = "ocssMainAdmin.page">

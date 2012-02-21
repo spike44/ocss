@@ -19,7 +19,7 @@
 		
 	}
 	function gosearchidpw() {
-		location.href="serchIdPw.page.tiles";
+		location.href="searchIdPw.page.tiles";
 	}
 	function goedit() {
 		location.href="updateMember.page.tiles";

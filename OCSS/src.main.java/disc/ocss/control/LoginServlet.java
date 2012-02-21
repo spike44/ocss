@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("main.page.tiles");
 			}
 			else if(m2.getPowerList()==1 && m2.getApproval()==1) {
-				response.sendRedirect("main.page.tiles");
+				response.sendRedirect("ocssMainSeller.page.tiles");
 			}
 			else if(m2.getPowerList()==1 && m2.getApproval()==0) {
 				session.setAttribute("login", null);

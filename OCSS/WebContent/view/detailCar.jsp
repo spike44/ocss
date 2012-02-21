@@ -18,7 +18,7 @@ function insertComm(){
 
 function deleteComm(commentId,carId){
 	yes = confirm("댓글을 삭제하시겠습니까?");
-	
+	"C:/Users/yuni/Desktop/test.java"
 	if(yes){
 		document.frm.action = "deletecomm.do?commentId="+commentId+"&carId="+carId;
 		document.frm.submit();
@@ -34,19 +34,18 @@ function insertNotify(carId){
 <title>Insert title here</title>
 </head>
 <body>
-
 <form name="frm" method="POST">
 	<%
 		ArrayList<CarVO> carList = (ArrayList<CarVO>) session.getAttribute("carList");
 		int carId = Integer.parseInt(request.getParameter("carId"));
 		CarVO detail = new CarVO();
-		
+
 		for(CarVO car : carList){
 			if(car.getCarId()==carId)
 				detail = car;
 		}
 
-		CarService service = new CarService();
+		CarImagesService service = new CarImagesService();
 		session.setAttribute("image", service.selectImages(carId));
 		session.setAttribute("detail", detail);
 		
@@ -54,7 +53,8 @@ function insertNotify(carId){
 		session.setAttribute("comm", comService.selectComm(carId));
 		
 		MemberVO member = new MemberVO();
-		member.setMemberId("moon");
+		member.setMemberId("m001");
+		System.out.println(member.getMemberId());
 		session.setAttribute("login", member);
 	%>
 	<table>
@@ -62,7 +62,7 @@ function insertNotify(carId){
 			<td>
 				<table>
 					<c:forEach var="i" items="${image }">
-						<img src="c:/temp/${i.path }/${i.images}">
+						<img src="${i.images}">
 					</c:forEach>
 				</table>
 			</td>

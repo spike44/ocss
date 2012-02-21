@@ -7,7 +7,6 @@ public class NotifyVO {
 	private String memberId;
 	private int carId;
 	private String notifyTitle;
-
 	private String notifyContent;
 	private String notifyStatus;
 	private String notifyDate;

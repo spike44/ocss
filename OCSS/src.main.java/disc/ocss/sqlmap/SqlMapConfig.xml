@@ -21,8 +21,7 @@
     <sqlMap resource="disc/ocss/sqlmap/car-sqlmap.xml"/>
     <sqlMap resource="disc/ocss/sqlmap/comment-sqlmap.xml"/>
 	  <sqlMap resource="disc/ocss/sqlmap/notify-sqlmap.xml"/>
-
-
+     <sqlMap resource="disc/ocss/sqlmap/carImages-sqlmap.xml"/>
 
 </sqlMapConfig>
           

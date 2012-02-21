@@ -58,27 +58,66 @@ public class CarDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println(result.size());
 		return result;
 	}
-	
-	public static ArrayList<CarImagesVO> selectMainImages(){
-		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
 		
+	public static void insertCar(CarVO carVO){
 		try {
-			result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("car.selectMainImages");
+			sqlMapper.insert("car.insertCar",carVO);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public static int pAVG(CarVO carVO){
+		System.out.println(carVO.getCarId());
+		int result = 0;
+		try {
+			result = (Integer) sqlMapper.queryForObject("car.pAVG",carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 	
-	public static ArrayList<CarImagesVO> selectImages(CarImagesVO img){
-		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
+	public static int yAVG(CarVO carVO){
+		int result = 0;
 		try {
-			result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("car.selectImages",img);
+			result = (Integer) sqlMapper.queryForObject("car.yAVG", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public static double aAVG(CarVO carVO){
+		double result = 0;
+		try {
+			result = (Double) sqlMapper.queryForObject("car.aAVG", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public static void updateEval(CarVO carVO){
+		try {
+			sqlMapper.update("car.updateEval", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static int nextCarId(){
+		int result=0;
+		try {
+			result = (Integer) sqlMapper.queryForObject("car.nextCarId");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -8,16 +8,24 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function insertImage(){
-		window.opener.Image();
-		window.close();
+		if($("#image").val().length<=0)
+			alert("파일을 선택해주세요");
+		else{
+			document.frm.action = "uploadfile.do";
+			document.frm.submit();
+		}
 	}
 </script>
 </head>
 <body>
 <center>
 <br>
+<form name="frm" method="post" id="frm" enctype="multipart/form-data"> 
+<%String num = request.getParameter("num");%>
+<input type="hidden" name="num" value="<%=num %>">
 <input type="file" name="image" id="image"><br><br>
 <input type="button" name="img" id="img" value="등록" onclick="insertImage()">
+</form>
 </center>
 </body>
 </html>

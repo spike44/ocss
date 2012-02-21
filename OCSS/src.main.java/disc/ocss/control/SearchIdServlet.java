@@ -63,7 +63,7 @@ public class SearchIdServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			response.sendRedirect("serchIdPw.page.tiles");
+			response.sendRedirect("searchIdPw.page.tiles");
 	}
 
 }
