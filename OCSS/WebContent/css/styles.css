@@ -26,7 +26,7 @@ margin: 0;
 body
 {
 	color: #666666;
-	background: #000100 url(../images/bg.jpg);
+	background: #ffffff url(../images/bg.jpg);
 	font-family: "맑은 고딕";
 	font-size: 16px;
 }
@@ -39,6 +39,7 @@ body
 {
 margin: 0 auto;
 width: 980px;
+
 padding-top: 10px;
 }
 
@@ -52,7 +53,7 @@ background: url(../images/header.png) no-repeat center bottom;
 
 #logo
 {
-padding-left: 40px;
+padding-left: 35px;
 text-align: left;
 padding-top: 20px;
 
@@ -62,7 +63,7 @@ padding-top: 20px;
 	text-decoration: none;
 	text-transform: lowercase;
 	font-style: italic;
-	font-size: 36px;
+	font-size: 55px;
 	color: #FFFFFF;
 	font-weight: bold;
 }
@@ -70,7 +71,7 @@ padding-top: 20px;
 
 #logo H2 a
 {
-	font-size: 14px;
+	font-size: 19px;
 }
 
 #buttons
@@ -362,18 +363,18 @@ font-family: Georgia, "Times New Roman", Times, serif;
 
 #footer
 {
-	height: 37px;
-	width: 444px;
+	background: url(../images/bg_top1.jpg) ;
+	height: 58px;
+	width: 980px;
 	font-size: 14px;
 	color: #FFFFFF;
-	padding-top: 5px;
+	padding-top: 0px;
 	text-align: center;
 	clear:both;
 	margin-top: 0px;
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;
-
 }
 
 #footer a
@@ -465,4 +466,367 @@ a.nivo-prevNav {
 .nivo-caption a {
     color:#efe9d1;
     text-decoration:underline;
+}
+
+/*  ================테이블 CSS================= */
+table {
+
+	width: 100%;
+
+	margin:0;
+
+ 	padding:0;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	color: #1c5d79;
+
+
+
+}
+
+table, tr, th, td {
+
+	border-collapse: collapse;
+
+}
+
+caption {
+
+margin:0;
+
+ 	padding:0;
+
+	background: #f3f3f3;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	text-indent: 28px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: left;
+
+	letter-spacing: 3px;
+
+	border-top: dashed 1px #c2c2c2;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+
+
+/* HEAD */
+
+
+
+thead {
+
+	background-color: #FFFFFF;
+
+	border: none;
+
+}
+
+thead tr th {
+
+	height: 32px;
+
+	line-height: 32px;
+
+	text-align: center;
+
+	color: #1c5d79;
+
+	background-image: url(col_bg.gif);
+
+	background-repeat: repeat-x;
+
+	border-left:solid 1px #FF9900;
+
+	border-right:solid 1px #FF9900;
+
+	border-collapse: collapse;
+
+
+
+}
+
+
+
+/* BODY */
+
+
+
+tbody tr {
+
+	background: #dfedf3;
+
+	font-size: 13px;
+
+}
+
+tbody tr.odd {
+
+	background: #F0FFFF;
+
+}
+
+tbody tr:hover, tbody tr.odd:hover {
+
+	background: #ffffff;
+
+}
+
+tbody tr th, tbody tr td {
+
+	padding: 6px;
+
+	border: solid 1px #326e87;
+
+}
+
+tbody tr th {
+
+	background: #1c5d79;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 12px;
+
+	padding: 6px;
+
+	text-align: center;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	border-bottom: solid 1px white;
+
+}
+
+tbody tr th:hover {
+
+	background: #ffffff;
+
+
+
+}
+
+
+
+/* LINKS */
+
+
+
+table a {
+
+	color: #FF6600;
+
+	text-decoration: none;
+
+	font-size: 13px;
+
+	border-bottom: solid 1px white;
+
+}
+
+table a:hover {
+
+	color: #FF9900;
+
+	border-bottom: none;
+
+}
+
+
+
+/* FOOTER */
+
+
+
+tfoot {
+
+	background: #f3f3f3;
+
+	height: 24px;
+
+	line-height: 24px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: center;
+
+	letter-spacing: 3px;
+
+	border-top: solid 2px #326e87;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+tfoot tr th, tfoot tr td {
+
+	/*padding: .1em .6em;*/
+
+
+
+}
+
+tfoot tr th {
+
+	border-top: solid 1px #326e87;
+
+}
+
+tfoot tr td {
+
+	text-align: right;
+
+
+
+}
+
+
+/* ========버튼 CSS======= */
+
+.button
+{
+        display: inline-block;
+        white-space: nowrap;
+        background-color: #ccc;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+        background-image: -webkit-linear-gradient(top, #eee, #ccc);
+        background-image: -moz-linear-gradient(top, #eee, #ccc);
+        background-image: -ms-linear-gradient(top, #eee, #ccc);
+        background-image: -o-linear-gradient(top, #eee, #ccc);
+        background-image: linear-gradient(top, #eee, #ccc);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+        border: 1px solid #777;
+        padding: 0 1.5em;
+        margin: 0.5em;
+        font: bold 1em/2em Arial, Helvetica;
+        text-decoration: none;
+        color: #333;
+        text-shadow: 0 1px 0 rgba(255,255,255,.8);
+        -moz-border-radius: .2em;
+        -webkit-border-radius: .2em;
+        border-radius: .2em;
+        -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+        box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.button:hover
+{
+        background-color: #ddd;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+        background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+        background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+        background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+        background-image: -o-linear-gradient(top, #fafafa, #ddd);
+        background-image: linear-gradient(top, #fafafa, #ddd);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+}
+
+.button:active
+{
+        -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        position: relative;
+        top: 1px;
+}
+
+.button:focus
+{
+        outline: 0;
+        background: #fafafa;
+}
+
+.button:before
+{
+        background: #ccc;
+        background: rgba(0,0,0,.1);
+        float: left;
+        width: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0 1em 0 -1em;
+        padding: 0 .2em;
+        -moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        -webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        -moz-border-radius: .15em 0 0 .15em;
+        -webkit-border-radius: .15em 0 0 .15em;
+        border-radius: .15em 0 0 .15em;
+        pointer-events: none;
+}
+
+/* Hexadecimal entities for the icons */
+
+.add:before
+{
+        content: "\271A";
+}
+
+.edit:before
+{
+        content: "\270E";
+}
+
+.delete:before
+{
+        content: "\2718";
+}
+
+.save:before
+{
+        content: "\2714";
+}
+
+.email:before
+{
+        content: "\2709";
+}
+
+.like:before
+{
+        content: "\2764";
+}
+
+.next:before
+{
+        content: "\279C";
+}
+
+.star:before
+{
+        content: "\2605";
+}
+
+.spark:before
+{
+        content: "\2737";
+}
+
+.play:before
+{
+        content: "\25B6";
 }

@@ -157,7 +157,7 @@
 	<br />
 	<br /> 내용
 	<br />
-	<textarea name="content" id="content" cols="80" rows="20" id="content">${content }</textarea>
+	<textarea name="content" id="content"  style = "width:600px;" cols="80" rows="20" id="content">${content }</textarea>
 	
 	<c:remove var="memory"/>
 	<c:remove var="content"/>
