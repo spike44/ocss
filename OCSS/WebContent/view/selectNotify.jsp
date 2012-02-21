@@ -19,16 +19,16 @@
 <table width="100%" border="1" cellpadding="2">
 						<tr>
 							<td width="10%"><div align="center"><strong>신고자아이디</strong></div></td>
-						  <td width="10%"><div align="center"><strong>판매자아이디</strong></div></td>
 						  <td width="11%"><div align="center"><strong>등록일</strong></div></td>
-						  <td width="53%"><div align="center"><strong>내용</strong></div></td>
-						  <td width="16%"><div align="center"><strong>차량보기</strong></div></td>
+						  <td width="23%"><div align="center"><strong>제목</strong></div></td>
+						  <td width="47%"><div align="center"><strong>내용</strong></div></td>
+						  <td width="9%"><div align="center"><strong>차량보기</strong></div></td>
 	  </tr>
 	  					<c:forEach var="p" items="${notify_list}">
 						<tr>
 							<td><div align="center">${p.memberId}</div></td>
-							<td><div align="center">필요한가?</div></td>
 							<td><div align="center">${p.notifyDate}</div></td>
+							<td><div align="center">${p.notifyTitle}</div></td>
 							<td><div align="center">${p.notifyContent}</div></td>
                             <td><div align="center"><input type="button" name="carView" value="바로가기" /></div></td>
 						</tr>
