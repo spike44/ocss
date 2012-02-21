@@ -2,6 +2,7 @@ package disc.ocss.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarVO;
 import disc.ocss.model.MemberVO;
 import disc.ocss.model.NotifyVO;
+import disc.ocss.service.CarImagesService;
+import disc.ocss.service.CarService;
 import disc.ocss.service.MemberService;
 import disc.ocss.service.NotifyService;
 
@@ -50,12 +55,26 @@ public class DetailMemberServlet extends HttpServlet {
 		String memberId= request.getParameter("memberId");
 		MemberService memberService = new MemberService();
 		NotifyService notifyService = new NotifyService();
+		CarService service = new CarService();
+			
+		
 		
 		try {
-			
+		
 			MemberVO member = memberService.selectTargetMember(memberId);
+			CarVO carVO = new CarVO();
+			carVO.setMemberId(member.getMemberId());
 			session.setAttribute("targetMember", member);
 			List<NotifyVO> notifyList = notifyService.selectNotify(memberId);
+			ArrayList<CarVO> carList = service.selectMyCar(carVO);
+			
+			if(carList != null) {
+				session.setAttribute("carList", carList);
+			}
+			
+			else {
+				session.setAttribute("resultCar", "판매중인 상품이 없습니다.");
+			}
 			if(notifyList != null) {
 				session.setAttribute("notifyList", notifyList);
 			}

@@ -32,7 +32,7 @@
 			<div id="buttons">
 				<ul>
 
-					<li><a href="selectCarSeller.page.tiles" title="">차량검색</a></li>
+					<li><a href="selectcar.do" title="">차량검색</a></li>
 					<li><a href="agreement.page.tiles" title="">차량등록</a></li> 
 					<li><a href="mycar.do" title="">판매차량관리</a></li>
 					<li><a href="#" title="">회사소개</a></li>

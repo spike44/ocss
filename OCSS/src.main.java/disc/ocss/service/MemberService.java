@@ -84,6 +84,10 @@ public class MemberService {
 		return MemberDAO.deleteMember(memberVO);
 	}
 
+	public int deleteBadMember(String memberId) throws SQLException {
+		return MemberDAO.deleteBadMember(memberId);
+	}
+	
 	public MemberVO selectTargetMember(String memberId) throws SQLException {
 		
 		return MemberDAO.selectmemberid(memberId).get(0);

@@ -82,8 +82,10 @@ public class SelectDetailCarServlet extends HttpServlet {
 		
 		
 		if(m != null && m.getPowerList()==1)
-			response.sendRedirect("detailCarSeller.page.tiles");	
-		else	
+			response.sendRedirect("detailCarSeller.page.tiles");
+		else if(m != null && m.getPowerList()==3)
+			response.sendRedirect("detailCarAdmin.page.tiles");
+		else 	
 			response.sendRedirect("detailCar.page.tiles");	
 		
 

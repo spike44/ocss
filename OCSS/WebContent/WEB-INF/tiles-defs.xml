@@ -57,6 +57,12 @@
  <definition name="selectNotify.page" extends = "ocssMainAdmin.page">
   <put-attribute name="left" value="/view/selectNotify.jsp" />
  </definition>
+  <!-- ========================= 차량상세보기 page ============================== -->
+ <definition name="detailCarAdmin.page" extends = "ocssMainAdmin.page">
+  <put-attribute name="left" value="/view/detailCar.jsp" />
+ </definition>
+ 
+ 
  <!-- ========================= 판매자용 메인 page ============================== -->
 	<definition name="ocssMainSeller.page" template="ocssMainSeller.jsp">
 		<put-attribute name="header" value="/view/header.jsp" />
@@ -96,6 +102,10 @@
   <!--  =============================차량보기 page 판매자========================== -->
    <definition name="detailCarSeller.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/detailCar.jsp" />
+ </definition>	
+  <!--  =============================차량보기 page 판매자========================== -->
+   <definition name="insertNotify.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/insertNotify.jsp" />
  </definition>	
 </tiles-definitions>
 

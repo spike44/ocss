@@ -13,13 +13,14 @@
 		
 		location.href = "ocssMainAdmin.page.tiles";
 	}
-	function doinsertnotify() {
-		document.insertNotifyForm.action="insertNotify.do";
+	function doinsertnotify(carId) {
+		document.insertNotifyForm.action="insertNotify.do?carId="+carId;
 		document.insertNotifyForm.submit();
 	}
 </script>
 	</head>
 	<body>
+
 		<div id="left">
 		<form id="insertNotifyForm" name="insertNotifyForm" action="" method="post">
 		  <h1>허위매물신고</h1>
@@ -27,25 +28,26 @@
 		    <div class="text">
                 <div align="center"><br />
                 제목
-                  <input name="" type="text" size="80"/>
+                  <input id="notifyTitle" name="notifyTitle" type="text" size="80"/>
                   <br />
                   <br />
               </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용<br />
                  <div align="center">
-                <textarea name="textarea" cols="70" rows="8" ></textarea>
+                <textarea id="notifyContent" name="notifyContent" cols="70" rows="8" ></textarea>
                 </div>
               <div align="right">
                       <p><br/>
-                        <input type="button" name="insertNotify" value="신고하기" onclick="doinsertnotify()"/>
+                        <input type="button" name="insertNotify" value="신고하기" onclick="doinsertnotify(${carId})"/>
                         &nbsp;
                         <input type="button" name="cancel" value="취 소" onclick="docancel()"/>
                       </p>
                       <p>&nbsp;                        </p>
               </div>
 		    </div>
+		       </form>
     </div>
-    </form>
+ 
 					</div>
 
 	</body>
