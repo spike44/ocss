@@ -7,6 +7,12 @@
 <title>Untitled Document</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />		
+<script type="text/javascript">
+	function docancel() {
+		window.alert("약관에 동의하지 않으셧으로 메인페이지로 이동합니다.");
+		location.href="ocssMainSeller.page.tiles";
+	}
+</script>
 </head>
 
 <body>
@@ -55,8 +61,8 @@
 		    <br/>
 		    <br />
 
-		    <input class="button" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.jsp'"/>&nbsp;&nbsp;
-		    <input class="button" type="button" name="noAgree" value="동의안합니다" onclick="alert('동의하기 버튼을 눌러주세요')"/>
+		    <input class="button" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.page.tiles'"/>&nbsp;&nbsp;
+		    <input class="button" type="button" name="noAgree" value="동의안합니다" onclick="docancel()"/>
 		    <br />
 	          </div>
 	  </div>

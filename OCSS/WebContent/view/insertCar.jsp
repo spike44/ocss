@@ -8,11 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <script src="js/validate.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 
 
-	function getSeondCategory() {
+	function getSecondCategory() {
 		document.frm.action = "cartype.do?sel=" + $("#brand").val()+"&page=insertCar";
 		document.frm.submit();
 	}
@@ -63,7 +65,7 @@
 	}
 	
 	function openImage(){
-		window.open('imagePage.jsp','OCSS','width=500, height=400');
+		window.open('view/imagePage.jsp','OCSS','width=500, height=400');
 	}
 </script>
 </head>
@@ -93,7 +95,7 @@
 		</c:if>
 		<input type="hidden" id="type" name="type">
 		
-		<select name="brand" id="brand" onChange="getSeondCategory()">
+		<select name="brand" id="brand" onChange="getSecondCategory()">
 			<option value="brand">브랜드</option>
 			<c:forEach var="b" items="${brand }">
 				<c:if test="${sel==b }">

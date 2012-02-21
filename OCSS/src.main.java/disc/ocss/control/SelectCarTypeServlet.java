@@ -50,7 +50,7 @@ public class SelectCarTypeServlet extends HttpServlet {
 			
 			String page = request.getParameter("page"); 
 			if(page==null)
-				response.sendRedirect("select.jsp");
+				response.sendRedirect("selectCar.page.tiles");
 			else{
 				
 				CarVO carVO  = new CarVO();
@@ -83,7 +83,7 @@ public class SelectCarTypeServlet extends HttpServlet {
 				session.setAttribute("memory", carVO);
 				session.setAttribute("content", request.getParameter("content"));
 				
-				response.sendRedirect("insertCar.jsp");
+				response.sendRedirect("insertCar.page.tiles");
 			}
 		}
 		
