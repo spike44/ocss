@@ -2,7 +2,7 @@ package disc.ocss.model;
 
 import java.io.Serializable;
 
-public class CarTypeVO{
+public class CarTypeVO implements Serializable{
 	private String carType;
 	private String brand;
 	private String carTypeCode;
