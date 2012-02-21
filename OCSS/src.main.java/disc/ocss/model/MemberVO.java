@@ -8,13 +8,13 @@ public class MemberVO {
 	private int powerList;
 	private int approval;
 	private String joinDate;
-	private String MemberName;
+	private String memberName;
 
 	public String getMemberName() {
-		return MemberName;
+		return memberName;
 	}
 	public void setMemberName(String memberName) {
-		MemberName = memberName;
+		this.memberName = memberName;
 	}
 	public String getMemberId() {
 		return memberId;

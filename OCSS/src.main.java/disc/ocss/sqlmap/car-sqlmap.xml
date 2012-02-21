@@ -48,6 +48,7 @@
     	<result property="locationList" column="location_list"/>
     	<result property="cartypeCode" column="cartype_code"/>
     	<result property="carDate" column="car_date"/>
+    	<result property="totalEval" column="total_eval"/>
     </resultMap>
     
 	<statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">

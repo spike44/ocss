@@ -1,6 +1,5 @@
 package disc.ocss.model;
 
-import java.util.Date;
 
 public class CommVO{
 	
@@ -10,10 +9,6 @@ public class CommVO{
 	private String memberId;
 	private int carId;
 	
-
-	public CommVO() {
-		super();
-	}
 	public int getCommentId() {
 		return commentId;
 	}
@@ -45,6 +40,5 @@ public class CommVO{
 		this.carId = carId;
 	}
 	
-	
-
 }
+	

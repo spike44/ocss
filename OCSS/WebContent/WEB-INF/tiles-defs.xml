@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+<!-- ========================= 구매자용 page ============================== -->
+	<definition name="main.page" template="ocssMain.jsp">
+		<put-attribute name="title" value="OCSS 메인페이지"/>
+		<put-attribute name="header" value="/view/header.jsp" />
+		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="left" value="/view/left.jsp" />
+		<put-attribute name="footer" value="/view/footer.jsp" />
+	</definition>
+<!-- ========================= 공용 회원가입페이지 page ============================== -->
+	<definition name="join.page" extends = "main.page" >	
+	    <put-attribute name="title" value="OCSS 메인페이지"/>
+		<put-attribute name="left" value="/view/joinMember.jsp" />
+	</definition>
+<!-- ========================= 공용 ID,PW찾기 page ============================== -->
+	<definition name="serchIdPw.page" extends = "main.page">
+		<put-attribute name="left" value="/view/serchIdPw.jsp" />
+	</definition>
+<!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
+	<definition name="updateMember.page"  extends = "main.page">
+		<put-attribute name="left" value="/view/updateMember.jsp" />
+	</definition>
+<!-- ========================= 차량등록 약관 확인 page ============================== -->
+	<definition name="agreementCar.page"  extends = "main.page">
+		<put-attribute name="left" value="/view/agreementCar.jsp" />
+	</definition>
+<!-- ========================= 차량등록  page ============================== -->
+	<definition name="insertCar.page"  extends = "main.page">
+		<put-attribute name="left" value="/view/insertCar.jsp" />
+	</definition>
+	
+<!-- ========================= 관리자용 메인 page ============================== -->
+	<definition name="ocssMainAdmin.page" template="ocssMainAdmin.jsp">
+		<put-attribute name="header" value="/view/header.jsp" />
+		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="left" value="/view/left.jsp" />
+		<put-attribute name="footer" value="/view/footer.jsp" />
+	</definition>
+<!-- ========================= 회원정보조회 page ============================== -->
+	<definition name="selectMember.page"  extends = "ocssMainAdmin.page">
+
+		<put-attribute name="left" value="/view/selectMember.jsp" />
+
+	</definition>
+<!-- ========================= 회원정보상세 page ============================== -->
+	<definition name="detailMember.page"  extends = "ocssMainAdmin.page">
+		<put-attribute name="left" value="/view/detailMember.jsp" />
+	</definition>
+<!-- ========================= 회원가입승인 page ============================== -->
+ <definition name="joinCommit.page" extends = "ocssMainAdmin.page">
+  <put-attribute name="left" value="/view/joinCommit.jsp" />
+ </definition>
+ <!-- ========================= 허위매물관리 page ============================== -->
+ <definition name="selectNotify.page" extends = "ocssMainAdmin.page">
+  <put-attribute name="left" value="/view/selectNotify.jsp" />
+ </definition>
+ <!-- ========================= 판매자용 메인 page ============================== -->
+	<definition name="ocssMainSeller.page" template="ocssMainSeller.jsp">
+		<put-attribute name="header" value="/view/header.jsp" />
+		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="left" value="/view/left.jsp" />
+		<put-attribute name="footer" value="/view/footer.jsp" />
+	</definition>	 
+</tiles-definitions>
+

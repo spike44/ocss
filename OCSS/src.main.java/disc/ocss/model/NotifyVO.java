@@ -1,19 +1,15 @@
 package disc.ocss.model;
 
-import java.util.Date;
+
 
 public class NotifyVO {
 	private int notifyId;
 	private String memberId;
 	private int carId;
+	private String notifyTitle;
 	private String notifyContent;
 	private String notifyStatus;
 	private String notifyDate;
-	
-	
-	public NotifyVO() {
-		super();
-	}
 	public int getNotifyId() {
 		return notifyId;
 	}
@@ -49,5 +45,12 @@ public class NotifyVO {
 	}
 	public void setNotifyDate(String notifyDate) {
 		this.notifyDate = notifyDate;
+	}
+	
+	public String getNotifyTitle() {
+		return notifyTitle;
+	}
+	public void setNotifyTitle(String notifyTitle) {
+		this.notifyTitle = notifyTitle;
 	}
 }

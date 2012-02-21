@@ -1,0 +1,62 @@
+package disc.ocss.control;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import disc.ocss.service.MemberService;
+
+/**
+ * Servlet implementation class CommitServlet
+ */
+public class CommitServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CommitServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		HttpSession session = request.getSession();
+		
+		MemberService memberService = new MemberService();
+		String memberId= request.getParameter("memberId");
+		try {
+			int result = memberService.updateMemberApproval(memberId);
+			if(result != 0) {
+				session.setAttribute("resultcommit", memberId+"님의 가입이 승인되었습니다");
+				response.sendRedirect("searchMemberForApproval.do");
+			}
+			else if(result==0) {
+				session.setAttribute("resultcommit", memberId+"님의 가입승인이 실패했습니다");
+				response.sendRedirect("searchMemberForApproval.do");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	}
+
+}

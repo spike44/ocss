@@ -1,32 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="notify" >
+<sqlMap namespace="notify">
     <typeAlias alias="notifyVO" type="disc.ocss.model.NotifyVO"/>
     
     <resultMap class="notifyVO" id="resultsNotify">
-    	<result property="notifyId" column="notify_id"/>
-    	<result property="memberId" column="member_id"/>
-    	<result property="carId" column="car_id"/>
-    	<result property="notifyContent" column="notify_content"/>
-    	<result property="notifyStatus" column="notify_status"/>
-    	<result property="notifyDate" column="notify_date"/>  
-	</resultMap>
-	
-	<insert id="insertNotify" parameterClass="notifyVO">
-		insert into notify(
-			notify_id,
-			member_id,
-			car_id,
-			notify_content,
-			notify_staus,
-			notify_date
-		) values(
-			notify_id_sequnce.nextval,
-			#memberId#,
-			#carId#,
-			#notifyContent#,
-			#notifyStatus#,
-			sysdate
-		)
-	</insert>
+        <result property="notifyId" column="notify_id"/>
+        <result property="memberId" column="member_id"/>
+        <result property="carId" column="car_id"/>
+        <result property="notifyTitle" column="notify_title"/>
+        <result property="notifyContent" column="notify_content"/>
+        <result property="notifyStatus" column="notify_status"/>
+        <result property="notifyDate" column="notify_date"/>
+    </resultMap>
+    
+    <insert id="insertNotify" parameterClass="notifyVO">
+        insert into notify(
+        notify_id,
+        member_id,
+        car_id,
+        notify_title,
+        notify_content,
+        notify_status,
+        notify_date
+        ) values(
+        NOTIFY_ID_SEQUENCE.nextval,
+        #memberId#,
+        #carId#,
+        #notifyTitle#,
+        #notifyContent#,
+        #notifyStatus#,
+        sysdate
+        )
+		 <selectKey resultClass="String">
+            select notify_title from notify where notify_content=#notifyContent#
+        </selectKey>
+		
+    </insert>
+	<select id="selectNotifyall" resultMap="resultsNotify">
+		
+		select * from notify
+		
+		</select>
+		
+    <update id="updateNotify" parameterClass="notifyVO">
+        
+        update notify set
+        notify_title=#notifyTitle#,
+        notify_content=#notifyContent#
+        where notify_id=#notifyId#
+        
+    </update>
+    
+	<delete id="deleteNotiy" parameterClass="String">
+		delete from notify where notify_id=#notifyId#
+		
+	</delete>
+    
 </sqlMap>
