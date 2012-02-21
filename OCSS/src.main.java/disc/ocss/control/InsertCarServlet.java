@@ -124,7 +124,7 @@ public class InsertCarServlet extends HttpServlet {
 		}
 
 		
-		response.sendRedirect("select.jsp");
+		response.sendRedirect("selectCar.page.tiles");
 		
 		
 	}

@@ -50,28 +50,31 @@ public class LoginServlet extends HttpServlet {
 			MemberVO m2 = memberService.loginCheck(m);
 			if(m2 != null) {
 				session.setAttribute("login", m2);
+				
+				if(m2.getPowerList()==3) {
+					response.sendRedirect("ocssMainAdmin.page.tiles");
+				}
+				else if(m2.getPowerList()==2) {
+					response.sendRedirect("main.page.tiles");
+				}
+				else if(m2.getPowerList()==1 && m2.getApproval()==1) {
+					response.sendRedirect("ocssMainSeller.page.tiles");
+				}
+				else if(m2.getPowerList()==1 && m2.getApproval()==0) {
+					session.setAttribute("login", null);
+					
+					session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
+					response.sendRedirect("main.page.tiles");		
+								
+				}
 						
 			}
 			else {
 				session.setAttribute("loginfailed", "로그인 실패");
+				response.sendRedirect("main.page.tiles");
 						
 			}
-			if(m2.getPowerList()==3) {
-				response.sendRedirect("ocssMainAdmin.page.tiles");
-			}
-			else if(m2.getPowerList()==2) {
-				response.sendRedirect("main.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==1) {
-				response.sendRedirect("ocssMainSeller.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==0) {
-				session.setAttribute("login", null);
-				
-				session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
-				response.sendRedirect("main.page.tiles");		
-							
-			}
+			
 		} catch (SQLException e) {
 	
 			// TODO Auto-generated catch block

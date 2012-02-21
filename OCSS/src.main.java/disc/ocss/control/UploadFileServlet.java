@@ -93,7 +93,7 @@ public class UploadFileServlet extends HttpServlet {
 
 						// 업로드된 파일을 한줄씩 읽어서 화면에 출력한다.
 						
-						String filename="images/"+UUID.randomUUID().toString()+".jpg";
+						String filename="/images/"+UUID.randomUUID().toString()+".jpg";
 						String path = getServletContext().getRealPath("/");
 
 						FileOutputStream os=new FileOutputStream(path+filename);
@@ -117,7 +117,7 @@ public class UploadFileServlet extends HttpServlet {
 				e.printStackTrace();
 			} 
 			
-			response.sendRedirect("imagePage.jsp");
+			response.sendRedirect("/OCSS/view/imagePage.jsp");
 		}
 	}
 }

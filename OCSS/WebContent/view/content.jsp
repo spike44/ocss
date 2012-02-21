@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function gojoin() {
@@ -38,7 +37,7 @@
 	$().ready(function() {
 		// validate the comment form when it is submitted
 		// validate signup form on keyup and submit
-		$("#signupForm").validate({
+		$("#loginForm").validate({
 			rules : {
 
 				memberId : "required",
@@ -68,7 +67,7 @@
   <div id="content">
 	<div id="right">
     	<div id="categories">
-				<form name="loginForm" action="" method="post" class="form1">
+				<form id="loginForm" name="loginForm" action="" method="post" class="form1">
                   <h2>Member login</h2>
                   <center>
                   <label>&nbsp;N&nbsp;a&nbsp;m&nbsp;e&nbsp;:</label>
@@ -85,8 +84,9 @@
 				  </center>
                   <label class="label1">
                   <span class="pred">&nbsp;ID,PW를 잊어버리셧습니까?</span></label>
-                  <input name="GO" type="button" class="botton" id="GO" value="GO" onclick="gosearchidpw()"/>
+         			 <input name="GO" type="button" class="botton" id="GO" value="GO" onclick="gosearchidpw()"/>
                 </form>
+               
         </div>
 				<div id="partners">
 

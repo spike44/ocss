@@ -31,16 +31,10 @@ public class MemberDAOTest extends TestCase {
 
 	public void testLoginCheck() throws SQLException {
 		MemberVO m = new MemberVO();
-		m.setMemberId("admin");
-		m.setPassword("admin");
-		if(MemberDAO.loginCheck(m).isEmpty()) {
-			System.out.println("null");
-		}
-		else {
-			System.out.println(MemberDAO.loginCheck(m).get(0).getPowerList());
-		}
+		m.setMemberId("spike44");
+		m.setPassword("cowboy");
 		
-		
+		System.out.println(memberDAO.loginCheck(m).getMemberName());
 	}
 
 	public void testSearchId() throws SQLException {

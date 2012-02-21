@@ -63,6 +63,17 @@
 		<put-attribute name="content" value="/view/content.jsp" />
 		<put-attribute name="left" value="/view/left.jsp" />
 		<put-attribute name="footer" value="/view/footer.jsp" />
-	</definition>	 
+	</definition>	
+ <!-- ========================= 차량등록동의 page ============================== -->
+ <definition name="agreement.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/agreementCar.jsp" />
+ </definition>
+  <!-- ========================= 차량등록 page ============================== -->
+ <definition name="insertCar.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/insertCar.jsp" />
+ </definition>
+  <definition name="selectCar.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/select.jsp" />
+ </definition>	 
 </tiles-definitions>
 

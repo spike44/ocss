@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
-<script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function insertImage(){
-		if($("#image").val().length<=0)
-			alert("파일을 선택해주세요");
-		else{
-			document.frm.action = "uploadfile.do";
-			document.frm.submit();
-		}
+		if(document.frm.image.value.length<=0)
+				alert("파일을 선택해주세요");
+			else{
+				document.frm.action = "/OCSS/uploadfile.do";
+				document.frm.submit();
+			}
 	}
 </script>
 </head>

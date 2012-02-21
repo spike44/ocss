@@ -409,7 +409,7 @@ font-weight: bold;
 	position:relative;
     width: 963px;
     height: 257px;
-	background:url(../images/loading.gif) no-repeat 50% 50%;
+	background:url() no-repeat 50% 50%;
 }
 #slider img {
 	position:absolute;
