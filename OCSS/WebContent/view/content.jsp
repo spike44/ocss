@@ -76,7 +76,7 @@
                   <br>
 
                   <label>Password:</label>
-                  <input name="password" type="password" size="15" border="2" placeholder="비밀번호"/>
+                  <input id="password" name="password" type="password" size="15" border="2" placeholder="비밀번호"/>
                   <br>
                   </center>
                   <center>
