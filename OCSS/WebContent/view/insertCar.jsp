@@ -56,7 +56,7 @@
 			alert("지역을 입력해주세요");
 		}
 		else{
-			alert("hi");
+			
 			document.frm.action = "insertcar.do";
 			document.frm.submit();
 		}
