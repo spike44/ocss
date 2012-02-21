@@ -55,9 +55,9 @@ public class JoinMemberServlet extends HttpServlet {
 		m.setApproval(0);
 		}
 		m.setEmail(request.getParameter("email"));
-		m.setMemberId(request.getParameter("memberId"));
+		m.setMemberId(request.getParameter("memberId2"));
 		m.setMemberName(request.getParameter("memberName"));
-		m.setPassword(request.getParameter("password"));
+		m.setPassword(request.getParameter("password2"));
 		m.setPhone(request.getParameter("phone"));
 		m.setPowerList(Integer.parseInt(request.getParameter("powerList")));
 		System.out.println();

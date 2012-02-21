@@ -8,7 +8,6 @@
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css"
 	media="screen" />
-<script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$.validator.setDefaults({
 		submitHandler : function() {

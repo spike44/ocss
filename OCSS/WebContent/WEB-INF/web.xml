@@ -287,8 +287,7 @@
     <servlet-name>InsertNotifyServlet</servlet-name>
     <url-pattern>/insertNotify.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>InsertCarServlet</display-name>
     <servlet-name>InsertCarServlet</servlet-name>
@@ -297,5 +296,15 @@
   <servlet-mapping>
     <servlet-name>InsertCarServlet</servlet-name>
     <url-pattern>/insertcar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DetailMemberServlet</display-name>
+    <servlet-name>DetailMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DetailMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailMemberServlet</servlet-name>
+    <url-pattern>/detailMember.do</url-pattern>
   </servlet-mapping>
 </web-app>

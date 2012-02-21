@@ -12,6 +12,10 @@
 <meta name="description" content="" />
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css"media="screen" />
+<script src="js/jquery.js" type="text/javascript"></script>
+			<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<script src="js/validate.js" type="text/javascript"></script>
+			<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
 </head>
 <body>
 
@@ -29,10 +33,11 @@
 			</div>
 			<div id="buttons">
 				<ul>
-					<li class="first"><a href="#" title="">차량검색</a></li>
-					<li><a href="#" title="">차량등록</a></li>
+					<li class="first"><a href="select.page.tiles" title="">차량검색</a></li>
 					<li><a href="#" title="">차량비교</a></li>
+					<li><a href="#" title="">차량구입방법</a></li>
 					<li><a href="#" title="">회사소개</a></li>
+
 
 				</ul>
 			</div>

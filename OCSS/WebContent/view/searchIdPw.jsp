@@ -7,9 +7,7 @@
 <title>Untitled Document</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
     });

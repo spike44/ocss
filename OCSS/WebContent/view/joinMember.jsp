@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Untitled Document</title>
-<script src="js/validate.js" type="text/javascript"></script>
+
+
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css"media="screen" />
 
@@ -21,19 +22,19 @@
 		$("#signupForm").validate({
 			rules : {
 
-				memberId : {
+				memberId2 : {
 					required : true,
 					minlength : 2
 				},
 				memberName : "required",
-				password : {
+				password2 : {
 					required : true,
 					minlength : 3
 				},
 				confirm_password : {
 					required : true,
 					minlength : 3,
-					equalTo : "#password"
+					equalTo : "#password2"
 				},
 				email : {
 					required : true,
@@ -42,17 +43,17 @@
 				phone : {
 					required : true,
 					tel : true
-				},
-				agree : "required"
+				}
+			
 			},
 			messages : {
 
-				memberId : {
+				memberId2 : {
 					required : "아이디를 입력해주세요",
 					minlength : "아이디는 2자이상 이어야합니다"
 				},
 				memberName : "이름을 입력해주세요",
-				password : {
+				password2 : {
 					required : "비밀번호를 입력해주세요",
 					minlength : "비밀번호는 3자 이상이어야 합니다",
 				},
@@ -72,14 +73,14 @@
 
 	function join() {
 		var re_id = /^[a-z0-9_-]{3,16}$/;
-		if ($("#memberId").val().length <= 0)
+		if ($("#memberId2").val().length <= 0)
 			alert("아이디 길이 체크체크");
 		else if (re_id.test($("#memberId").val()) != true) {
 			alert("유효한 아이디가 아닙니다.");
 		}
 	}
 	function dojoin() {
-		document.signupForm.action="join.do"
+		document.signupForm.action="join.do";
 			document.signupForm.submit();
 		
 	}
@@ -91,7 +92,7 @@
 		$.ajax({
 			url : "idcheck.do",
 			data : ({
-				memberId : $("#memberId").val()
+				memberId : "#memberId2"
 			}),
 			success : function(data) {
 				if (data == "false") {
@@ -106,7 +107,7 @@
 </head>
 
 <body>
-	<form class="cmxform" id="signupForm" name= "signupForm" method="post">
+	<form id="signupForm" name= "signupForm" method="post" action="">
 	<div id="join">
 		<h1>회원가입</h1>
 		<p class="pred">※ 판매자는 가입승인 이후에 로그인이 가능합니다.</p>
@@ -115,8 +116,8 @@
 			<table width="100%" border="0">
 				<tr>
 					<td><div align="center">아이디</div></td>
-					<td><input id="memberId" name="memberId" /> <input
-						class=button type="button" name="idCheck" value="중복확인"
+					<td><input id="memberId2" name="memberId2" type="text" /> 
+					<input 	class=button type="button" name="idCheck" value="중복확인"
 						onclick="checkId()"></td>
 				</tr>
 				<tr>
@@ -125,12 +126,11 @@
 				</tr>
 				<tr>
 					<td><div align="center">비밀번호</div></td>
-					<td><input id="password" name="password" type="password" /></td>
+					<td><input id="password2" name="password2" type="password" /></td>
 				</tr>
 				<tr>
 					<td><div align="center">비밀번호 확인</div></td>
-					<td><input id="confirm_password" name="confirm_password"
-						type="password" /></td>
+					<td><input id="confirm_password" name="confirm_password" type="password" /></td>
 				</tr>
 				<tr>
 					<td><div align="center">휴대폰번호</div></td>
