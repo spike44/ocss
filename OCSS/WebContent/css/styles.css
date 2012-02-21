@@ -473,3 +473,48 @@ a.nivo-prevNav {
     color:#efe9d1;
     text-decoration:underline;
 }
+
+
+/********************/
+/****차량상세******/
+/********************/
+
+
+body{
+	background:black;
+}
+#img_container{
+	width:680px;;
+	margin:15px auto;
+
+}
+#img_navi{
+	width:300px;
+	float:left;
+
+}
+#img_navi ul{
+	height:460px;
+}
+#img_navi ul li{
+	list-style-type:none;
+	width:110px;
+	margin:10px;
+	float:left;
+	
+}
+#img_navi ul li img{
+	border:3px solid white;
+}
+#img_main{
+	width:350px;;
+	float:left;
+}
+#img_main img{
+	position:absolute;
+	border:3px solid white;
+	width: 350px;
+	height: 320px;
+
+}
+

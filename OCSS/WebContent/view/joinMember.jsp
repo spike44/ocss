@@ -3,10 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Untitled Document</title>
-<script src="js/jquery.js" type="text/javascript"></script>
+
 <script src="js/validate.js" type="text/javascript"></script>
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/nivo-slider.css" type="text/css"media="screen" />
+
 
 
 <script type="text/javascript">
