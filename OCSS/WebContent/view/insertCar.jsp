@@ -20,9 +20,9 @@
 	function typeCategory(){
 		$("#type").val($("#carType").val());
 	}
-	
+
 	function insertCar(){
-		
+
 		if($("#insertCarName").val().length ==0)
 			alert("제목을 입력해주세요");
 		else if($("#brand").val()== "brand"){
@@ -61,7 +61,7 @@
 			document.frm.submit();
 		}
 	}
-	
+
 	function openImage(){
 		window.open('view/imagePage.jsp','OCSS','width=500, height=400');
 	}
@@ -69,11 +69,11 @@
 </head>
 <body>
 <center>
-<form name="frm" method="post" id="frm"> 
+<form name="frm" method="post" id="frm">
 
 	<div id="left">
-		<h1>차량등록</h1>
-		<p class="pred">※ 누락항목 없이 모두 입력해 주세요.</p>
+		<div align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/insertCar.jpg" alt="">	  </div>
+		<p align="left" class="pred">※ 누락항목 없이 모두 입력해 주세요.</p>
 		<div class="text">
 		</div>
 	</div>
@@ -92,7 +92,7 @@
 			%>
 		</c:if>
 		<input type="hidden" id="type" name="type">
-		
+
 		<select name="brand" id="brand" onChange="getSecondCategory()">
 			<option value="brand">브랜드</option>
 			<c:forEach var="b" items="${brand }">
@@ -105,7 +105,7 @@
 			</c:forEach>
 		</select>
 		<c:remove var="sel"/>
-		
+
 		차종 :
 	<select name="carType" id="carType" onChange="typeCategory()">
 		<option value="carType">차종</option>
@@ -149,7 +149,7 @@
 	<c:if test="${memory.carYear==0 }">
 	<input name="carYear" id="carYear" type="text" size="9" id="carYear"/>년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	</c:if>
-	
+
 	색상 :
 	<input name="color" id="color" type="text" size="12" id="color" value="${memory.color }"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<br /> 지역 :
@@ -157,15 +157,16 @@
 	<br />
 	<br /> 내용
 	<br />
-	<textarea name="content" id="content" cols="80" rows="20" id="content">${content }</textarea>
-	
+	<textarea name="content" id="content" style = "width : 90%" cols="80" rows="20" id="content">${content }</textarea>
+
 	<c:remove var="memory"/>
 	<c:remove var="content"/>
 	<br />
-	<input class="button" type="button" name="imgBtn" value="사진등록" onclick="openImage()"/>
-	<input class="button" type="button" name="ok" value="완료" onclick="insertCar()"/>
+	<input class="button rosy medium" type="button" name="imgBtn" value="사진등록" onClick="openImage()"/>
+	<input class="button green medium" type="button" name="ok" value="완료" onClick="insertCar()"/>
 	<br />
 </form>
 	</center>
+	<br/>
 </body>
 </html>

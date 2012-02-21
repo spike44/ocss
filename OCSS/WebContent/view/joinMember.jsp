@@ -81,7 +81,7 @@
 	function dojoin() {
 		document.signupForm.action="join.do"
 			document.signupForm.submit();
-		
+
 	}
 	function docancel() {
 		location.href="main.page.tiles";
@@ -108,52 +108,54 @@
 <body>
 	<form class="cmxform" id="signupForm" name= "signupForm" method="post">
 	<div id="join">
-		<h1>회원가입</h1>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/joinMember.jpg" alt="" />
 		<p class="pred">※ 판매자는 가입승인 이후에 로그인이 가능합니다.</p>
 		<div class="text">
 			<p>
 			<table width="100%" border="0">
 				<tr>
-					<td><div align="center">아이디</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>아이디</strong></div></td>
 					<td><input id="memberId" name="memberId" /> <input
-						class=button type="button" name="idCheck" value="중복확인"
+						class="button green medium" type="button" name="idCheck" value="중복확인"
 						onclick="checkId()"></td>
 				</tr>
 				<tr>
-					<td><div align="center">이름</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>이름</strong></div></td>
 					<td><input id="memberName" name="memberName" /></td>
 				</tr>
 				<tr>
-					<td><div align="center">비밀번호</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>비밀번호</strong></div></td>
 					<td><input id="password" name="password" type="password" /></td>
 				</tr>
 				<tr>
-					<td><div align="center">비밀번호 확인</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>비밀번호 확인</strong></div></td>
 					<td><input id="confirm_password" name="confirm_password"
 						type="password" /></td>
 				</tr>
 				<tr>
-					<td><div align="center">휴대폰번호</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>휴대폰번호</strong></div></td>
 					<td><input id="phone" name="phone" type="tel" /></td>
 				</tr>
 				<tr>
-					<td><div align="center">이메일</div></td>
+				  <td bgcolor="#8BBED3"><div align="center"><strong>이메일</strong></div></td>
 					<td><input id="email" name="email" type="email" /></td>
 				</tr>
 				<tr>
-					<td><div align="center">
-							판매자가입<input type="radio" name="powerList" value="1" />
-						</div></td>
-					<td>구매자가입<input type="radio" name="powerList" value="2"/></td>
+					<td rowspan="2"><div align="center">
+						</div>					  <div align="center"></div></td>
+					<td><strong>판매자가입
+			        <input type="radio" name="powerList" value="1" />   
+				    구매자가입
+				    <input type="radio" name="powerList" value="2"/>
+					</strong></td>
 				</tr>
 				<tr>
-					<td><div align="center"></div></td>
-					<td><input name="join" type="button" class="botton" id="join"
-						value="회원가입" size="15" onclick="dojoin()"/> <input class="button" type="button"
+					<td><input name="join" type="button"class="button green medium" id="join"
+						value="회원가입" onclick="dojoin()"/> <input class="button red medium" type="button"
 						name="cancel" value="취소" onclick="docancel()"/></td>
 				</tr>
-			</table>
-			</div>
+		  </table>
+	  </div>
 			</div>
 			</form>
 </body>

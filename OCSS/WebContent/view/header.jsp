@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="header">
+
 		<div id="wrapper">
 			<div id="slider-wrapper">
 				<a href="#"></a>
@@ -27,6 +27,6 @@
     });
 </script>
 		</div>
-	</div>
+
 </body>
 </html>

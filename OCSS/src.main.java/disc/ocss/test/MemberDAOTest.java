@@ -20,21 +20,21 @@ public class MemberDAOTest extends TestCase {
 	}
 
 	public void testSelectMemberId() throws SQLException {
-			
+
 		List<MemberVO> list = memberDAO.selectmemberapproval(0);
 		for(MemberVO m2 : list) {
 			System.out.println(m2.getMemberName());
 		}
-		
-		
+
+
 	}
 
 	public void testLoginCheck() throws SQLException {
 		MemberVO m = new MemberVO();
 		m.setMemberId("spike44");
 		m.setPassword("cowboy");
-		
-		System.out.println(memberDAO.loginCheck(m).getMemberName());
+
+		//System.out.println(memberDAO.loginCheck(m).getMemberName());
 	}
 
 	public void testSearchId() throws SQLException {
@@ -42,14 +42,14 @@ public class MemberDAOTest extends TestCase {
 		m.setMemberName("하종문");
 		m.setEmail("jongmun0816@gmail.com");
 		m.setPhone("01026813062");
-	
+
 		String result = MemberDAO.searchId(m);
 		System.out.println(result);
-		
+
 	}
 
 	public void testInsertMember() throws SQLException {
-		
+
 		MemberVO m = new MemberVO();
 		m.setMemberId("hjgjdf");
 		m.setMemberName("신충현");
@@ -58,19 +58,19 @@ public class MemberDAOTest extends TestCase {
 		m.setPassword("1234");
 		m.setPhone("222");
 		m.setPowerList(1);
-		
-		
-		
+
+
+
 		System.out.println(memberDAO.insertMember(m));
 	}
 	public void testCheckId() throws SQLException {
 		String id="agfgd";
 		String result = memberDAO.checkId(id);
-		
+
 		System.out.println(result);
-		
+
 	}
- 
+
 	public void testUpdateMemberInfo() {
 		MemberVO m = new MemberVO();
 		m.setMemberId("kdytajo");

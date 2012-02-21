@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />		
+		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 <script type="text/javascript">
 	function docancel() {
 		window.alert("약관에 동의하지 않으셧으로 메인페이지로 이동합니다.");
@@ -25,8 +25,8 @@
 <c:remove var="ffilename"/>
 
 	<div id="left">
-	  <h1>차량등록</h1>
-		<p class="pred">※ 아래의 내용을 숙지하신후 동의해주세요.</p>
+	  &nbsp;&nbsp;&nbsp;&nbsp;<img src="images/insertCar.jpg" alt="" width="97" height="42" />
+	  <p class="pred">※ 아래의 내용을 숙지하신후 동의해주세요.</p>
 		<div class="text">
 
 		  <div align="center">
@@ -57,16 +57,16 @@
 불량 이용자로 공개되어 이용이 제한될 수 있습니다.
 내용 확인을 위하여 차량등록증 확인이 있을 수 있습니다.
 허위매물 등록 시 이용제한기준에 따라 처리됩니다. [자세히보기]
-          </textarea>
+            </textarea>
 		    <br/>
 		    <br />
 
-		    <input class="button" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.page.tiles'"/>&nbsp;&nbsp;
-		    <input class="button" type="button" name="noAgree" value="동의안합니다" onclick="docancel()"/>
+		    <input class="button green medium" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.page.tiles'"/>&nbsp;&nbsp;
+		    <input class="button red medium" type="button" name="noAgree" value="동의안합니다" onclick="docancel()"/>
 		    <br />
 	          </div>
 	  </div>
 	</div>
-	</form>
+</form>
 </body>
 </html>

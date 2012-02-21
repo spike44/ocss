@@ -19,11 +19,9 @@
 			<!-- header begins -->
 			<div id="logo">
 				<a href="#">OCSS</a>
-				<center> <input name="textfield" type="text" id="textfield"size="40" />
-						 <input name="mainserch" type="submit" class="botton"
-					id="mainserch" value="검색" size="15" /> </center>
+
 				<h2>
-					<a href="#" id="metamorph">Oranize Car Selling Service</a>
+					<a href="#" id="metamorph">Organize Car Selling Service</a>
 				</h2>
 			</div>
 			<div id="buttons">
@@ -42,21 +40,23 @@
 			</div>
 			<!-- header ends -->
 			<!-- content begins -->
-
+		 <div id = "content" style="height: 100%;" >
 			<!-- content 로그인 -->
-			<div id="content">
-				<tiles:insertAttribute name="content" />
+			<div id="right">
+				<tiles:insertAttribute name="right" />
 			</div>
 			<!-- left 내용 -->
 			<div id="left">
 				<tiles:insertAttribute name="left" />
 			</div>
-			<!-- content ends -->
-		</div>
-		<!-- footer 회사로고 -->
-			<div id="footer">
-				<tiles:insertAttribute name="footer" />
 			</div>
+		</div>
+			<!-- content ends -->
+
+		<!-- footer 회사로고 -->
+		<div id="footer">
+			<tiles:insertAttribute name="footer" />
+		</div>
 		<!-- footer ends -->
 
 	</div>

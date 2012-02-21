@@ -36,7 +36,6 @@
 
 	}
 </script>
-
 </head>
 <body>
 
@@ -47,35 +46,34 @@
 		<c:remove var="listfail" />
 	</c:if>
 	<div id="left">
-		<h1>회원정보조회</h1>
-		<div class="text">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/selectMember.jpg" alt="" />
+<div class="text">
 			<form id="searchForm" name="searchForm" method="post" action="">
-				<br> <br><br> 아이디 : <input id="memberId"
+				<br> 아이디 : <input id="memberId"
 							name="memberId" type="text" size="8" /> <input type="button"
-							name="searchId" value="검색" onclick="dosearchId()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							이름 : <input id="memberName" name="memberName" type="text"
-							size="8" /> <input type="button" name="searchName" value="검색"
-							onclick="dosearchName()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							H.P : <input id="phone" name="phone" type="text" size="22" /> <input
+					class="button gray medium" name="searchId" value="검색" onclick="dosearchId()" />&nbsp;&nbsp;&nbsp;이름 :
+<input id="memberName" name="memberName" type="text"
+							size="8" /> <input type="button" name="searchName" value="검색" class ="button gray medium" onclick="dosearchName()" />&nbsp;&nbsp;&nbsp;<br />H.P :
+<input id="phone" name="phone" type="text" size="22" /> <input
 							type="button" name="searchHP" value="검색"
-							onclick="dosearchPhone()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<br /> <br />이메일 : <input id="email" name="email" type="email"
-							size="30" /> <input type="button" name="searchemail" value="검색"
+							onclick="dosearchPhone()" class ="button gray medium"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="email" name="email" type="email"
+							size="20" /> <input type="button" name="searchemail" value="검색" class="button gray medium"
 							onclick="dosearchEmail()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 							<br />회원유형 : <select id="powerList" name="powerList">
 								<option value=2>구매자</option>
 								<option value=1>판매자</option>
-						</select> <input class="button" type="button" name="powerlist" value="검색"
+						</select> <input class="button green medium" type="button" name="powerlist" value="검색"
 					onclick="dosearchPower()" /> <br /> <br />
 				<table width="100%" border="1" cellpadding="2">
 					<tr>
 						<!-- 							<td width="5%">선택</td> -->
-						<td width="18%">아이디</td>
-						<td width="18%">이름</td>
-						<td width="18%">휴대폰번호</td>
-						<td width="18%">이메일</td>
-						<td width="18%">회원유형</td>
-					</tr>
+						<td width="18%" bgcolor="#8BBED3"><div align="center"><strong>아이디</strong></div></td>
+					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>이름</strong></div></td>
+					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>휴대폰번호</strong></div></td>
+					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>이메일</strong></div></td>
+					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>회원유형</strong></div></td>
+				  </tr>
 					<c:forEach var="p" items="${member_list}">
 						<tr onclick="location.href = 'deatailMember.jsp?memberId=${p.memberId}'">
 							<td>${p.memberId}</td>
@@ -87,7 +85,7 @@
 						</tr>
 					</c:forEach>
 				</table>
-			</form>
+	</form>
 				<c:remove var="member_list" />
 		</div>
 	</div>
