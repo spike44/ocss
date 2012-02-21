@@ -75,15 +75,17 @@
 						<td width="18%">휴대폰번호</td>
 						<td width="18%">이메일</td>
 						<td width="18%">회원유형</td>
+						<td width="18%">회원상세보기</td>
 					</tr>
 					<c:forEach var="p" items="${member_list}">
-						<tr onclick="location.href = 'deatailMember.jsp?memberId=${p.memberId}'">
+						<tr>
 							<td>${p.memberId}</td>
 							<td>${p.memberName}</td>
 							<td>${p.phone}</td>
 							<td>${p.email}</td>
 							<td><c:if test="${p.powerList == 1}">판매자</c:if> <c:if
 									test="${p.powerList == 2}">구매자</c:if></td>
+									<td> <input class="button" type="button" id="memberButton" value="보기" onclick="location.href='detailMember.do?memberId=${p.memberId}'" /></td>
 						</tr>
 					</c:forEach>
 				</table>

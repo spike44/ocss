@@ -28,4 +28,9 @@ public class NotifyService {
 		return result;
 		
 	}
+	public List<NotifyVO> selectNotify(String memberId) throws SQLException {
+		
+		List<NotifyVO> list = NotifyDAO.selectNotify(memberId);
+		return list;
+	}
 }

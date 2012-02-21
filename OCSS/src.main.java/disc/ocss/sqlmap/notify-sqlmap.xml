@@ -41,7 +41,11 @@
 		select * from notify
 		
 		</select>
+		<select id="selectNotify" parameterClass= "String" resultMap="resultsNotify">
 		
+		select * from notify where member_id = #memberId# 
+		
+		</select>
     <update id="updateNotify" parameterClass="notifyVO">
         
         update notify set

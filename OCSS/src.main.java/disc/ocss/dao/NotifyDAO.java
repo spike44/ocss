@@ -51,5 +51,13 @@ public class NotifyDAO {
 		return result;
 		
 	}
+	public static List<NotifyVO> selectNotify(String memberId) throws SQLException {
+		
+		List<NotifyVO> list = sqlMapper.queryForList("notify.selectNotify",memberId);
+		if(list.isEmpty()) {
+			return null;
+		}
+		return list;
+	}
 	
 }
