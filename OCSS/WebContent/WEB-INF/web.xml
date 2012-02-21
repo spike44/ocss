@@ -337,7 +337,6 @@
     <servlet-name>DeleteCarServlet</servlet-name>
     <url-pattern>/deletecar.do</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <description></description>
     <display-name>SelectDetailCarServlet</display-name>
@@ -347,5 +346,25 @@
   <servlet-mapping>
     <servlet-name>SelectDetailCarServlet</servlet-name>
     <url-pattern>/detailcar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PreInsertNotifyServlet</display-name>
+    <servlet-name>PreInsertNotifyServlet</servlet-name>
+    <servlet-class>disc.ocss.control.PreInsertNotifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PreInsertNotifyServlet</servlet-name>
+    <url-pattern>/preInsertNotify.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBadMemberServlet</display-name>
+    <servlet-name>DeleteBadMemberServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DeleteBadMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBadMemberServlet</servlet-name>
+    <url-pattern>/deleteBadMember.do</url-pattern>
   </servlet-mapping>
 </web-app>

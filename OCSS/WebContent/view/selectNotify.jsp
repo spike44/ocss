@@ -10,9 +10,8 @@
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css"
 	media="screen" />
 <script type="text/javascript">
-	function goselectcar() {
-		var a = $("#getcarid").val();
-		documet.manageProductForm.action=""
+	function goselectcar(carId) {
+		document.manageProductForm.action="detailcar.do?carId="+carId;
 		document.manageProductForm.submit();
 	}
 </script>
@@ -37,7 +36,7 @@
 							<td><div align="center">${p.notifyDate}</div></td>
 							<td><div align="center">${p.notifyTitle}</div></td>
 							<td><div align="center">${p.notifyContent}</div></td>
-                            <td><div align="center"><input type="button" name="carView" value="바로가기" onclick=goselectcar()/>
+                            <td><div align="center"><input type="button" name="carView" value="바로가기" onclick="goselectcar(${p.carId})" />
                             <input type="hidden" id="getcarid" name="getcarid" value="${p.carId}"></input></div></td>
 						</tr>
 						</c:forEach>

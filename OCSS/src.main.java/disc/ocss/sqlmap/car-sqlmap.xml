@@ -3,7 +3,7 @@
 <sqlMap namespace="car" >
     <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
     <typeAlias alias="carTypeVO" type="disc.ocss.model.CarTypeVO"/>
-    <typeAlias alias="carImageVO" type="disc.ocss.model.CarImagesVO"/>
+	 <typeAlias alias="carImageVO" type="disc.ocss.model.CarImagesVO"/>
     
     <resultMap class="carTypeVO" id="resultsBrand">
        <result property="brand" column="brand"/>
@@ -173,10 +173,18 @@
 		where car_id = #carId#
 	</delete>
 	
-	<select id="selectCarId" parameterClass="carVO" resultClass="carVO">
+	<select id="selectCarId" parameterClass="carVO" resultMap="resultsCar">
 	 	select * from car
 	 	where car_id = #carId#
 	</select>
+		<statement id="countCar" resultClass="Integer">
+		select count(*) from car
+	</statement>
+	
+	<statement id="selectPageCar" parameterClass="Integer" resultMap="resultsCar">
+		select * from (select row_number() over ( order by total_eval desc) as rnum, f.*
+		from car f) where rnum >= #num#-9 and rnum &lt;=#num#
+	</statement>	
 	
 	
 </sqlMap>

@@ -12,7 +12,7 @@
 	ArrayList<CarVO> list = new ArrayList<CarVO>();
 	list = CarDAO.selectCar(null);
 	Car c = new Car();
-	for(int i=0;i<120;i++){
+	for(int i=0;i<list.size();i++){
 		CarVO car = list.get(i);
 			c.setPriceEval(car);
 			c.setYearEval(car);

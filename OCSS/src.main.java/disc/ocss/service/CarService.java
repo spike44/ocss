@@ -56,12 +56,19 @@ public class CarService {
 	public CarTypeVO selectBT(String code){
 		CarVO carVO = new CarVO();
 		carVO.setCartypeCode(code);
-		return CarDAO.selectBT(carVO);
+		return CarDAO.selectBT(carVO).get(0);
 	}
 	
 	public CarVO selectCarId(int carId){
 		CarVO carVO = new CarVO();
 		carVO.setCarId(carId);
 		return CarDAO.selectCarId(carVO).get(0);
+	}
+	public int countCar(){
+		return CarDAO.countCar();
+	}
+	
+	public ArrayList<CarVO> selectPageCar(int num){
+		return CarDAO.selectPageCar(num);
 	}
 }

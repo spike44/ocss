@@ -3,8 +3,8 @@
     	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css"media="screen" />
-<link href="../css/styles.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/OCSS/css/nivo-slider.css" type="text/css"media="screen" />
+<link href="/OCSS/css/styles.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 .style1 {
@@ -25,7 +25,7 @@
 <script type="text/javascript">
 $(function(){
 	$("#img_navi a").click(function(){
-		$("#img_main img").before("<img src='"+$(this).attr("href")+"' alt='' width='500px' height='500px'>");
+		$("#img_main img").before("<img src='/OCSS/"+$(this).attr("href")+"' alt='' width='500px' height='500px'>");
 		$("#img_main img:last").fadeOut("fast",function(){
 			$(this).remove();
 		});
@@ -47,15 +47,15 @@ function deleteComm(commentId,carId){
 }
 
 function insertNotify(carId){
-	document.frm.action = "insertnotify.do?carId="+carId;
+	document.frm.action = "preInsertNotify.do?carId="+carId;
 	document.frm.submit();
 }
 		</script>
 	</head>
 	<body>
 	
-	<form name="frm" method="pose">
-		&nbsp;&nbsp;&nbsp;<img src="OCSS/images/detailCar.jpg" alt=""><br>
+	<form name="frm" method="post">
+		&nbsp;&nbsp;&nbsp;<img src="/OCSS/images/detailCar.jpg" alt=""><br>
 	<div class="text">
         &nbsp;&nbsp;&nbsp;&nbsp;제목 : <span class="style3">${detail.title }</span><br>
         <div align="right">OCSS평가 : <span class="style1">${detail.totalEval }점</span>           판매가 : <span class="style2">${detail.price }만원</span> </div>
@@ -64,7 +64,7 @@ function insertNotify(carId){
 			<div id="img_navi">
 				<ul>
 						<c:forEach var="i" items="${image }">
-							<li><a href="${i.images }"><img src="${i.images }"  width ="110px" height="80px"/></a></li>
+							<li><a href="${i.images }"><img src="/OCSS/${i.images }"  width ="110px" height="80px"/></a></li>
 						</c:forEach>
 				</ul>
 			</div>
@@ -134,7 +134,7 @@ function insertNotify(carId){
     <br/>
     <div align="center">
     <input name="" type="button" value="구매신청">&nbsp;
-    <input name="" type="button" value="신고하기">&nbsp;
+    <input name="" type="button" value="신고하기" onclick="insertNotify(${detail.carId})">&nbsp;
     <input name="" type="button" value="관심상품등록"><br/>
     </div>
     </form>

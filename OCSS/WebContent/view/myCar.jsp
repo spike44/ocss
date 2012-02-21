@@ -72,7 +72,7 @@
                             <td><div align="center">
                             	<c:forEach var="i" items="${imgList }">
                             		<c:if test="${i.carId == c.carId }">
-										<img src="${i.images }" width="100" height="100"/>                            		
+										<img src="/OCSS/${i.images }" width="100" height="100"/>                            		
                             		</c:if>
                             	</c:forEach>
                             </div></td>

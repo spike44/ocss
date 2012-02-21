@@ -116,4 +116,12 @@ public class MemberDAO {
 	public static int deleteMember(MemberVO memberVO) throws SQLException {
 		return sqlMapper.delete("member.delete", memberVO);
 	}
+
+	public static int deleteBadMember(String memberId) throws SQLException {
+		
+		return sqlMapper.delete("member.deleteBad",memberId);
+		
+		// TODO Auto-generated method stub
+	
+	}
 }

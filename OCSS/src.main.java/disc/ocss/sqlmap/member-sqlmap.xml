@@ -123,6 +123,9 @@
         delete from member where member_id=#memberId#
         
     </delete>
-    
+     <delete id="deleteBad" parameterClass="String">
+        delete from member where member_id=#memberId#
+        
+    </delete>
 </sqlMap>
 

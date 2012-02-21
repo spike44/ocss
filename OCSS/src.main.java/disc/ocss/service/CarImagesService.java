@@ -29,5 +29,9 @@ public class CarImagesService {
 	public void deleteImages(CarImagesVO img){
 		CarImagesDAO.deleteImages(img);
 	}
+	
+	public ArrayList<CarImagesVO> selectPageImage(int num){
+		return CarImagesDAO.selectPageImage(num);
+	}
 
 }

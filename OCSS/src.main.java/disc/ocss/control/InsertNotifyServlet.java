@@ -49,7 +49,7 @@ public class InsertNotifyServlet extends HttpServlet {
 		
 		NotifyVO notifyVO = new NotifyVO();
 		MemberVO  m = (MemberVO) session.getAttribute("login");
-		notifyVO.setCarId(124215); //차후 수정
+		notifyVO.setCarId(Integer.parseInt(request.getParameter("carId"))); //차후 수정
 		notifyVO.setMemberId(m.getMemberId());
 		notifyVO.setNotifyContent(request.getParameter("notifyContent"));
 		notifyVO.setNotifyTitle(request.getParameter("notifyTitle"));

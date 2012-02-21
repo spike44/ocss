@@ -18,10 +18,32 @@
 }
 -->
 </style>
+<script type="text/javascript">
+	function goselectcar(carId) {
+		document.detailMemberForm.action="detailcar.do?carId="+carId;
+		document.detailMemberForm.submit();
+	}
+	function docancel() {
+		location.href="ocssMainAdmin.page.tiles";
+	}
+	function dodelete(memberId) {
+		document.detailMemberForm.action="deleteBadMember.do?memberId="+memberId;
+		document.detailMemberForm.submit();
+	}
+	</script>
 </head>
 
 <body>
+
+
+<c:if test="${!empty resultDelete}">
+	<script type="text/javascript">
+	alert("'${resultDelete}'");
+	</script>
+<c:remove var="resultDelete"/>
+</c:if>
 	<div id="left">
+	<form id=detailMemberForm name="detailMemberForm" method="post" action="">
 		<h1>회원정보상세조회</h1>
 		<div class="text">
 			<br> <br /> <span class="style2">${targetMember.memberName}
@@ -81,14 +103,14 @@
 							<strong>상품보기</strong>
 						</div></td>
 				</tr>
-				<c:forEach var="p" items="${aa}">
+				<c:forEach var="p" items="${carList}">
 					<tr>
-						<td><div align="center"></div></td>
-						<td><div align="center"></div></td>
-						<td><div align="center"></div></td>
+						<td><div align="center">${p.title }</div></td>
+						<td><div align="center">${p.sellingStatus }</div></td>
+						<td><div align="center">${p.carDate }</div></td>
 						<td>
 							<div align="center">
-								<input class="button" type="button" name="viewCar" value="바로가기" />
+								<input class="button" type="button" name="viewCar" value="바로가기" onclick="goselectcar(${p.carId})" />
 							</div>
 						</td>
 					</tr>
@@ -134,10 +156,11 @@
 			</c:if>
 			<div align="right">
 				<br /> <br /> <input class="button" type="button" name="delete"
-					value="회원정보삭제" /> <input class="button" type="button"
-					name="cancle" value="취소" />
+					value="회원정보삭제" onclick="dodelete(${targetMember.memberId})"/> <input class="button" type="button"
+					name="cancle" value="취소" onclick="docancel()" />
 			</div>
 		</div>
+		</form>
 	</div>
 	<c:remove var="targetMember" />
 
