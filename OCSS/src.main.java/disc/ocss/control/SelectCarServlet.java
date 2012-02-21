@@ -6,21 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import disc.ocss.model.CarImagesVO;
-import disc.ocss.model.CarVO;
-import disc.ocss.service.CarImagesService;
-import disc.ocss.service.CarService;
-
 /**
- * Servlet implementation class DeleteCarServlet
+ * Servlet implementation class SelectCarServlet
  */
-public class DeleteCarServlet extends HttpServlet {
+public class SelectCarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCarServlet() {
+    public SelectCarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +25,6 @@ public class DeleteCarServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
 	}
 
 	/**
@@ -38,24 +32,6 @@ public class DeleteCarServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String[] parameterValues = request.getParameterValues("checkSellCar");
-		
-		for (String string : parameterValues) {
-			CarVO carVO = new CarVO();
-			carVO.setCarId(Integer.parseInt(string));
-			
-			CarImagesVO img = new CarImagesVO();
-			img.setCarId(Integer.parseInt(string));
-			
-			CarImagesService iService = new CarImagesService();
-			iService.deleteImages(img);
-			
-			CarService service = new CarService();
-			service.deleteCar(carVO);
-		}
-		
-		response.sendRedirect("mycar.do");
 	}
 
 }

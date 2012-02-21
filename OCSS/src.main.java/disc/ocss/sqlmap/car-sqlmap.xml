@@ -51,6 +51,13 @@
     	<result property="totalEval" column="total_eval"/>
     </resultMap>
     
+    <resultMap class="carTypeVO" id="resultsBT">
+    	 <result property="brand" column="brand"/>
+    	 <result property="carTypeCode" column="cartype_code"/>
+       <result property="carType" column="car_type"/>
+    </resultMap>
+    
+    
 	<statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">
 		select * from car_sort
 		where brand = #brand#
@@ -150,6 +157,11 @@
 		select max(car_id)+1 from car
 	</statement>
 	
+	<select id="selectBT" parameterClass="carVO" resultMap="resultsBT">
+		select * from car_sort
+		where cartype_code = #cartypeCode#
+	</select>
+	
 	<update id="updateSelling" parameterClass="carVO">
 		update car
 		set selling_status = #sellingStatus#
@@ -160,4 +172,11 @@
 		delete from car
 		where car_id = #carId#
 	</delete>
+	
+	<select id="selectCarId" parameterClass="carVO" resultClass="carVO">
+	 	select * from car
+	 	where car_id = #carId#
+	</select>
+	
+	
 </sqlMap>

@@ -99,16 +99,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>SelectCarServlet</display-name>
-    <servlet-name>SelectCarServlet</servlet-name>
-    <servlet-class>disc.ocss.control.SelectCarServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SelectCarServlet</servlet-name>
-    <url-pattern>/selectcar.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>InsertCommServlet</display-name>
     <servlet-name>InsertCommServlet</servlet-name>
     <servlet-class>disc.ocss.control.InsertCommServlet</servlet-class>
@@ -326,5 +316,25 @@
   <servlet-mapping>
     <servlet-name>DeleteCarServlet</servlet-name>
     <url-pattern>/deletecar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectCarServlet</display-name>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <url-pattern>/selectcar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectDetailCarServlet</display-name>
+    <servlet-name>SelectDetailCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectDetailCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectDetailCarServlet</servlet-name>
+    <url-pattern>/detailcar.do</url-pattern>
   </servlet-mapping>
 </web-app>

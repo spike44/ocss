@@ -154,4 +154,29 @@ public class CarDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public static CarTypeVO selectBT(CarVO carVO){
+		CarTypeVO result = new CarTypeVO();
+		
+		try {
+			result = (CarTypeVO) sqlMapper.queryForObject("car.selectBT", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public static ArrayList<CarVO> selectCarId(CarVO carVO){
+		ArrayList<CarVO> result = new ArrayList<CarVO>();
+		
+		try {
+			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.selectCarId", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }

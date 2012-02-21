@@ -72,5 +72,14 @@ public class CarImagesDAO {
 		}
 		return result;
 	}
+	
+	public static void deleteImages(CarImagesVO img){
+		try {
+			sqlMapper.delete("carImages.deleteImages",img);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

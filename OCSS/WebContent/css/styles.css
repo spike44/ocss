@@ -19,14 +19,16 @@ a:visited {
 
 *
 {
-border: 1;
+border: 0;
 margin: 0;
+botton: auto;
 }
 
 body
 {
 	color: #666666;
-	background: #000100 url(../images/bg.jpg);
+	 	background: #000100 url(../images/bg.jpg);
+	/* 	background-color:#FFFFFF; */
 	font-family: "맑은 고딕";
 	font-size: 16px;
 }
@@ -62,7 +64,7 @@ padding-top: 20px;
 	text-decoration: none;
 	text-transform: lowercase;
 	font-style: italic;
-	font-size: 36px;
+	font-size: 50px;
 	color: #FFFFFF;
 	font-weight: bold;
 }
@@ -75,9 +77,9 @@ padding-top: 20px;
 
 #buttons
 {
-width: 880px;
-height: 39px;
-margin: 0 auto;
+	width: 980px;
+	height: 39px;
+	margin: 0 auto;
 }
 
 #buttons ul {
@@ -100,7 +102,7 @@ margin: 0 auto;
 	text-decoration: none;
 	color: #7e8901;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 16px;
 	padding-top: 10px;
 	margin-right: 2px;
 }
@@ -110,20 +112,27 @@ margin: 0 auto;
     height: 29px;
 	background: url(../images/menuhover.png) no-repeat;
 }
-
-#content
+#content_wrapper
 {
 width: 980px;
-background: #ffffff;
 margin-bottom: 5px;
 padding-top: 20px;
 padding-bottom: 22px;
 }
+#content
+{
+	width: 980px;
+	padding-top: 20px;
+	margin-bottom: 5px;
+	padding-bottom: 22px;
+	background-color: #FFFFFF;
+}
 
 #left
 {
-width: 700px;
-background:url(../images/leftbor.jpg) repeat-y right;
+	width: 700px;
+	float: left;
+	background:url(../images/leftbor.jpg) repeat-y right;
 }
 
 .text{
@@ -286,11 +295,11 @@ font-weight: normal;
 
 #right
 {
-width: 252px;
-padding-right: 7px;
-padding-top: 7px;
-padding-bottom: 7px;
-float:right;
+	width: 252px;
+	padding-right: 7px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	float:right;
 }
 
 #right ul
@@ -362,10 +371,10 @@ font-family: Georgia, "Times New Roman", Times, serif;
 
 #footer
 {
-	height: 37px;
-	width: 444px;
+	height: auto;
+	width: auto;
 	font-size: 14px;
-	color: #FFFFFF;
+	color: #000000;
 	padding-top: 5px;
 	text-align: center;
 	clear:both;
@@ -373,7 +382,9 @@ font-family: Georgia, "Times New Roman", Times, serif;
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;
-
+	background-color: #CDCDD1;
+	border: 0;
+	background-image: url(../images/bg_top2.jpg);
 }
 
 #footer a
@@ -409,7 +420,7 @@ font-weight: bold;
 	position:relative;
     width: 963px;
     height: 257px;
-	background:url() no-repeat 50% 50%;
+
 }
 #slider img {
 	position:absolute;
@@ -465,4 +476,284 @@ a.nivo-prevNav {
 .nivo-caption a {
     color:#efe9d1;
     text-decoration:underline;
+}
+
+
+/********************/
+/****차량상세******/
+/********************/
+
+
+/* body{ */
+/* background-color:#FFFFFF */
+/* } */
+#img_container{
+	width:680px;;
+	margin:15px auto;
+
+}
+#img_navi{
+	width:300px;
+	float:left;
+
+}
+#img_navi ul{
+	height:310px;
+}
+#img_navi ul li{
+	list-style-type:none;
+	width:110px;
+	margin:5px;
+	float:left;
+
+}
+#img_navi ul li img{
+	border:3px solid white;
+}
+#img_main{
+	width:350px;;
+	float:left;
+
+}
+#img_main img{
+	position:absolute;
+	border:8px solid white;
+	width: 350px;
+	height: 290px;
+	background-color: #FFFFFF;
+
+}
+/*  ================테이블 CSS================= */
+table {
+
+	width: 100%;
+
+	margin:0;
+
+ 	padding:0;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	color: #1c5d79;
+
+
+
+}
+
+table, tr, th, td {
+
+	border-collapse: collapse;
+
+}
+
+caption {
+
+margin:0;
+
+ 	padding:0;
+
+	background: #f3f3f3;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	text-indent: 28px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: left;
+
+	letter-spacing: 3px;
+
+	border-top: dashed 1px #c2c2c2;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+
+
+/* HEAD */
+
+
+
+thead {
+
+	background-color: #FFFFFF;
+
+	border: none;
+
+}
+
+thead tr th {
+
+	height: 32px;
+
+	line-height: 32px;
+
+	text-align: center;
+
+	color: #1c5d79;
+
+	background-image: url(col_bg.gif);
+
+	background-repeat: repeat-x;
+
+	border-left:solid 1px #FF9900;
+
+	border-right:solid 1px #FF9900;
+
+	border-collapse: collapse;
+
+
+
+}
+
+
+
+/* BODY */
+
+
+
+tbody tr {
+
+	background: #dfedf3;
+
+	font-size: 13px;
+
+}
+
+tbody tr.odd {
+
+	background: #F0FFFF;
+
+}
+
+tbody tr:hover, tbody tr.odd:hover {
+
+	background: #ffffff;
+
+}
+
+tbody tr th, tbody tr td {
+
+	padding: 6px;
+
+	border: solid 1px #326e87;
+
+}
+
+tbody tr th {
+
+	background: #1c5d79;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 12px;
+
+	padding: 6px;
+
+	text-align: center;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	border-bottom: solid 1px white;
+
+}
+
+tbody tr th:hover {
+
+	background: #ffffff;
+
+
+
+}
+
+
+
+/* LINKS */
+
+
+
+table a {
+
+	color: #FF6600;
+
+	text-decoration: none;
+
+	font-size: 13px;
+
+	border-bottom: solid 1px white;
+
+}
+
+table a:hover {
+
+	color: #FF9900;
+
+	border-bottom: none;
+
+}
+
+
+
+/* FOOTER */
+
+
+
+tfoot {
+
+	background: #f3f3f3;
+
+	height: 24px;
+
+	line-height: 24px;
+
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+
+	font-size: 14px;
+
+	font-weight: bold;
+
+	color: #555d6d;
+
+	text-align: center;
+
+	letter-spacing: 3px;
+
+	border-top: solid 2px #326e87;
+
+	border-bottom: dashed 1px #c2c2c2;
+
+}
+
+tfoot tr th, tfoot tr td {
+
+	/*padding: .1em .6em;*/
+
+
+
+}
+
+tfoot tr th {
+
+	border-top: solid 1px #326e87;
+
+}
+
+tfoot tr td {
+
+	text-align: right;
+
+
+
 }

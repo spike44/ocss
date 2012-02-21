@@ -68,8 +68,6 @@
 <definition name="selectMyCar.page" extends = "ocssMainSeller.page">
 		<put-attribute name="left" value="/view/myCar.jsp" />
 	</definition>
-	  
-	</definition>	
  <!-- ========================= 차량등록동의 page ============================== -->
  <definition name="agreement.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/agreementCar.jsp" />
@@ -78,9 +76,24 @@
  <definition name="insertCar.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/insertCar.jsp" />
  </definition>
-  <definition name="selectCar.page" extends = "ocssMainSeller.page">
-  <put-attribute name="left" value="/view/select.jsp" />
- </definition>	 
->>>>>>> branch 'newbase' of https://github.com/spike44/ocss.git
+ 
+ <!--  =============================차량검색 page 구매자========================== -->
+  <definition name="selectCar.page" extends = "main.page">
+  <put-attribute name="left" value="/view/selectCar.jsp" />
+ </definition>
+  <!--  =============================차량검색 page 판매자========================== -->
+   <definition name="selectCarSeller.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/selectCar.jsp" />
+ </definition>
+ 
+ <!--  =============================차량상세보기 page 구매자========================== -->
+  <definition name="detailCar.page" extends = "main.page">
+  <put-attribute name="left" value="/view/detailCar.jsp" />
+ </definition>
+  <!--  =============================차량보기 page 판매자========================== -->
+   <definition name="detailCarSeller.page" extends = "ocssMainSeller.page">
+  <put-attribute name="left" value="/view/detailCar.jsp" />
+ </definition>				
+ 
 </tiles-definitions>
 

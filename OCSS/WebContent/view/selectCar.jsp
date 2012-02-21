@@ -154,11 +154,11 @@
 						<c:forEach var="image" items="${ carImageList}">
 									<c:if test="${image.carId == c.carId}">
 										<td>
-											<div align="center"><a href="detailCar.jsp?carId=${c.carId }"><img src="../${image.images }" width="100" height="100"></a></div>
+											<div align="center"><a href="detailcar.do?carId=${c.carId }"><img src="../${image.images }" width="100" height="100"></a></div>
 										</td>
 									</c:if>
 						</c:forEach>
-						<td><div align="center"><a href="detailCar.jsp?carId=${c.carId }">${c.title}</a></div></td>
+						<td><div align="center"><a href="detailcar.do?carId=${c.carId }">${c.title}</a></div></td>
 						<td><div align="center">${c.carYear}년</div></td>
 						<td><div align="center">${c.price }만원</div></td>
 						<td><div align="center">${c.carDate }</div></td>

@@ -39,5 +39,10 @@
 			#images#
 		)
 	</insert>
+	
+	<delete id="deleteImages" parameterClass="carImageVO">
+		delete from car_images
+		where car_id = #carId#
+	</delete>
 
 </sqlMap>

@@ -55,7 +55,7 @@ public class InsertCommServlet extends HttpServlet {
 		commService.insertComm(comm);
 		//comm.setMemberId(member.getMemberId());
 		
-		response.sendRedirect("detailCar.jsp?carId="+car.getCarId());
+		response.sendRedirect("detailcar.do?carId="+car.getCarId());
 		
 	}
 

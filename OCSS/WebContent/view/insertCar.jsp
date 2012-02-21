@@ -120,20 +120,59 @@
 	사고유무
 	<select name="isAcci" id="isAcci">
 		<option value="isAcci">사고유무</option>
+		<c:if test="${empty isAcci }">
 			<option value="1">무</option>
 			<option value="0">유</option>
+		</c:if>
+		<c:if test="${memory.isAcci==1 }">
+			<option value="1" selected="selected">무</option>
+			<option value="0">유</option>
+		</c:if>
+		<c:if test="${memory.isAcci==0 }">
+			<option value="1">무</option>
+			<option value="0" selected="selected">유</option>
+		</c:if>
+			
 	</select> 변속기
 	<select name="isAuto" id="isAuto">
 		<option value="isAuto">변속기</option>
+		<c:if test="${empty isAuto }">
 			<option value="1">오토</option>
 			<option value="0">수동</option>
+		</c:if>
+		<c:if test="${memory.isAuto==1 }">
+			<option value="1" selected="selected">오토</option>
+			<option value="0">수동</option>
+		</c:if>
+		<c:if test="${memory.isAuto==0 }">
+			<option value="1">오토</option>
+			<option value="0" selected="selected">수동</option>
+		</c:if>
+		
 
 	</select> 연료
 	<select name="fuel" id="fuel">
 		<option value="fuel">연료</option>
+		<c:if test="${empty fuel }">
 			<option value="1">휘발유</option>
 			<option value="2">경유</option>
 			<option value="3">LPG</option>
+		</c:if>
+		<c:if test="${memory.fuel==1 }">
+			<option value="1" selected="selected">휘발유</option>
+			<option value="2" >경유</option>
+			<option value="3">LPG</option>
+		</c:if>
+		<c:if test="${memory.fuel==2 }">
+			<option value="1">휘발유</option>
+			<option value="2" selected="selected" >경유</option>
+			<option value="3">LPG</option>
+		</c:if>
+			<c:if test="${memory.fuel==3 }">
+			<option value="1">휘발유</option>
+			<option value="2">경유</option>
+			<option value="3" selected="selected" >LPG</option>
+		</c:if>
 	</select>
 	<br />
 	<br />

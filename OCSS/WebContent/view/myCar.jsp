@@ -11,7 +11,7 @@
 	media="screen" />
 <script type="text/javascript">
 	function detailCar(carId) {
-		location.href="view/detailCar.jsp?carId="+carId;	
+		location.href="detailcar.do?carId="+carId;	
 	}
 	
 	function changeSelling(){

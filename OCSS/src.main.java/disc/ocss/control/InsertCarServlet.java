@@ -80,7 +80,8 @@ public class InsertCarServlet extends HttpServlet {
 		c.setTotalEval(carVO);
 		
 		serivce.insertCar(carVO);
-			
+		
+		System.out.println(id);
 		String file;
 		CarImagesVO img = new CarImagesVO();
 		CarImagesService iService = new CarImagesService();

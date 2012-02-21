@@ -34,7 +34,7 @@ public class MemberDAOTest extends TestCase {
 		m.setMemberId("spike44");
 		m.setPassword("cowboy");
 		
-		System.out.println(memberDAO.loginCheck(m).getMemberName());
+		//System.out.println(memberDAO.loginCheck(m).getMemberName());
 	}
 
 	public void testSearchId() throws SQLException {

@@ -52,4 +52,16 @@ public class CarService {
 	public void deleteCar(CarVO carVO){
 		CarDAO.deleteCar(carVO);
 	}
+	
+	public CarTypeVO selectBT(String code){
+		CarVO carVO = new CarVO();
+		carVO.setCartypeCode(code);
+		return CarDAO.selectBT(carVO);
+	}
+	
+	public CarVO selectCarId(int carId){
+		CarVO carVO = new CarVO();
+		carVO.setCarId(carId);
+		return CarDAO.selectCarId(carVO).get(0);
+	}
 }

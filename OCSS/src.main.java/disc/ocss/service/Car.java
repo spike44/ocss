@@ -32,5 +32,7 @@ public class Car {
 		int eval = (int)(pEval + yEval + aEval);
 		carVO.setTotalEval(eval);
 	}
+	
+	
 
 }

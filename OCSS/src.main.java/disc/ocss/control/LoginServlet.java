@@ -79,25 +79,6 @@ public class LoginServlet extends HttpServlet {
 
 			}
 
-			if(m2.getPowerList()==3) {
-				response.sendRedirect("ocssMainAdmin.page.tiles");
-			}
-			else if(m2.getPowerList()==2) {
-				response.sendRedirect("main.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==1) {
-				response.sendRedirect("ocssMainSeller.page.tiles");
-			}
-			else if(m2.getPowerList()==1 && m2.getApproval()==0) {
-				session.setAttribute("login", null);
-				
-				session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
-				response.sendRedirect("main.page.tiles");		
-							
-			}
-			else{
-			}
-
 		} catch (SQLException e) {
 	
 			// TODO Auto-generated catch block
