@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import disc.ocss.dao.CarImagesDAO;
 import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarVO;
 
 public class CarImagesService {
 	
@@ -19,6 +20,14 @@ public class CarImagesService {
 	
 	public void insertImages(CarImagesVO img){
 		CarImagesDAO.insertImages(img);		
+	}
+	
+	public ArrayList<CarImagesVO> selectMyCarImages(CarVO carVO){
+		return CarImagesDAO.selectMyCarImages(carVO);
+	}
+	
+	public void deleteImages(CarImagesVO img){
+		CarImagesDAO.deleteImages(img);
 	}
 
 }

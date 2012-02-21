@@ -1,27 +1,32 @@
 package disc.ocss.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import disc.ocss.model.CarImagesVO;
 import disc.ocss.model.CarVO;
-import disc.ocss.model.CommVO;
 import disc.ocss.model.MemberVO;
-import disc.ocss.service.CommService;
+import disc.ocss.service.Car;
+import disc.ocss.service.CarImagesService;
+import disc.ocss.service.CarService;
 
 /**
- * Servlet implementation class insertCommServlet
+ * Servlet implementation class SelectMyCarServlet
  */
-public class InsertCommServlet extends HttpServlet {
+public class SelectMyCarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertCommServlet() {
+    public SelectMyCarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +44,25 @@ public class InsertCommServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String contentDal = request.getParameter("comment");
+		CarService service = new CarService();
+		CarImagesService iService = new CarImagesService();
+		
 		HttpSession session = request.getSession();
-		CarVO car = (CarVO)session.getAttribute("detail");
-		MemberVO member = (MemberVO) session.getAttribute("login");
 		
+		MemberVO mem = (MemberVO)session.getAttribute("login");
 		
-		CommVO comm = new CommVO();
-		comm.setCarId(car.getCarId());
-		comm.setContentDal(contentDal);
-		comm.setMemberId(member.getMemberId());
+		CarVO carVO = new CarVO();
+		carVO.setMemberId(mem.getMemberId());
 		
-		CommService commService = new CommService();
-		commService.insertComm(comm);
-		//comm.setMemberId(member.getMemberId());
+	
+		ArrayList<CarVO> carList = service.selectMyCar(carVO);
+		ArrayList<CarImagesVO> imgList = iService.selectMyCarImages(carVO);
 		
-		response.sendRedirect("detailcar.do?carId="+car.getCarId());
+		session.setAttribute("carList", carList);
+		session.setAttribute("imgList", imgList);
+		response.setContentType("text/html;charset=UTF-8");
+	
+		response.sendRedirect("selectMyCar.page.tiles");
 		
 	}
 

@@ -62,29 +62,30 @@ public class InsertCarServlet extends HttpServlet {
 		
 		carVO.setSellingStatus("판매중");
 		
-		MemberVO m = new MemberVO();
-		m.setMemberId("m001");
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("login", m);
+//		MemberVO m = new MemberVO();
+//		m.setMemberId("m001");	
+//		session.setAttribute("login", m);
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		
 		carVO.setMemberId(login.getMemberId());
 		
 		CarService serivce = new CarService();
-		int id = serivce.nextCarId();
-		carVO.setCarId(id);
+		/*int id = serivce.nextCarId();
+		carVO.setCarId(id);*/
 		Car c = new Car();
 		c.setPriceEval(carVO);
 		c.setYearEval(carVO);
 		c.setTotalEval(carVO);
 		
 		serivce.insertCar(carVO);
-			
+		
+
 		String file;
 		CarImagesVO img = new CarImagesVO();
 		CarImagesService iService = new CarImagesService();
-		img.setCarId(id);
+		img.setCarId(serivce.nextCarId());
 		if(session.getAttribute("afilename")!=null){
 			
 			file = (String)session.getAttribute("afilename");

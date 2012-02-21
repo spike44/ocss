@@ -307,4 +307,54 @@
     <servlet-name>DetailMemberServlet</servlet-name>
     <url-pattern>/detailMember.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectMyCarServlet</display-name>
+    <servlet-name>SelectMyCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectMyCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectMyCarServlet</servlet-name>
+    <url-pattern>/mycar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCarSellingServlet</display-name>
+    <servlet-name>UpdateCarSellingServlet</servlet-name>
+    <servlet-class>disc.ocss.control.UpdateCarSellingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCarSellingServlet</servlet-name>
+    <url-pattern>/updateselling.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCarServlet</display-name>
+    <servlet-name>DeleteCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DeleteCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCarServlet</servlet-name>
+    <url-pattern>/deletecar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectCarServlet</display-name>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectCarServlet</servlet-name>
+    <url-pattern>/selectcar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectDetailCarServlet</display-name>
+    <servlet-name>SelectDetailCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectDetailCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectDetailCarServlet</servlet-name>
+    <url-pattern>/detailcar.do</url-pattern>
+  </servlet-mapping>
 </web-app>

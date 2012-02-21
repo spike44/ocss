@@ -5,23 +5,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import disc.ocss.model.CarVO;
-import disc.ocss.model.CommVO;
-import disc.ocss.model.MemberVO;
-import disc.ocss.service.CommService;
 
 /**
- * Servlet implementation class insertCommServlet
+ * Servlet implementation class SelectCarServlet
  */
-public class InsertCommServlet extends HttpServlet {
+public class SelectCarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertCommServlet() {
+    public SelectCarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +25,6 @@ public class InsertCommServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
 	}
 
 	/**
@@ -39,24 +32,6 @@ public class InsertCommServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String contentDal = request.getParameter("comment");
-		HttpSession session = request.getSession();
-		CarVO car = (CarVO)session.getAttribute("detail");
-		MemberVO member = (MemberVO) session.getAttribute("login");
-		
-		
-		CommVO comm = new CommVO();
-		comm.setCarId(car.getCarId());
-		comm.setContentDal(contentDal);
-		comm.setMemberId(member.getMemberId());
-		
-		CommService commService = new CommService();
-		commService.insertComm(comm);
-		//comm.setMemberId(member.getMemberId());
-		
-		response.sendRedirect("detailcar.do?carId="+car.getCarId());
-		
 	}
 
 }

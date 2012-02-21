@@ -51,15 +51,28 @@
     	<result property="totalEval" column="total_eval"/>
     </resultMap>
     
+    <resultMap class="carTypeVO" id="resultsBT">
+    	 <result property="brand" column="brand"/>
+    	 <result property="carTypeCode" column="cartype_code"/>
+       <result property="carType" column="car_type"/>
+    </resultMap>
+    
+    
 	<statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">
 		select * from car_sort
 		where brand = #brand#
 	</statement>
+	
 	<statement id="selectCarBrand" resultMap="resultsBrand">
 		select distinct brand from car_sort
 	</statement>
 	
-	<insert id="insertCar" parameterClass="carVO">
+	<statement id="selectMyCar" parameterClass="carVO" resultMap="resultsCar">
+		select * from car
+		where member_id = #memberId#
+	</statement>
+	
+	<insert id="insertCar" parameterClass="carVO">	
 		insert into car(
 			car_id,
 			member_id,
@@ -105,6 +118,11 @@
 		order by total_eval desc
 	</statement>
 	
+	<statement id="" resultMap="allCar">
+		select * from car
+		where car_id in (select car_id from car)
+						order by total_eval desc) and 
+	</statement>
 	
 	
 	<statement id="pAVG" parameterClass="carVO" resultClass="Integer">
@@ -136,8 +154,29 @@
 	</update>
 	
 	<statement id="nextCarId" resultClass="Integer">
-		select max(car_id)+1 from car
+		select max(car_id) from car
 	</statement>
-
+	
+	<select id="selectBT" parameterClass="carVO" resultMap="resultsBT">
+		select * from car_sort
+		where cartype_code = #cartypeCode#
+	</select>
+	
+	<update id="updateSelling" parameterClass="carVO">
+		update car
+		set selling_status = #sellingStatus#
+		where car_id = #carId#
+	</update>
+	
+	<delete id="deleteCar" parameterClass="carVO">
+		delete from car
+		where car_id = #carId#
+	</delete>
+	
+	<select id="selectCarId" parameterClass="carVO" resultClass="carVO">
+	 	select * from car
+	 	where car_id = #carId#
+	</select>
+	
 	
 </sqlMap>

@@ -2,7 +2,9 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="carImages" >
 	 <typeAlias alias="carImageVO" type="disc.ocss.model.CarImagesVO"/>
-	 
+	  <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
+	  
+	  
 	 <resultMap class="carImageVO" id="resultsImage">
     	<result property="imageId" column="image_id"/>
     	<result property="carId" column="car_id"/>
@@ -20,6 +22,12 @@
 		where image_id in (select min(image_id) from car_images group by car_id)
 	</statement>
 	
+	<statement id="selectMyCarImages" parameterClass="carVO" resultMap="resultsImage">
+		select * from car_images where image_id in
+		(select min(image_id) from car_images where car_id in
+		(select car_id from car where member_id=#memberId# ) group by car_id)
+	</statement>
+	
 	<insert id="insertImages" parameterClass="carImageVO">
 		insert into car_images(
 			image_id,
@@ -31,5 +39,10 @@
 			#images#
 		)
 	</insert>
+	
+	<delete id="deleteImages" parameterClass="carImageVO">
+		delete from car_images
+		where car_id = #carId#
+	</delete>
 
 </sqlMap>

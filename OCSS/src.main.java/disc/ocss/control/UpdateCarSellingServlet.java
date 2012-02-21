@@ -5,23 +5,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import disc.ocss.model.CarVO;
-import disc.ocss.model.CommVO;
-import disc.ocss.model.MemberVO;
-import disc.ocss.service.CommService;
+import disc.ocss.service.CarService;
 
 /**
- * Servlet implementation class insertCommServlet
+ * Servlet implementation class UpdateCarSellingServlet
  */
-public class InsertCommServlet extends HttpServlet {
+public class UpdateCarSellingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertCommServlet() {
+    public UpdateCarSellingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +36,20 @@ public class InsertCommServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("UTF-8");
-		String contentDal = request.getParameter("comment");
-		HttpSession session = request.getSession();
-		CarVO car = (CarVO)session.getAttribute("detail");
-		MemberVO member = (MemberVO) session.getAttribute("login");
+		String[] parameterValues = request.getParameterValues("checkSellCar");
 		
+		for (String string : parameterValues) {
+			CarVO carVO = new CarVO();
+			carVO.setCarId(Integer.parseInt(string));
+			carVO.setSellingStatus("판매완료");
+			
+			CarService service = new CarService();
+			service.updateSelling(carVO);
+		}
 		
-		CommVO comm = new CommVO();
-		comm.setCarId(car.getCarId());
-		comm.setContentDal(contentDal);
-		comm.setMemberId(member.getMemberId());
-		
-		CommService commService = new CommService();
-		commService.insertComm(comm);
-		//comm.setMemberId(member.getMemberId());
-		
-		response.sendRedirect("detailcar.do?carId="+car.getCarId());
+		response.sendRedirect("mycar.do");
 		
 	}
 
