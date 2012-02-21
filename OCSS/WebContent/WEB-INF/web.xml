@@ -337,16 +337,7 @@
     <servlet-name>DeleteCarServlet</servlet-name>
     <url-pattern>/deletecar.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>SelectCarServlet</display-name>
-    <servlet-name>SelectCarServlet</servlet-name>
-    <servlet-class>disc.ocss.control.SelectCarServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SelectCarServlet</servlet-name>
-    <url-pattern>/selectcar.do</url-pattern>
-  </servlet-mapping>
+ 
   <servlet>
     <description></description>
     <display-name>SelectDetailCarServlet</display-name>
