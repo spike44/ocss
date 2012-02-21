@@ -72,7 +72,6 @@ public class CarDAO {
 	}
 	
 	public static int pAVG(CarVO carVO){
-		System.out.println(carVO.getCarId());
 		int result = 0;
 		try {
 			result = (Integer) sqlMapper.queryForObject("car.pAVG",carVO);
@@ -123,5 +122,36 @@ public class CarDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public static ArrayList<CarVO> selectMyCar(CarVO carVO){
+		ArrayList<CarVO> result = new ArrayList<CarVO>();
+		
+		try {
+			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.selectMyCar", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public static void updateSelling(CarVO carVO){
+		try {
+			sqlMapper.update("car.updateSelling", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void deleteCar(CarVO carVO){
+		try {
+			sqlMapper.delete("car.deleteCar", carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

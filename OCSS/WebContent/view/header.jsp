@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+</script>
 </head>
 <body>
 	<div id="header">
@@ -18,14 +25,6 @@
 					<img src="images/header4.jpg" alt="" />
 				</div>
 			</div>
-
-			<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
-			<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
-<script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-</script>
 		</div>
 	</div>
 </body>

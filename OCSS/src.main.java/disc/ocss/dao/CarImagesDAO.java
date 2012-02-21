@@ -10,6 +10,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarVO;
 
 public class CarImagesDAO {
 	
@@ -58,6 +59,18 @@ public class CarImagesDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static ArrayList<CarImagesVO> selectMyCarImages(CarVO carVO){
+		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
+		
+		try {
+			result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("carImages.selectMyCarImages",carVO);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

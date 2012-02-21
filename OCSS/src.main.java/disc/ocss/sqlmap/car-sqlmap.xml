@@ -55,11 +55,17 @@
 		select * from car_sort
 		where brand = #brand#
 	</statement>
+	
 	<statement id="selectCarBrand" resultMap="resultsBrand">
 		select distinct brand from car_sort
 	</statement>
 	
-	<insert id="insertCar" parameterClass="carVO">
+	<statement id="selectMyCar" parameterClass="carVO" resultMap="resultsCar">
+		select * from car
+		where member_id = #memberId#
+	</statement>
+	
+	<insert id="insertCar" parameterClass="carVO">	
 		insert into car(
 			car_id,
 			member_id,
@@ -105,6 +111,11 @@
 		order by total_eval desc
 	</statement>
 	
+	<statement id="" resultMap="allCar">
+		select * from car
+		where car_id in (select car_id from car)
+						order by total_eval desc) and 
+	</statement>
 	
 	
 	<statement id="pAVG" parameterClass="carVO" resultClass="Integer">
@@ -138,6 +149,15 @@
 	<statement id="nextCarId" resultClass="Integer">
 		select max(car_id)+1 from car
 	</statement>
-
 	
+	<update id="updateSelling" parameterClass="carVO">
+		update car
+		set selling_status = #sellingStatus#
+		where car_id = #carId#
+	</update>
+	
+	<delete id="deleteCar" parameterClass="carVO">
+		delete from car
+		where car_id = #carId#
+	</delete>
 </sqlMap>

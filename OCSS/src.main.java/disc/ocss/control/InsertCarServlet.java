@@ -62,11 +62,11 @@ public class InsertCarServlet extends HttpServlet {
 		
 		carVO.setSellingStatus("판매중");
 		
-		MemberVO m = new MemberVO();
-		m.setMemberId("m001");
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("login", m);
+//		MemberVO m = new MemberVO();
+//		m.setMemberId("m001");	
+//		session.setAttribute("login", m);
 		MemberVO login = (MemberVO) session.getAttribute("login");
 		
 		carVO.setMemberId(login.getMemberId());

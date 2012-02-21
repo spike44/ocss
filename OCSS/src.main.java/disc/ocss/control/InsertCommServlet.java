@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import disc.ocss.model.CarVO;
 import disc.ocss.model.CommVO;
+import disc.ocss.model.MemberVO;
 import disc.ocss.service.CommService;
 
 /**
@@ -42,13 +43,13 @@ public class InsertCommServlet extends HttpServlet {
 		String contentDal = request.getParameter("comment");
 		HttpSession session = request.getSession();
 		CarVO car = (CarVO)session.getAttribute("detail");
-		//MemberVO member = (MemberVO) session.getAttribute("login");
+		MemberVO member = (MemberVO) session.getAttribute("login");
 		
 		
 		CommVO comm = new CommVO();
 		comm.setCarId(car.getCarId());
 		comm.setContentDal(contentDal);
-		comm.setMemberId("m001");
+		comm.setMemberId(member.getMemberId());
 		
 		CommService commService = new CommService();
 		commService.insertComm(comm);

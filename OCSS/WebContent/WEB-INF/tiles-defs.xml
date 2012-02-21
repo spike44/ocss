@@ -64,5 +64,10 @@
 		<put-attribute name="left" value="/view/left.jsp" />
 		<put-attribute name="footer" value="/view/footer.jsp" />
 	</definition>	 
+<!--  ======================차량관리 page ================================ -->	
+<definition name="selectMyCar.page" extends = "ocssMainSeller.page">
+		<put-attribute name="left" value="/view/myCar.jsp" />
+	</definition>
+	  
 </tiles-definitions>
 

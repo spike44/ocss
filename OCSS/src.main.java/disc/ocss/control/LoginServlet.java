@@ -48,13 +48,12 @@ public class LoginServlet extends HttpServlet {
 		m.setPassword(request.getParameter("password"));
 		try {
 			MemberVO m2 = memberService.loginCheck(m);
+			
 			if(m2 != null) {
-				session.setAttribute("login", m2);
-						
+				session.setAttribute("login", m2);			
 			}
 			else {
 				session.setAttribute("loginfailed", "로그인 실패");
-						
 			}
 			if(m2.getPowerList()==3) {
 				response.sendRedirect("ocssMainAdmin.page.tiles");
@@ -71,6 +70,8 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("commit", m2.getMemberId()+"님은 아직 가입 대기중입니다");
 				response.sendRedirect("main.page.tiles");		
 							
+			}
+			else{
 			}
 		} catch (SQLException e) {
 	

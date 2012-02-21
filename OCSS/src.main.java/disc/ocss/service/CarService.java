@@ -40,4 +40,16 @@ public class CarService {
 	public int nextCarId(){
 		return CarDAO.nextCarId();
 	}
+	
+	public ArrayList<CarVO> selectMyCar(CarVO carVO){
+		return CarDAO.selectMyCar(carVO);
+	}
+	
+	public void updateSelling(CarVO carVO){
+		CarDAO.updateSelling(carVO);
+	}
+	
+	public void deleteCar(CarVO carVO){
+		CarDAO.deleteCar(carVO);
+	}
 }

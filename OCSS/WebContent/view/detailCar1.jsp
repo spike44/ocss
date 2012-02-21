@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/validate.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -18,7 +17,6 @@ function insertComm(){
 
 function deleteComm(commentId,carId){
 	yes = confirm("댓글을 삭제하시겠습니까?");
-	"C:/Users/yuni/Desktop/test.java"
 	if(yes){
 		document.frm.action = "deletecomm.do?commentId="+commentId+"&carId="+carId;
 		document.frm.submit();
@@ -51,11 +49,6 @@ function insertNotify(carId){
 		
 		CommService comService = new CommService();
 		session.setAttribute("comm", comService.selectComm(carId));
-		
-		MemberVO member = new MemberVO();
-		member.setMemberId("m001");
-		System.out.println(member.getMemberId());
-		session.setAttribute("login", member);
 	%>
 	<table>
 		<tr>

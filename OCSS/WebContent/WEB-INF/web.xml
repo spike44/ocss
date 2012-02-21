@@ -287,8 +287,7 @@
     <servlet-name>InsertNotifyServlet</servlet-name>
     <url-pattern>/insertNotify.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>InsertCarServlet</display-name>
     <servlet-name>InsertCarServlet</servlet-name>
@@ -297,5 +296,35 @@
   <servlet-mapping>
     <servlet-name>InsertCarServlet</servlet-name>
     <url-pattern>/insertcar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectMyCarServlet</display-name>
+    <servlet-name>SelectMyCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SelectMyCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectMyCarServlet</servlet-name>
+    <url-pattern>/mycar.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCarSellingServlet</display-name>
+    <servlet-name>UpdateCarSellingServlet</servlet-name>
+    <servlet-class>disc.ocss.control.UpdateCarSellingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCarSellingServlet</servlet-name>
+    <url-pattern>/updateselling.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCarServlet</display-name>
+    <servlet-name>DeleteCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.DeleteCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCarServlet</servlet-name>
+    <url-pattern>/deletecar.do</url-pattern>
   </servlet-mapping>
 </web-app>
