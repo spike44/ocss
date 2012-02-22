@@ -81,5 +81,18 @@ public class CarImagesDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public static ArrayList<CarImagesVO> selectPageImage(int num){
+		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
+		
+		try {
+			result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("carImages.selectPageImage", num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 }

@@ -45,13 +45,14 @@ public class SelectDetailCarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		CarService carService = new CarService();
+		CarImagesService iService = new CarImagesService();
+		
 		HttpSession session = request.getSession();
 		
 		ArrayList<CarVO> carList = (ArrayList<CarVO>) session.getAttribute("carList");
 		int carId = Integer.parseInt(request.getParameter("carId"));
-		CarVO detail = new CarVO();
-
-		CarService carService = new CarService();
+		CarVO detail = new CarVO();		
 		
 		if(carList == null){
 			detail = carService.selectCarId(carId);

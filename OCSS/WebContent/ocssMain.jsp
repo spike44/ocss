@@ -29,7 +29,7 @@
 			</div>
 			<div id="buttons">
 				<ul>
-					<li class="first"><a href="selectCar.page.tiles" title="">차량검색</a></li>
+					<li class="first"><a href="selectcar.do" title="">차량검색</a></li>
 					<li><a href="#" title="">차량등록</a></li>
 					<li><a href="#" title="">차량비교</a></li>
 					<li><a href="#" title="">회사소개</a></li>
@@ -44,7 +44,7 @@
 			<!-- content begins -->
 
 			<!-- content 로그인 -->
-			<div id="content">
+			<div id="right">
 				<tiles:insertAttribute name="content" />
 			</div>
 			<!-- left 내용 -->

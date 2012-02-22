@@ -173,10 +173,71 @@
 		where car_id = #carId#
 	</delete>
 	
-	<select id="selectCarId" parameterClass="carVO" resultClass="carVO">
+	<select id="selectCarId" parameterClass="carVO" resultMap="resultsCar">
 	 	select * from car
 	 	where car_id = #carId#
 	</select>
 	
+	<statement id="countCar" resultClass="Integer">
+		select count(*) from car
+	</statement>
+	
+	<statement id="selectPageCar" parameterClass="Integer" resultMap="resultsCar">
+		select * from (select row_number() over ( order by total_eval desc) as rnum, f.*
+		from car f) where rnum >= #num#-9 and rnum &lt;=#num#
+	</statement>
+	
+	
+	
+	
+	
+	
+	
+	 <typeAlias alias="carSearchVO" type="disc.ocss.model.CarSearchVO"/>
+	<statement id="searchCar" parameterClass="carSearchVO" resultMap="resultsCar">
+		select * from car
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="-1" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="-1" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="-1" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+	</statement>
+	
+	
+	
+	
+	
+	
+	
+		
 	
 </sqlMap>

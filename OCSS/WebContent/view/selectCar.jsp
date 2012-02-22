@@ -34,91 +34,57 @@
 
 			<center>
 				<p align="justify"><br/> 브랜드 :
-					<c:if test="${empty brand }">
-			<%
-				CarService service = new CarService();
-					session.setAttribute("brand", service.selectCarBrand());
-			%>
-			</c:if>
+		
 				<select name="first_category" id="first" onchange="getSecondCategory()" size=6>
-									<c:forEach var="b" items="${brand }">
-										<c:if test="${sel==b }">
-											<option value="${b }" selected="selected">${b }</option>
-										</c:if>
-										<c:if test="${sel!=b }">
-											<option value="${b }">${b }</option>
-										</c:if>
-									</c:forEach>
-							</select> <c:remove var="sel" /> 
+					<c:forEach var="b" items="${brand }">
+						<c:if test="${sel==b }">
+							<option value="${b }" selected="selected">${b }</option>
+						</c:if>
+						
+						<c:if test="${sel!=b }">
+							<option value="${b }">${b }</option>
+						</c:if>
+					</c:forEach>
+				</select>
+				<c:remove var="sel" /> 
 							
-							&nbsp;&nbsp;&nbsp;차종 : <select name="second_category" id="second" onChange="typeCategory()" size=6>
-									<c:forEach var="t" items="${type }">
-										<option value="${t.carTypeCode }">${t.carType}</option>
-									</c:forEach>
-									<c:remove var="type" />
-							</select>
-							&nbsp;&nbsp;&nbsp;사고유무 :&nbsp; <select name="isAcci">
+				&nbsp;&nbsp;&nbsp;
+				차종 : <select name="second_category" id="second" onChange="typeCategory()" size=6>
+						<c:forEach var="t" items="${type }">
+							<option value="${t.carTypeCode }">${t.carType}</option>
+						</c:forEach>
+						<c:remove var="type" />
+					</select>
+				&nbsp;&nbsp;&nbsp;사고유무 :&nbsp;
+				<select name="isAcci">
 						<option>사고유무</option>
 						<option>무</option>
 						<option>유</option>
-					</select> 변속기 : <select name="isAoto">
+				</select>
+				변속기 : <select name="isAoto">
 						<option>변속기</option>
 						<option>오토</option>
 						<option>수동</option>
 					</select>
 				</p>
 				<p align="justify">
-					연료 <select name="fual">
+					연료 : <select name="fual">
 						<option>휘발유</option>
 						<option>경유</option>
 						<option>LPG</option>
-					</select>&nbsp; 가격 : <input name="price" type="text" size="5" />만원
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;연식 : <input name="carYears1"
-						type="text" size="5" />년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;색상 : <input
-						name="color" type="text" size="10" /><br />
-						지역 : <input name="locationList" type="text"
-						size="10" /> &nbsp;<br />
+					 </select>&nbsp;
+					 가격 : <input name="price" type="text" size="5" />만원
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					연식 : <input name="carYears" type="text" size="5" />년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					색상 : <input name="color" type="text" size="10" /><br />
+					지역 : <input name="locationList" type="text" size="10" /> &nbsp;<br />
 			    <br />
 			    </div>
 			    <center>
 				<input class="button" type="button"name="serchCar" value="차량정보조회" align="center"/><br /> <br />
 			    </center>
-			    <c:if test="${empty carList }">
-					<%!int pageCount = 0;%>
-					<%
-							CarService service = new CarService();
-							CarImagesService iService = new CarImagesService();
-							ArrayList<CarVO> carList = service.selectCar(null);
-
-							pageCount = carList.size() / 20;
-							System.out.println(pageCount);
-							if (carList.size() % 20 > 0)
-								pageCount++;
-
-							ArrayList<CarImagesVO> carImageList = iService.selectMainImages();
-
-							session.setAttribute("carList", carList);
-							session.setAttribute("carImageList", carImageList);
-					%>
-				</c:if>
-
-				<%
-					System.out.println(pageCount);
-					int num;
-					if (request.getParameter("page") == null) {
-						num = 0;
-					}
-					else {
-						num = Integer.parseInt(request.getParameter("page")) * 10;
-					}
-					ArrayList<CarVO> pageList = new ArrayList<CarVO>();
-					ArrayList<CarVO> carList = (ArrayList<CarVO>) session.getAttribute("carList");
-					for (int i = num; i < num + 20; i++) {
-						pageList.add(carList.get(i));
-					}
-					session.setAttribute("pageList", pageList);
-				%>
-			    <div class = "text">
+			    
+			     <div class = "text">
 				<table width="100%" border="1" cellpadding="2">
 					<tr>
 						<td width="8%"><div align="center">
@@ -143,18 +109,17 @@
 								<strong>지역</strong>
 							</div></td>
 					</tr>
-					<c:forEach var="c" items="${pageList }">
-				<tr>
+					<c:forEach var="c" items="${carList }">
+					<tr>
 				<td><div align="center">
-									<label> <input type="checkbox" name="keepCar"
-										id="keepCar" />
+									<label> <input type="checkbox" name="keepCar" id="keepCar" value="${c.carId }"/>
 									</label>
 
 							</div></td>
 						<c:forEach var="image" items="${ carImageList}">
 									<c:if test="${image.carId == c.carId}">
 										<td>
-											<div align="center"><a href="detailcar.do?carId=${c.carId }"><img src="../${image.images }" width="100" height="100"></a></div>
+											<div align="center"><a href="detailcar.do?carId=${c.carId }"><img src="/OCSS/${image.images }" width="100" height="100"></a></div>
 										</td>
 									</c:if>
 						</c:forEach>
@@ -164,23 +129,21 @@
 						<td><div align="center">${c.carDate }</div></td>
 						<td><div align="center">${c.locationList }</div></td>
 					</tr>
-				
-			</c:forEach>
-				</table>
+					</c:forEach>
+					</table>
 
 				<div align="center"><br />
-				<%for(int j=1;j<=pageCount;j++){%>
-					<a href="selectCar.jsp?page=<%=j %>">&lt;<%=j %>&gt;</a>
-				<%} %>
+				<c:forEach begin="1" end="${pageSize }" step="1" var="p">
+					<a href="selectcar.do?change=${p*10 }">&lt;${p }&gt;</a>
+				</c:forEach>
 				<br />
 				  <p/>
 				  
 				  <br /> 
-				  <input class="button" type="button" name="keepingCar"
-					value="차량비교 담기" /> 
+				  <input class="button" type="button" name="keepingCar" value="차량비교 담기" /> 
 				  <br /> 
 				  <br />
-				          </div>
+				  </div>
 	    </div>
 	</div>
 </form>

@@ -1,6 +1,9 @@
 package disc.ocss.test;
 
+import java.util.ArrayList;
+
 import disc.ocss.dao.CarDAO;
+import disc.ocss.model.CarSearchVO;
 import disc.ocss.model.CarTypeVO;
 import disc.ocss.model.CarVO;
 import junit.framework.TestCase;
@@ -73,6 +76,37 @@ public class CarDAOTest extends TestCase {
 
 	public void testSelectCarId() {
 		fail("Not yet implemented");
+	}
+	
+	/*public void test(){
+		ArrayList<CarVO> selectPageCar = CarDAO.selectPageCar(10);
+		
+		for (CarVO carVO : selectPageCar) {
+			System.out.println(carVO.getCarId());
+		}
+	}*/
+	public void test2(){
+		
+		System.out.println(CarDAO.countCar());
+	}
+	
+	public void test3(){
+		CarSearchVO search = new CarSearchVO();
+		search.setMinPrice(2000);
+		//search.setMaxPrice(0);
+		search.setMaxPrice(3000);
+		search.setCarYear(2011);
+		search.setIsAcci(-1);
+		search.setFuel(-1);
+		//search.setColor("흰색");
+		search.setBrand("h");
+		
+		ArrayList<CarVO> searchCar = CarDAO.searchCar(search);
+		
+		for (CarVO carVO : searchCar) {
+			System.out.println(carVO.getCarId()+" : "+carVO.getCartypeCode());
+		}
+		
 	}
 
 }

@@ -2,8 +2,12 @@ package disc.ocss.model;
 
 import java.io.Serializable;
 
-public class CarImagesVO{
+public class CarImagesVO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int imageId;
 	private int carId;
 	private String images;
