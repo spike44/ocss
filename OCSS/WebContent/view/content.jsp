@@ -135,15 +135,11 @@
 	</c:if>
 	<br/>
 	<center>
-		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
-			width="224" height="200" title="flash">
-			<param name="movie" value="images/MINI.swf">
-			<param name="quality" value="high">
-			<embed src="images/MINI.swf" quality="high"
-				pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
-				type="application/x-shockwave-flash" width="224" height="200"></embed>
-		</object>
-		</center>
+	  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="125" height="292">
+        <param name="movie" value="images/sungmin.swf">
+        <param name="quality" value="high">
+        <embed src="images/sungmin.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="125" height="292"></embed>
+      </object>
+    </center>
 </body>
 </html>
