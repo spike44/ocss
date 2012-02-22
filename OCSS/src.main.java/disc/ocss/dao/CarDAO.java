@@ -192,11 +192,11 @@ public class CarDAO {
 		return result;
 	}
 	
-	public static ArrayList<CarVO> selectPageCar(int num){
+	public static ArrayList<CarVO> selectPageCar(int carId){
 		ArrayList<CarVO> result = new ArrayList<CarVO>();
 		
 		try {
-			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.selectPageCar", num);
+			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.selectPageCar", carId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

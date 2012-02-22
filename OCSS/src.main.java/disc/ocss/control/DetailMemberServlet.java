@@ -15,10 +15,12 @@ import disc.ocss.model.CarImagesVO;
 import disc.ocss.model.CarVO;
 import disc.ocss.model.MemberVO;
 import disc.ocss.model.NotifyVO;
+import disc.ocss.model.OrdersVO;
 import disc.ocss.service.CarImagesService;
 import disc.ocss.service.CarService;
 import disc.ocss.service.MemberService;
 import disc.ocss.service.NotifyService;
+import disc.ocss.service.OrdersService;
 
 /**
  * Servlet implementation class DetailMemberServlet
@@ -56,7 +58,7 @@ public class DetailMemberServlet extends HttpServlet {
 		MemberService memberService = new MemberService();
 		NotifyService notifyService = new NotifyService();
 		CarService service = new CarService();
-			
+		OrdersService ordersService = new OrdersService();	
 		
 		
 		try {
@@ -67,7 +69,7 @@ public class DetailMemberServlet extends HttpServlet {
 			session.setAttribute("targetMember", member);
 			List<NotifyVO> notifyList = notifyService.selectNotify(memberId);
 			ArrayList<CarVO> carList = service.selectMyCar(carVO);
-			
+			List<OrdersVO> orderList = ordersService.selectBuy(memberId);
 			if(carList != null) {
 				session.setAttribute("carList", carList);
 			}
@@ -81,8 +83,14 @@ public class DetailMemberServlet extends HttpServlet {
 			else {
 				session.setAttribute("resultNotify", "신고한 상품이 없습니다.");
 			}
-			 response.sendRedirect("detailMember.page.tiles");
 			
+			if(orderList != null) {
+				session.setAttribute("orderList", orderList);
+			}
+			else {
+				session.setAttribute("resultOrder", "주문중인 상품이 없습니다.");
+			}
+			 response.sendRedirect("detailMember.page.tiles");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

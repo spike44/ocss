@@ -68,6 +68,21 @@ public class SelectDetailCarServlet extends HttpServlet {
 
 		CarImagesService service = new CarImagesService();
 		ArrayList<CarImagesVO> img = service.selectImages(carId);
+		if(img == null || img.isEmpty() || img.size()<=0){
+			for(int i=0;i<6;i++){
+				CarImagesVO e = new CarImagesVO();
+				e.setImages("images/noPic.jpg");
+				img.add(e);
+			}
+		}
+		else if(img.size()<6){
+			for(int i=img.size()-1;i<6;i++){
+				CarImagesVO e = new CarImagesVO();
+				e.setImages("images/noPic.jpg");
+				img.add(e);
+			}
+		}
+		
 		session.setAttribute("image", img);
 		session.setAttribute("main", img.get(0));
 		session.setAttribute("detail", detail);

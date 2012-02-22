@@ -29,22 +29,20 @@ public class MemberService {
 	}
 
 	public List<MemberVO> selectmemberid(String s) throws SQLException {
-		List<MemberVO> list =  MemberDAO.selectmemberid(s);
+		List<MemberVO> list = MemberDAO.selectmemberid(s);
 		return list;
 	}
-	
+
 	public List<MemberVO> selectmemberphone(String s) throws SQLException {
-		List<MemberVO> list =  MemberDAO.selectmemberphone(s);
+		List<MemberVO> list = MemberDAO.selectmemberphone(s);
 		return list;
 	}
-	
+
 	public List<MemberVO> selectmemberemail(String s) throws SQLException {
-		List<MemberVO> list =  MemberDAO.selectmemberemail(s);
+		List<MemberVO> list = MemberDAO.selectmemberemail(s);
 		return list;
 	}
-	
-	
-	
+
 	public MemberVO loginCheck(MemberVO m) throws SQLException {
 		if (MemberDAO.loginCheck(m).isEmpty()) {
 			return null;
@@ -87,11 +85,11 @@ public class MemberService {
 	public int deleteBadMember(String memberId) throws SQLException {
 		return MemberDAO.deleteBadMember(memberId);
 	}
-	
+
 	public MemberVO selectTargetMember(String memberId) throws SQLException {
-		
+
 		return MemberDAO.selectmemberid(memberId).get(0);
-	
+
 	}
 
 }

@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import disc.ocss.model.CommVO;
 import disc.ocss.service.CommService;
@@ -37,6 +38,7 @@ public class DeleteCommServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		int commentId = Integer.parseInt(request.getParameter("commentId"));
 		int carId = Integer.parseInt(request.getParameter("carId"));
 		CommVO comm = new CommVO();
@@ -45,7 +47,9 @@ public class DeleteCommServlet extends HttpServlet {
 		CommService service = new CommService();
 		service.deleteComm(comm);
 		
-		response.sendRedirect("detailCar.jsp?carId="+carId);
+		session.setAttribute("comm", service.selectComm(carId));
+		
+		response.sendRedirect("detailCarSeller.page.tiles");
 		
 	}
 

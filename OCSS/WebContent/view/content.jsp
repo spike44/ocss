@@ -20,8 +20,16 @@
 	function gosearchidpw() {
 		location.href="searchIdPw.page.tiles";
 	}
-	function goedit() {
-		location.href="updateMember.page.tiles";
+	function goedit(powerList) {
+		if(powerList==1) {
+			location.href="updateMemberSeller.page.tiles";	
+		}
+		else if(powerList==2) {
+			location.href="updateMember.page.tiles";	
+		}
+		else if(powerList==3) {
+			location.href="updateMemberAdmin.page.tiles";	
+		}	
 
 	}
 	function dologout() {
@@ -107,7 +115,7 @@
 	<c:if test="${!empty login}">
 
 		<div id="categories">
-			<form name="loginForm2" action="" method="post" class="form1">
+				<form name="loginForm2" action="" method="post" class="form1">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 					src="images/Welcome.jpg" alt="">
 				<center>
@@ -116,7 +124,7 @@
 				</center>
 				<center>
 					<input name="edit" type="button" class="button green medium" id="edit"
-						value="회원정보수정" size="15" onClick="goedit()" /> &nbsp; <input
+						value="회원정보수정" size="15" onClick="goedit('${login.powerList}')" /> &nbsp; <input
 						name="logout" type="button" class="button red medium" id="logout"
 						value="로그아웃" size="15" onClick="dologout()" />
 				</center>

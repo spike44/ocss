@@ -10,6 +10,7 @@
 
 
 <script type="text/javascript">
+	idCheck = false;
 	$.validator.setDefaults({
 		submitHandler : function() {
 			alert("submitted!");
@@ -80,8 +81,13 @@
 		}
 	}
 	function dojoin() {
+		if(idCheck==false){
+			alert("아이디 중복확인을 해주세요");
+		}
+		else{
 		document.signupForm.action="join.do";
 			document.signupForm.submit();
+		}
 
 	}
 	function docancel() {
@@ -92,14 +98,17 @@
 		$.ajax({
 			url : "idcheck.do",
 			data : ({
-				memberId : "#memberId2"
+				memberId : $("#memberId2").val()
 			}),
 			success : function(data) {
 				if (data == "false") {
 					alert("중복된 아이디입니다.");
+					idCheck=false;
 
-				} else
+				} else{
 					alert("사용 가능한 아이디입니다.");
+					idCheck = true;
+				}
 			}
 		});
 	}

@@ -2,9 +2,12 @@ package disc.ocss.test;
 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
+import java.util.ArrayList;
 import java.util.List;
 
+import disc.ocss.dao.CarImagesDAO;
 import disc.ocss.dao.MemberDAO;
+import disc.ocss.model.CarImagesVO;
 import disc.ocss.model.MemberVO;
 import junit.framework.TestCase;
 
@@ -85,6 +88,13 @@ public class MemberDAOTest extends TestCase {
 
 	public void testDeleteMember() {
 		fail("Not yet implemented");
+	}
+	
+	public void Test(){
+		ArrayList<CarImagesVO> selectPageImage = CarImagesDAO.selectPageImage(10120);
+		for (CarImagesVO carImagesVO : selectPageImage) {
+			System.out.println(carImagesVO.getImageId());
+		}
 	}
 
 }

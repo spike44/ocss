@@ -30,8 +30,8 @@ public class CarImagesService {
 		CarImagesDAO.deleteImages(img);
 	}
 	
-	public ArrayList<CarImagesVO> selectPageImage(int num){
-		return CarImagesDAO.selectPageImage(num);
+	public ArrayList<CarImagesVO> selectPageImage(int carId){
+		return CarImagesDAO.selectPageImage(carId);
 	}
 
 }

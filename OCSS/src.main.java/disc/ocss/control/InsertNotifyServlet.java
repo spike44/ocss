@@ -67,7 +67,7 @@ public class InsertNotifyServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("main.page.tiles");
+		response.sendRedirect("detailCarSeller.page.tiles");
 	}
 
 }

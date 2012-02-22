@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import disc.ocss.model.MemberVO;
-import disc.ocss.service.MemberService;
+import disc.ocss.model.OrdersVO;
+import disc.ocss.service.OrdersService;
 
 /**
- * Servlet implementation class DeleteMemberServlet
+ * Servlet implementation class BuyCarServlet
  */
-public class DeleteMemberServlet extends HttpServlet {
+public class BuyCarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteMemberServlet() {
+    public BuyCarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +31,6 @@ public class DeleteMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
 	}
 
 	/**
@@ -41,31 +40,30 @@ public class DeleteMemberServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		HttpSession session = request.getSession();	
-		MemberVO m = (MemberVO) session.getAttribute("login");
+		HttpSession session = request.getSession();
+		OrdersService service = new OrdersService();
+		OrdersVO ordersVO = new OrdersVO();
 		
-		MemberService memberService = new MemberService();
+		ordersVO.setCarId(Integer.parseInt(request.getParameter("carId")));
+		ordersVO.setMemberId(request.getParameter("memberId"));
 		
-		
-		int result = 0;
 		try {
-			result = memberService.deleteMember(m);
-			if(result != 0) {
+			String result = service.insertOrder(ordersVO);
+			
+			if(result != null) {
+				session.setAttribute("resultinsertorder", result+"님의 주문이 성공했습니다");
 				
-				session.setAttribute("resultdelete", "회원 삭제에 성공했습니다");
-				session.removeAttribute("login");
 			}
 			else {
-				session.setAttribute("resultdelete","회원 삭제에 실패했습니다" );
-				
+				session.setAttribute("resultinsertorder", "주문이 실패했습니다");
 			}
-			
+			response.sendRedirect("detailCar.page.tiles");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("main.page.tiles");
+		
 	}
 
 }

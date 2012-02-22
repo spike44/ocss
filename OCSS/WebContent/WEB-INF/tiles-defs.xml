@@ -49,6 +49,10 @@
 	<definition name="detailMember.page"  extends = "ocssMainAdmin.page">
 		<put-attribute name="left" value="/view/detailMember.jsp" />
 	</definition>
+<!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
+	<definition name="updateMemberAdmin.page"  extends = "ocssMainAdmin.page">
+		<put-attribute name="left" value="/view/updateMember.jsp" />
+	</definition>	
 <!-- ========================= 회원가입승인 page ============================== -->
  <definition name="joinCommit.page" extends = "ocssMainAdmin.page">
   <put-attribute name="left" value="/view/joinCommit.jsp" />
@@ -74,6 +78,10 @@
 <definition name="selectMyCar.page" extends = "ocssMainSeller.page">
 		<put-attribute name="left" value="/view/myCar.jsp" />
 	</definition>
+	<!-- ========================= 회원정보 수정 및 탈퇴 page ============================== -->
+	<definition name="updateMemberSeller.page"  extends = "ocssMainSeller.page">
+		<put-attribute name="left" value="/view/updateMember.jsp" />
+	</definition>	
  <!-- ========================= 차량등록동의 page ============================== -->
  <definition name="agreement.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/agreementCar.jsp" />

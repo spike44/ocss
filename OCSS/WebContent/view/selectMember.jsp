@@ -82,7 +82,8 @@
 							<td>${p.phone}</td>
 							<td>${p.email}</td>
 							<td><c:if test="${p.powerList == 1}">판매자</c:if> <c:if
-									test="${p.powerList == 2}">구매자</c:if></td>
+									test="${p.powerList == 2}">구매자</c:if><c:if
+									test="${p.powerList == 3}">관리자</c:if></td>
 									<td> <input class="button" type="button" id="memberButton" value="보기" onclick="location.href='detailMember.do?memberId=${p.memberId}'" /></td>
 						</tr>
 					</c:forEach>

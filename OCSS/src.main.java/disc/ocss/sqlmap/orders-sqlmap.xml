@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="orders">
+    
+    <typeAlias alias="ordersVO" type="disc.ocss.model.OrdersVO"/>
+    <resultMap class="ordersVO" id="resultOrders">
+        <result property="orderId" column="order_Id"/>
+        <result property="orderDate" column="order_Date"/>
+        <result property="memberId" column="member_Id"/>
+        <result property="carId" column="car_Id"/>
+    </resultMap>
+    
+    <insert id="insert" parameterClass="ordersVO">
+        insert into orders(
+        order_id,
+        order_date,
+        member_id,
+        car_id
+        ) values (
+        order_id_sequence.nextval,
+        sysdate,
+        #memberId#,
+        #carId#
+        )
+        <selectKey resultClass="String">
+            select member_id from orders where member_id=#memberId# and car_id=#carId#
+        </selectKey>
+    </insert>
+    
+    <select id="selectBuy" parameterClass="String" resultMap="resultOrders">
+        select * from ordes where member_id=#memberId#
+    </select>
+
+    
+</sqlMap>

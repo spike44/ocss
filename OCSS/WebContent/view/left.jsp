@@ -20,6 +20,7 @@
 	alert("'${resultdelete}'");
 	</script>
 <c:remove var="resultdelete"/>
+
 </c:if>
 <c:if test="${!empty edit}">
 	<script type="text/javascript">

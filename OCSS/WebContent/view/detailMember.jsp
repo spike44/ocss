@@ -42,6 +42,25 @@
 	</script>
 <c:remove var="resultDelete"/>
 </c:if>
+<c:if test="${!empty resultCar}">
+	<script type="text/javascript">
+	alert("'${resultCar}'");
+	</script>
+<c:remove var="resultCar"/>
+</c:if>
+<c:if test="${!empty resultNotify}">
+	<script type="text/javascript">
+	alert("'${resultNotify}'");
+	</script>
+<c:remove var="resultNotify"/>
+</c:if>
+<c:if test="${!empty resultOrder}">
+	<script type="text/javascript">
+	alert("'${resultOrder}'");
+	</script>
+<c:remove var="resultOrder"/>
+</c:if>
+
 	<div id="left">
 	<form id=detailMemberForm name="detailMemberForm" method="post" action="">
 		<h1>회원정보상세조회</h1>
@@ -110,7 +129,7 @@
 						<td><div align="center">${p.carDate }</div></td>
 						<td>
 							<div align="center">
-								<input class="button" type="button" name="viewCar" value="바로가기" onclick="goselectcar(${p.carId})" />
+								<input class="button" type="button" name="viewCar" value="바로가기" onclick="goselectcar('${p.carId}')" />
 							</div>
 						</td>
 					</tr>
@@ -122,6 +141,34 @@
 			<br />
 			<br />
 			<c:if test="${targetMember.powerList==2}">
+			<span class="style5">${targetMember.memberName}
+						님의 주문내역입니다.</span><br />
+ <br><table width="100%" border="1" cellpadding="2">
+				<tr>
+
+					<td width="41%" bgcolor="#8BBED3"><div align="center">
+							<strong>주문번호</strong>
+						</div></td>
+		
+					<td width="20%" bgcolor="#8BBED3"><div align="center">
+							<strong>주문일시</strong>
+						</div></td>
+					<td width="13%" bgcolor="#8BBED3"><div align="center">
+							<strong>상품보기</strong>
+						</div></td>
+				</tr>
+				<c:forEach var="o" items="${orderList}">
+					<tr>
+						<td><div align="center">${o.orderId }</div></td>
+						<td><div align="center">${o.orderDate }</div></td>
+						<td><div align="center">
+								<input class="button" type="button" name="viewCar" value="바로가기" onclick="goselectcar'(${o.carId}')" />
+							</div>						</td>
+					</tr>
+					</c:forEach>
+			</table> <br />
+			</br>
+		
 				<span class="style2">${targetMember.memberName} 님의 신고상품내역입니다.</span>
 				<br />
 				<br />
@@ -156,8 +203,8 @@
 			</c:if>
 			<div align="right">
 				<br /> <br /> <input class="button" type="button" name="delete"
-					value="회원정보삭제" onclick="dodelete(${targetMember.memberId})"/> <input class="button" type="button"
-					name="cancle" value="취소" onclick="docancel()" />
+					value="회원정보삭제" onclick="dodelete('${targetMember.memberId}')"/>
+					<input class="button" type="button" name="cancle" value="취소" onclick="docancel()" />
 			</div>
 		</div>
 		</form>

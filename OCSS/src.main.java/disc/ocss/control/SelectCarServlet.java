@@ -48,17 +48,14 @@ public class SelectCarServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String change = request.getParameter("change");
+		ArrayList<CarVO> selectPageCar = new ArrayList<CarVO>();
 		
-		
-		session.setAttribute("brand", service.selectCarBrand());
-		
-		
+		session.setAttribute("brand", service.selectCarBrand());		
 		
 		if(change!=null && change.length()!=0 && !change.isEmpty()){
-			ArrayList<CarVO> selectPageCar = service.selectPageCar(Integer.parseInt(change));
+			selectPageCar = service.selectPageCar(Integer.parseInt(change));
 			session.setAttribute("carList", selectPageCar);
-			ArrayList<CarImagesVO> carImageList = iService.selectPageImage(Integer.parseInt(change));
-			session.setAttribute("carImageList", carImageList);
+			
 		}
 		else{
 			int cnt = service.countCar();
@@ -68,12 +65,27 @@ public class SelectCarServlet extends HttpServlet {
 				page++;
 			
 			session.setAttribute("pageSize", page);
-			ArrayList<CarVO> selectPageCar = service.selectPageCar(10);
+			selectPageCar = service.selectPageCar(10);
 			session.setAttribute("carList", selectPageCar);
-			ArrayList<CarImagesVO> carImageList = iService.selectPageImage(10);
-			session.setAttribute("carImageList", carImageList);
+			
 		}
+		ArrayList<CarImagesVO> carImageList = new ArrayList<CarImagesVO>();
 		
+		for(CarVO car : selectPageCar){
+			ArrayList<CarImagesVO> selectPageImage = iService.selectPageImage(car.getCarId());
+			if(selectPageImage.size()<=0 || selectPageImage==null){
+				
+				CarImagesVO i = new CarImagesVO();
+				i.setCarId(car.getCarId());
+				i.setImages("images/noPic.jpg");
+				carImageList.add(i);
+			}
+			else{
+				carImageList.add(selectPageImage.get(0));
+			}
+			
+		}
+		session.setAttribute("carImageList", carImageList);
 		response.sendRedirect("selectCar.page.tiles");
 	}	
 

@@ -367,4 +367,14 @@
     <servlet-name>DeleteBadMemberServlet</servlet-name>
     <url-pattern>/deleteBadMember.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuyCarServlet</display-name>
+    <servlet-name>BuyCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.BuyCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyCarServlet</servlet-name>
+    <url-pattern>/buyCar.do</url-pattern>
+  </servlet-mapping>
 </web-app>
