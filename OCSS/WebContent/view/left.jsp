@@ -52,7 +52,7 @@
 <c:remove var="resultnotify"/>
 </c:if>
           	<div id="left">
-			<h1>OCSS 이달의 Trend</h1>
+			&nbsp;&nbsp;<img src="images/left menu1.jpg" alt="">
             <p class="pred">소비자 우롱하는 허위매물 중고차! 싸고 좋은차란 없다!</p>
 				<div class="text">
                   <p>중고자동차를 사려는 사람들은 절반 이상이 중고차 쇼핑몰에서 제공하는 정보를 이용하는 것으로 나타났다. <br />
@@ -68,9 +68,9 @@
                   <br />
                   우선, 평균시세보다 지나치게 낮은 가격의 차량은 피한다. 둘째, 해당 사이트에 기재된 매매업자의 상호,   주소, 전화번호 등을 확인한다. 셋째, 차량번호를 가린 사진, 차량 내부사진과 기재된 옵션이 서로 다른 경우, 차량의 사진배경이 계절에 맞지   않은 경우 등에 유의한다. 넷째, 연식에 비해 현저히 주행거리가 짧거나 판매자가 광고에 기재한 주소와 매물차량의 보관 장소가 다른 경우에도   허위매물임을 의심해 봐야 한다. <br />
                 </p>
-                </div>
-				<h1>OCSS NEWS...</h1>
-              <div class="text">
+                </div><br/>
+				&nbsp;&nbsp;<img src="images/OCSS NEWS....jpg" alt="" width="274" height="42">
+          <div class="text">
                 	<div id="post">
 
                         <div id="col1">

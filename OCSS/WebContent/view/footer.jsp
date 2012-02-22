@@ -5,15 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 14px;
+	font-weight: bold;
+}
+.style2 {color: #FFFFFF}
+-->
+</style>
 </head>
 <body>
 			<!-- footer 회사로고 -->
 		<div id="footer">
-			<p align="center">copyright ⓒ OCSS all rights reserved</p>
-			<p align="center">
-				<a href="#"><img src="images/dis.png" alt="" width="186" height="39" /></a>
-			</p>
-		</div>
-		<!-- footer ends -->
+			<p align="center" class="style1 style2">copyright ⓒ OCSS all rights reserved</p>
+<p align="center">
+				<a href="#"><img src="images/dis.png" alt="" width="186" height="39" border="0" /></a>			</p>
+</div>
+<!-- footer ends -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,19 +10,19 @@
 <script type="text/javascript">
 	function gojoin() {
 		location.href="join.page.tiles";
-		
+
 	}
 	function dologin() {
 		document.loginForm.action="login.do";
 		document.loginForm.submit();
-		
+
 	}
 	function gosearchidpw() {
 		location.href="searchIdPw.page.tiles";
 	}
 	function goedit() {
 		location.href="updateMember.page.tiles";
-		
+
 	}
 	function dologout() {
 		document.loginForm2.action="logout.do";
@@ -47,13 +47,13 @@
 
 				memberId : "아이디를 입력해주세요",
 				password : "비밀번호를 입력해주세요"
-	
+
 			}
 		});
 
 	});
 
-	
+
 	</script>
 <style type="text/css">
 <!--
@@ -88,14 +88,17 @@
 						border="2" placeholder="비밀번호" /> <br>
 				</center>
 				<center>
-					<input name="login" type="button" class="botton" id="login"
+					<input name="login" type="button" class="button green medium" id="login"
 						value="확인" size="15" onClick="dologin()" /> <input name="join"
-						type="button" class="botton" id="join" value="회원가입" size="15"
+						type="button" class="button green medium" id="join" value="회원가입" size="15"
 						onclick="gojoin()" />
 				</center>
-				<label class="label1"> <span class="pred">&nbsp;ID,PW를
-						잊어버리셧습니까?</span></label> <input name="GO" type="button" class="botton" id="GO"
+								<label class="label1"> <span class="pred">&nbsp;ID,PW를
+						잊어버리셧습니까?</span></label>
+						<div align="center">
+						 <input name="GO" type="button" class="button orange medium" id="GO"
 					value="GO" onClick="gosearchidpw()" />
+					</div>
 			</form>
 
 		</div>
@@ -112,9 +115,9 @@
 						환영합니다.</label> <br>
 				</center>
 				<center>
-					<input name="edit" type="button" class="botton" id="edit"
+					<input name="edit" type="button" class="button green medium" id="edit"
 						value="회원정보수정" size="15" onClick="goedit()" /> &nbsp; <input
-						name="logout" type="button" class="botton" id="logout"
+						name="logout" type="button" class="button red medium" id="logout"
 						value="로그아웃" size="15" onClick="dologout()" />
 				</center>
 

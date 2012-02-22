@@ -40,13 +40,13 @@
 				<br />
 <table width="100%" border="1" cellpadding="2">
 						<tr>
-							<td width="8%"><div align="center">선택</div></td>
-							<td width="12%"><div align="center">아이디</div></td>
-							<td width="9%"><div align="center">이름</div></td>
-							<td width="14%"><div align="center">휴대폰번호</div></td>
-							<td width="24%"><div align="center">이메일</div></td>
-						  <td width="14%"><div align="center">회원유형</div></td>
-                            <td width="19%"><div align="center">가입일시</div></td>
+							<td width="9%"><div align="center"><strong>선택</strong></div></td>
+						  <td width="14%"><div align="center"><strong>아이디</strong></div></td>
+						  <td width="18%"><div align="center"><strong>이름</strong></div></td>
+						  <td width="13%"><div align="center"><strong>휴대폰번호</strong></div></td>
+						  <td width="22%"><div align="center"><strong>이메일</strong></div></td>
+						  <td width="13%"><div align="center"><strong>회원유형</strong></div></td>
+                            <td width="14%"><div align="center"><strong>가입일시</strong></div></td>
 					  </tr>
 					  <c:forEach var="p" items="${prejoin_list}">
 						<tr>
@@ -56,8 +56,7 @@
 									  <input type="radio" id= "radio" name="radio"
 										 value="${p.memberId}" />
 								    </div>
-									</label>
-						</td>
+									</label>						</td>
 							<td><div align="center">${p.memberId}</div></td>
 							<td><div align="center">${p.memberName}</div></td>
 							<td><div align="center">${p.phone}</div></td>
@@ -68,11 +67,11 @@
 						</tr>
 						</c:forEach>
 					</table>
- 						 <div align="right"><br/>
+<div align="right"><br/>
                         <br/>
-                        <input class="button" type="button" name="joinOk" value="가입승인" onclick="docommit()"/>
-                       <input class="button" type="button" name="cancel" value="취소" onclick="docancel()"/>
-                      
+                        <input class="button green medium" type="button" name="joinOk" value="가입승인" onclick="docommit()"/>
+                       <input class="button red medium" type="button" name="cancel" value="취소" onclick="docancel()"/>
+
                     </div>
                     
 		  </div>

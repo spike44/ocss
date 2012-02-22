@@ -68,8 +68,8 @@
 		else if($("#currentpower").val()==1) {
 			location.href = "main.page.tiles";
 		}
-		
-	}	
+
+	}
 	function doupdate() {
 		document.deleteForm.action = "edit.do";
 		document.deleteForm.submit();
@@ -82,12 +82,17 @@
 		document.deleteForm.submit();
 		}
 		else {
-			
+
 		}
 
 	}
 
 </script>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
 </head>
 <body>
 <input type="hidden" id="currentpower" value="${login.powerList}"/>
@@ -97,61 +102,61 @@
 	</script>
 </c:if>
 	<div id="left">
-		<h1>회원정보수정 및 탈퇴</h1>
+		&nbsp;&nbsp;&nbsp;<img src="images/updateMember.jpg" alt="" />
 		<p class="pred">※ 정확한 정보를 입력해 주세요.</p>
 		<div class="text">
 			<br>
 				<form id="deleteForm" action="" name="deleteForm" method="post">
-		
-					
+
+
 						<table width="44%" border="0">
-							<tr>
-								<td width="48%" colspan="2"><div align="center"
-										class="style3 style4">회원정보수정</div></td>
+							<tr bgcolor="#8BBED3">
+								<td width="52%" colspan="2"><div align="center"
+										class="style4 style3"><strong>회원정보수정</strong></div></td>
 							</tr>
 							<tr>
-								<td><div align="center">아이디</div></td>
-								<td width="52%"><input id="memberId" name="memberId"
+								<td><div align="center"><strong>아이디</strong></div></td>
+								<td width="52%"><input name="memberId" class="style1" id="memberId"
 									value="${login.memberId}" readonly="readonly" /></td>
 							</tr>
 							<tr>
-								<td><div align="center">이름</div></td>
-								<td><input id="memberName" name="memberName" type="text"
+								<td><div align="center"><strong>이름</strong></div></td>
+								<td><input name="memberName" type="text" id="memberName"
 									value="${login.memberName}" readonly="readonly" /></td>
 							</tr>
 							<tr>
-								<td><div align="center">비밀번호</div></td>
-								<td><input id="password" name="password" type="password" /></td>
+								<td><div align="center"><strong>비밀번호</strong></div></td>
+								<td><input name="password" type="password" id="password" /></td>
 							</tr>
 							<tr>
-								<td><div align="center">비밀번호 확인</div></td>
-								<td><input id="confirm_password" name="confirm_password"
-									type="password" /></td>
+								<td><div align="center"><strong>비밀번호 확인</strong></div></td>
+								<td><input name="confirm_password"
+									type="password" id="confirm_password" /></td>
 							</tr>
 							<tr>
-								<td><div align="center">이메일</div></td>
-								<td><input id="email" name="email" type="email"
+								<td><div align="center"><strong>이메일</strong></div></td>
+								<td><input name="email" type="email" id="email"
 									value="${updatefailed.email}" /></td>
 							</tr>
 							<tr>
-								<td><div align="center">휴대폰번호</div></td>
-								<td><input id="phone" name="phone" type="tel"
+								<td><div align="center"><strong>휴대폰번호</strong></div></td>
+								<td><input name="phone" type="tel" id="phone"
 									value="${updatefailed.phone}" /></td>
 							</tr>
 							<tr>
-								<td><div align="center"></div></td>
-							<tr>
-								<td><div align="center"></div></td>
-								<td><input class="button" type="button" id="updateMember"
-									name="updateMember" value="정보수정" onclick="doupdate()" /> <input
-									class="button" type="button" id="cancel" name="cancel"
+								<td colspan="2"><div align="center">
+								  <input class="button green medium" type="button" id="updateMember"
+									name="updateMember" value="정보수정" onclick="doupdate()" />
+								  <input
+									class="button green medium" type="button" id="cancel" name="cancel"
 									value="취소" onclick="docancel()" />
-							    <input class="button" type="button" id="deleteMember"
-								name="deleteMember" value="회원탈퇴" onclick="dodelete()" /></td>
+								  <input class="button red medium" type="button" id="deleteMember"
+								name="deleteMember" value="회원탈퇴" onclick="dodelete()" />
+							    </div></td>
 							</tr>
 							</tr>
 						</table>
-					</form>
+		  </form>
 					<c:remove var="updatefailed"/>
 			</br>
 
