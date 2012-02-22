@@ -11,7 +11,7 @@
 	media="screen" />
 <script type="text/javascript">
 	function docancel() {
-		
+
 		location.href = "ocssMainAdmin.page.tiles";
 	}
 
@@ -21,7 +21,7 @@
 		document.commitForm.action = "commit.do?memberId="+sel;
 		document.commitForm.submit();
 	}
-	
+
 	</script>
 </head>
 	<body>
@@ -30,24 +30,24 @@
 	alert("'${resultcommit}'");
 	</script>
 <c:remove var="resultcommit"/>
-</c:if>	
-	
+</c:if>
+
 		<div id="left">
 		<form action="" method="post" id="commitForm" name ="commitForm" >
-			<h1>회원가입승인</h1>
-		  <div class="text">
+			&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/joinCommit.jpg" alt="" width="142" height="42" />
+<div class="text">
 
 				<br />
 <table width="100%" border="1" cellpadding="2">
-						<tr>
-							<td width="9%"><div align="center"><strong>선택</strong></div></td>
-						  <td width="14%"><div align="center"><strong>아이디</strong></div></td>
-						  <td width="18%"><div align="center"><strong>이름</strong></div></td>
-						  <td width="13%"><div align="center"><strong>휴대폰번호</strong></div></td>
-						  <td width="22%"><div align="center"><strong>이메일</strong></div></td>
-						  <td width="13%"><div align="center"><strong>회원유형</strong></div></td>
-                            <td width="14%"><div align="center"><strong>가입일시</strong></div></td>
-					  </tr>
+<tr>
+							<td width="9%" bgcolor="#8BBED3"><div align="center"><strong>선택</strong></div></td>
+						  <td width="14%" bgcolor="#8BBED3"><div align="center"><strong>아이디</strong></div></td>
+						  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>이름</strong></div></td>
+						  <td width="13%" bgcolor="#8BBED3"><div align="center"><strong>휴대폰번호</strong></div></td>
+						  <td width="22%" bgcolor="#8BBED3"><div align="center"><strong>이메일</strong></div></td>
+						  <td width="13%" bgcolor="#8BBED3"><div align="center"><strong>회원유형</strong></div></td>
+                          <td width="14%" bgcolor="#8BBED3"><div align="center"><strong>가입일시</strong></div></td>
+	    </tr>
 					  <c:forEach var="p" items="${prejoin_list}">
 						<tr>
 							<td>
@@ -73,12 +73,12 @@
                        <input class="button red medium" type="button" name="cancel" value="취소" onclick="docancel()"/>
 
                     </div>
-                    
+
 		  </div>
 		   	</form>
 					</div>
-			<c:remove var="prejoin_list" />	
+			<c:remove var="prejoin_list" />
 	</body>
-		
-	
+
+
 </html>
