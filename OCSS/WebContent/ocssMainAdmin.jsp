@@ -15,6 +15,7 @@
 			<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
 <script src="js/validate.js" type="text/javascript"></script>
 			<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+			<script src="js/AC_RunActiveContent.js" type="text/javascript"></script>
 			
 </head>
 

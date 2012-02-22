@@ -64,7 +64,7 @@
 }
 -->
 </style>
-<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+
 </head>
 <body>
 <c:if test="${!empty loginfailed}">
