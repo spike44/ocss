@@ -28,7 +28,7 @@
 <form name="frm" method="post">
 <input type="hidden" id="type"/>
 	<div id="left">
-		<h1>차량정보조회</h1>
+		&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/selectCar.jpg" alt="" />
 		<p class="pred">※ Oranize Car Selling Service 에서 제공하는 검색 solution</p>
 		<div class="text">
 
@@ -81,7 +81,7 @@
 			    <br />
 			    </div>
 			    <center>
-				<input class="button" type="button"name="serchCar" value="차량정보조회" align="center"/><br /> <br />
+				<input class="button green medium" type="button"name="serchCar" value="차량정보조회" align="center"/><br /> <br />
 			    </center>
 			    
 			     <div class = "text">
@@ -140,7 +140,7 @@
 				  <p/>
 				  
 				  <br /> 
-				  <input class="button" type="button" name="keepingCar" value="차량비교 담기" /> 
+				  <input class="button green medium" type="button" name="keepingCar" value="차량비교 담기" /> 
 				  <br /> 
 				  <br />
 				  </div>
