@@ -10,19 +10,19 @@
 <script type="text/javascript">
 	function gojoin() {
 		location.href="join.page.tiles";
-		
+
 	}
 	function dologin() {
 		document.loginForm.action="login.do";
 		document.loginForm.submit();
-		
+
 	}
 	function gosearchidpw() {
 		location.href="searchIdPw.page.tiles";
 	}
 	function goedit() {
 		location.href="updateMember.page.tiles";
-		
+
 	}
 	function dologout() {
 		document.loginForm2.action="logout.do";
@@ -47,13 +47,13 @@
 
 				memberId : "아이디를 입력해주세요",
 				password : "비밀번호를 입력해주세요"
-	
+
 			}
 		});
 
 	});
 
-	
+
 	</script>
 </head>
 <body>
@@ -64,8 +64,6 @@
 <c:remove var="loginfailed"/>
 </c:if>
 <c:if test="${empty login}">
-  <div id="content">
-	<div id="right">
     	<div id="categories">
 				<form id="loginForm" name="loginForm" action="" method="post" class="form1">
                   <h2>Member login</h2>
@@ -86,18 +84,15 @@
                   <span class="pred">&nbsp;ID,PW를 잊어버리셧습니까?</span></label>
          			 <input name="GO" type="button" class="botton" id="GO" value="GO" onclick="gosearchidpw()"/>
                 </form>
-               
+
         </div>
 				<div id="partners">
 
 
         </div>
-      </div>
-      </div>
       </c:if>
  <c:if test="${!empty login}">
-  <div id="content">
-	<div id="right">
+
     	<div id="categories">
 				<form name="loginForm2" action="" method="post" class="form1">
                   <h2>Member login</h2>
@@ -109,15 +104,14 @@
                   <input name="edit" type="button" class="botton" id="edit" value="회원정보수정" size="15"  onclick="goedit()"/>
                   <input name="logout" type="button" class="botton" id="logout" value="로그아웃" size="15" onclick="dologout()"/>
 				  </center>
-    
+
                 </form>
         </div>
 				<div id="partners">
 
 
         </div>
-      </div>
-      </div>
-      </c:if>     
+
+      </c:if>
 </body>
 </html>

@@ -9,12 +9,12 @@
 	<definition name="main.page" template="ocssMain.jsp">
 		<put-attribute name="title" value="OCSS 메인페이지"/>
 		<put-attribute name="header" value="/view/header.jsp" />
-		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="right" value="/view/content.jsp" />
 		<put-attribute name="left" value="/view/left.jsp" />
 		<put-attribute name="footer" value="/view/footer.jsp" />
 	</definition>
 <!-- ========================= 공용 회원가입페이지 page ============================== -->
-	<definition name="join.page" extends = "main.page" >	
+	<definition name="join.page" extends = "main.page" >
 	    <put-attribute name="title" value="OCSS 메인페이지"/>
 		<put-attribute name="left" value="/view/joinMember.jsp" />
 	</definition>
@@ -37,7 +37,7 @@
 <!-- ========================= 관리자용 메인 page ============================== -->
 	<definition name="ocssMainAdmin.page" template="ocssMainAdmin.jsp">
 		<put-attribute name="header" value="/view/header.jsp" />
-		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="right" value="/view/content.jsp" />
 		<put-attribute name="left" value="/view/left.jsp" />
 		<put-attribute name="footer" value="/view/footer.jsp" />
 	</definition>
@@ -60,10 +60,10 @@
  <!-- ========================= 판매자용 메인 page ============================== -->
 	<definition name="ocssMainSeller.page" template="ocssMainSeller.jsp">
 		<put-attribute name="header" value="/view/header.jsp" />
-		<put-attribute name="content" value="/view/content.jsp" />
+		<put-attribute name="right" value="/view/content.jsp" />
 		<put-attribute name="left" value="/view/left.jsp" />
 		<put-attribute name="footer" value="/view/footer.jsp" />
-	</definition>	
+	</definition>
  <!-- ========================= 차량등록동의 page ============================== -->
  <definition name="agreement.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/agreementCar.jsp" />
@@ -74,6 +74,6 @@
  </definition>
   <definition name="selectCar.page" extends = "ocssMainSeller.page">
   <put-attribute name="left" value="/view/select.jsp" />
- </definition>	 
+ </definition>
 </tiles-definitions>
 
