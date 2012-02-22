@@ -152,9 +152,9 @@ function dobuy(memberId,carId) {
     <td><div align="center">${c.contentDal }</div></td>
     <td>
     <c:if test="${login.memberId == c.memberId }">
-    <div align="center"><input name="" type="button" value="삭제" onclick="deleteComm('${c.commentId }','${detail.carId}')"></div>
+    <div align="center"><input name="" type="button" value="삭제" onclick="deleteComm('${c.commentId }','${detail.carId}')"></div></td>
     </c:if>
-    </td>
+    
 
   </tr>
   </c:forEach>

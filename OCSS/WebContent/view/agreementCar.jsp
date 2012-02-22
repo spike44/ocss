@@ -62,7 +62,7 @@
 		    <br />
 
 		    <input class="button green medium" type="button" name="agree" value="동의합니다" onclick="location.href='insertCar.page.tiles'"/>&nbsp;&nbsp;
-		    <input class="button red medium" type="button" name="noAgree" value="동의안합니다" onclick="docancel()"/>
+		    <input class="button red medium" type="button" name="noAgree" value="동의하지 않습니다" onclick="docancel()"/>
 		    <br />
 	          </div>
 	  </div>

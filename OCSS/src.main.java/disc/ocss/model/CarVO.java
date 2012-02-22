@@ -1,8 +1,14 @@
 package disc.ocss.model;
 
+import java.io.Serializable;
 
-public class CarVO{
+
+public class CarVO implements Serializable{
     
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int carId;
 	private String memberId;      
 	private int price;         

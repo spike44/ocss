@@ -1,190 +1,314 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD SQL Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="car">
+<sqlMap namespace="car" >
     <typeAlias alias="carVO" type="disc.ocss.model.CarVO"/>
     <typeAlias alias="carTypeVO" type="disc.ocss.model.CarTypeVO"/>
-    <typeAlias alias="carImageVO" type="disc.ocss.model.CarImagesVO"/>
+	 <typeAlias alias="carImageVO" type="disc.ocss.model.CarImagesVO"/>
     
     <resultMap class="carTypeVO" id="resultsBrand">
-        <result property="brand" column="brand"/>
+       <result property="brand" column="brand"/>
     </resultMap>
     <resultMap class="carTypeVO" id="resultsType">
-        <result property="carTypeCode" column="cartype_code"/>
-        <result property="carType" column="car_type"/>
+    	<result property="carTypeCode" column="cartype_code"/>
+       <result property="carType" column="car_type"/>
     </resultMap>
     
     <resultMap class="carVO" id="resultsCar">
-        <result property="carId" column="car_id"/>
-        <result property="memberId" column="member_id"/>
-        <result property="price" column="price"/>
-        <result property="priceEval" column="price_eval"/>
-        <result property="carYear" column="car_year"/>
-        <result property="carYearEval" column="car_year_eval"/>
-        <result property="isAuto" column="is_auto"/>
-        <result property="isAcci" column="is_acci"/>
-        <result property="fuel" column="fuel"/>
-        <result property="color" column="color"/>
-        <result property="totalEval" column="total_eval"/>
-        <result property="carDesc" column="car_desc"/>
-        <result property="sellingStatus" column="selling_status"/>
-        <result property="title" column="title"/>
-        <result property="locationList" column="location_list"/>
-        <result property="cartypeCode" column="cartype_code"/>
-        <result property="carDate" column="car_date"/>
+    	<result property="carId" column="car_id"/>
+    	<result property="memberId" column="member_id"/>
+    	<result property="price" column="price"/>
+    	<result property="priceEval" column="price_eval"/>
+    	<result property="carYear" column="car_year"/>
+    	<result property="carYearEval" column="car_year_eval"/>
+    	<result property="isAuto" column="is_auto"/>
+    	<result property="isAcci" column="is_acci"/>
+    	<result property="fuel" column="fuel"/>
+    	<result property="color" column="color"/>
+    	<result property="totalEval" column="total_eval"/>
+    	<result property="carDesc" column="car_desc"/>
+    	<result property="sellingStatus" column="selling_status"/>
+    	<result property="title" column="title"/>
+    	<result property="locationList" column="location_list"/>
+    	<result property="cartypeCode" column="cartype_code"/>
+    	<result property="carDate" column="car_date"/>
     </resultMap>
     
     <resultMap class="carVO" id="allCar">
-        <result property="carId" column="car_id"/>
-        <result property="memberId" column="member_id"/>
-        <result property="price" column="price"/>
-        <result property="carYear" column="car_year"/>
-        <result property="isAuto" column="is_auto"/>
-        <result property="isAcci" column="is_acci"/>
-        <result property="fuel" column="fuel"/>
-        <result property="color" column="color"/>
-        <result property="carDesc" column="car_desc"/>
-        <result property="sellingStatus" column="selling_status"/>
-        <result property="title" column="title"/>
-        <result property="locationList" column="location_list"/>
-        <result property="cartypeCode" column="cartype_code"/>
-        <result property="carDate" column="car_date"/>
-        <result property="totalEval" column="total_eval"/>
+    	<result property="carId" column="car_id"/>
+    	<result property="memberId" column="member_id"/>
+    	<result property="price" column="price"/>
+    	<result property="carYear" column="car_year"/>
+    	<result property="isAuto" column="is_auto"/>
+    	<result property="isAcci" column="is_acci"/>
+    	<result property="fuel" column="fuel"/>
+    	<result property="color" column="color"/>
+    	<result property="carDesc" column="car_desc"/>
+    	<result property="sellingStatus" column="selling_status"/>
+    	<result property="title" column="title"/>
+    	<result property="locationList" column="location_list"/>
+    	<result property="cartypeCode" column="cartype_code"/>
+    	<result property="carDate" column="car_date"/>
+    	<result property="totalEval" column="total_eval"/>
     </resultMap>
     
     <resultMap class="carTypeVO" id="resultsBT">
-        <result property="brand" column="brand"/>
-        <result property="carTypeCode" column="cartype_code"/>
-        <result property="carType" column="car_type"/>
+    	 <result property="brand" column="brand"/>
+    	 <result property="carTypeCode" column="cartype_code"/>
+       <result property="carType" column="car_type"/>
     </resultMap>
     
     
-    <statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">
-        select * from car_sort
-        where brand = #brand#
-    </statement>
-    
-    <statement id="selectCarBrand" resultMap="resultsBrand">
-        select distinct brand from car_sort
-    </statement>
-    
-    <statement id="selectMyCar" parameterClass="carVO" resultMap="resultsCar">
-        select * from car
-        where member_id = #memberId#
-    </statement>
-    
-    <insert id="insertCar" parameterClass="carVO">
-        insert into car(
-        car_id,
-        member_id,
-        price,
-        price_eval,
-        car_year,
-        car_year_eval,
-        is_auto,
-        is_acci,
-        fuel,
-        color,
-        total_eval,
-        car_desc,
-        selling_status,
-        title,
-        location_list,
-        cartype_code,
-        car_date
-        ) values(
-        car_id_sequence.nextval,
-        #memberId#,
-        #price#,
-        #priceEval#,
-        #carYear#,
-        #carYearEval#,
-        #isAuto#,
-        #isAcci#,
-        #fuel#,
-        #color#,
-        #totalEval#,
-        #carDesc#,
-        #sellingStatus#,
-        #title#,
-        #locationList#,
-        #cartypeCode#,
-        sysdate
-        )
-    </insert>
-    
-    
-    <statement id="selectCar" parameterClass="carVO" resultMap="allCar">
-        select * from car
-        order by total_eval desc
-    </statement>
-    
-    <statement id="" resultMap="allCar">
-        select * from car
-        where car_id in (select car_id from car)
-        order by total_eval desc) and
-    </statement>
-    
-    
-    <statement id="pAVG" parameterClass="carVO" resultClass="Integer">
-        select avg(price) from car
-        where cartype_code = #cartypeCode#
-    </statement>
-    
-    <statement id="yAVG" parameterClass="carVO" resultClass="Integer">
-        select avg(car_year) from car
-        where cartype_code = #cartypeCode#
-    </statement>
-    
-    <statement id="aAVG" parameterClass="carVO" resultClass="Double">
-        select avg(is_acci) from car
-        where cartype_code = #cartypeCode#
-    </statement>
-    
-    <statement id="selectCode" parameterClass="carTypeVO" resultClass="String">
-        select cartype_code from car_sort
-        where brand = #brand# and car_type = #carType#
-    </statement>
-    
-    <update id="updateEval" parameterClass="carVO">
-        update car
-        set price_eval = #priceEval#,
-        car_year_eval = #carYearEval#,
-        total_eval = #totalEval#
-        where car_id = #carId#
-    </update>
-    
-    <statement id="nextCarId" resultClass="Integer">
-        select max(car_id) from car
-    </statement>
-    
-    <select id="selectBT" parameterClass="carVO" resultMap="resultsBT">
-        select * from car_sort
-        where cartype_code = #cartypeCode#
-    </select>
-    
-    <update id="updateSelling" parameterClass="carVO">
-        update car
-        set selling_status = #sellingStatus#
-        where car_id = #carId#
-    </update>
-    
-    <delete id="deleteCar" parameterClass="carVO">
-        delete from car
-        where car_id = #carId#
-    </delete>
-    
-    <select id="selectCarId" parameterClass="carVO" resultMap="resultsCar">
-        select * from car
-        where car_id = #carId#
-    </select>
-    <statement id="countCar" resultClass="Integer">
-        select count(*) from car
-    </statement>
-    
-    <statement id="selectPageCar" parameterClass="Integer" resultMap="resultsCar">
-        select * from (select row_number() over ( order by total_eval desc) as rnum, f.*
-        from car f) where rnum >= #num#-9 and rnum &lt;=#num#
-    </statement>
-    
-    
+	<statement id="selectCarType" parameterClass="carTypeVO" resultMap="resultsType">
+		select * from car_sort
+		where brand = #brand#
+	</statement>
+	
+	<statement id="selectCarBrand" resultMap="resultsBrand">
+		select distinct brand from car_sort
+	</statement>
+	
+	<statement id="selectMyCar" parameterClass="carVO" resultMap="resultsCar">
+		select * from car
+		where member_id = #memberId#
+	</statement>
+	
+	<insert id="insertCar" parameterClass="carVO">	
+		insert into car(
+			car_id,
+			member_id,
+			price,
+			price_eval,
+			car_year,
+			car_year_eval,
+			is_auto,
+			is_acci,
+			fuel,
+			color,
+			total_eval,
+			car_desc,
+			selling_status,
+			title,
+			location_list,
+			cartype_code,
+			car_date
+		) values(
+			car_id_sequence.nextval,
+			#memberId#,
+			#price#,
+			#priceEval#,
+			#carYear#,
+			#carYearEval#,
+			#isAuto#,
+			#isAcci#,
+			#fuel#,
+			#color#,
+			#totalEval#,
+			#carDesc#,
+			#sellingStatus#,
+			#title#,
+			#locationList#,
+			#cartypeCode#,
+			sysdate
+		)
+	</insert>
+	
+	
+	<statement id="selectCar" parameterClass="carVO" resultMap="allCar">
+		select * from car
+		order by total_eval desc
+	</statement>
+	
+	<statement id="" resultMap="allCar">
+		select * from car
+		where car_id in (select car_id from car)
+						order by total_eval desc) and 
+	</statement>
+	
+	
+	<statement id="pAVG" parameterClass="carVO" resultClass="Integer">
+		select avg(price) from car
+		where cartype_code = #cartypeCode#
+	</statement>
+	
+	<statement id="yAVG" parameterClass="carVO" resultClass="Integer">
+		select avg(car_year) from car
+		where cartype_code = #cartypeCode#
+	</statement>
+	
+		<statement id="aAVG" parameterClass="carVO" resultClass="Double">
+		select avg(is_acci) from car
+		where cartype_code = #cartypeCode#
+	</statement>
+	
+	<statement id="selectCode" parameterClass="carTypeVO" resultClass="String">
+		select cartype_code from car_sort
+		where brand = #brand# and car_type = #carType#
+	</statement>
+	
+	<update id="updateEval" parameterClass="carVO">
+		update car
+		set price_eval = #priceEval#,
+		car_year_eval = #carYearEval#,
+		total_eval = #totalEval#
+		where car_id = #carId#
+	</update>
+	
+	<statement id="nextCarId" resultClass="Integer">
+		select max(car_id) from car
+	</statement>
+	
+	<select id="selectBT" parameterClass="carVO" resultMap="resultsBT">
+		select * from car_sort
+		where cartype_code = #cartypeCode#
+	</select>
+	
+	<update id="updateSelling" parameterClass="carVO">
+		update car
+		set selling_status = #sellingStatus#
+		where car_id = #carId#
+	</update>
+	
+	<delete id="deleteCar" parameterClass="carVO">
+		delete from car
+		where car_id = #carId#
+	</delete>
+	
+	<select id="selectCarId" parameterClass="carVO" resultMap="resultsCar">
+	 	select * from car
+	 	where car_id = #carId#
+	</select>
+		<statement id="countCar" resultClass="Integer">
+		select count(*) from car
+	</statement>
+	
+	<statement id="selectPageCar" parameterClass="Integer" resultMap="resultsCar">
+		select * from (select row_number() over ( order by total_eval desc) as rnum, f.*
+		from car f) where rnum >= #num#-9 and rnum &lt;=#num#
+	</statement>	
+	
+	<typeAlias alias="carSearchVO" type="disc.ocss.model.CarSearchVO"/>
+	
+<!--  	<statement id="searchCar" parameterClass="carSearchVO" resultMap="resultsCar">
+		select * from car
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+			order by total_eval desc
+	</statement>
+	-->
+	
+	<statement id="searchCar" parameterClass="carSearchVO" resultMap="resultsCar">
+		select * from (select row_number() over ( order by total_eval desc) as rnum, c.* from
+		car c 
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+		) where rnum >=#num#-9 and rnum &lt;=#num#
+	</statement>
+	
+	<statement id="searchCarCount" parameterClass="carSearchVO" resultClass="Integer">
+		select count(car_id) from car
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+	</statement>
+	
+	
+	<statement id="selectBrandCode" parameterClass="String" resultClass="String">
+		select min(cartype_code) from car_sort where brand= #brand#
+	</statement>
+	
 </sqlMap>

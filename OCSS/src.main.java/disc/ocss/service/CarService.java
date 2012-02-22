@@ -5,6 +5,7 @@ import java.util.List;
 
 import disc.ocss.dao.CarDAO;
 import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarSearchVO;
 import disc.ocss.model.CarTypeVO;
 import disc.ocss.model.CarVO;
 
@@ -71,4 +72,17 @@ public class CarService {
 	public ArrayList<CarVO> selectPageCar(int num){
 		return CarDAO.selectPageCar(num);
 	}
+	
+	public ArrayList<CarVO> searchCar(CarSearchVO searhVO){
+		return CarDAO.searchCar(searhVO);
+	}
+	
+	public String selectBrandCode(String brand){
+		return CarDAO.selectBrandCode(brand).substring(0,1);
+	}
+	
+	public int searchCarCount(CarSearchVO searhVO){
+		return CarDAO.searchCarCount(searhVO);
+	}
+
 }

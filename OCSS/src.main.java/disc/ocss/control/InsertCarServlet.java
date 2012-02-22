@@ -85,7 +85,8 @@ public class InsertCarServlet extends HttpServlet {
 		String file;
 		CarImagesVO img = new CarImagesVO();
 		CarImagesService iService = new CarImagesService();
-		img.setCarId(serivce.nextCarId());
+		int carId = serivce.nextCarId();
+		img.setCarId(carId);
 		if(session.getAttribute("afilename")!=null){
 			
 			file = (String)session.getAttribute("afilename");
@@ -125,7 +126,7 @@ public class InsertCarServlet extends HttpServlet {
 		}
 
 		
-		response.sendRedirect("selectCar.page.tiles");
+		response.sendRedirect("detailcar.do?carId="+carId);
 		
 		
 	}

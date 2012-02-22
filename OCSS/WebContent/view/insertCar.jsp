@@ -22,14 +22,11 @@
 	}
 	
 	function insertCar(){
-		
+				
 		if($("#insertCarName").val().length ==0)
 			alert("제목을 입력해주세요");
 		else if($("#brand").val()== "brand"){
 			alert("브랜드를 선택해주세요");
-		}
-		else if($("#carType").val()== "carType"){
-			alert("차종을 선택해주세요");
 		}
 		else if($("#carType").val()== "carType"){
 			alert("차종을 선택해주세요");
@@ -50,10 +47,13 @@
 			alert("연식을 입력해주세요");
 		}
 		else if($("#color").val().length<=0){
-			alert("가격을 입력해주세요");
+			alert("색상을 입력해주세요");
 		}
 		else if($("#locationList").val().length<=0){
 			alert("지역을 입력해주세요");
+		}
+		else if($("#con").val().length<=0){
+			alert("내용을 입력해주세요");
 		}
 		else{
 			
@@ -129,9 +129,9 @@
 	</select> 연료
 	<select name="fuel" id="fuel">
 		<option value="fuel">연료</option>
-			<option value="1">휘발유</option>
-			<option value="2">경유</option>
-			<option value="3">LPG</option>
+			<option value="0">휘발유</option>
+			<option value="1">경유</option>
+			<option value="2">LPG</option>
 	</select>
 	<br />
 	<br />
@@ -157,13 +157,13 @@
 	<br />
 	<br /> 내용
 	<br />
-	<textarea name="content" id="content" style = "width : 90%" cols="80" rows="20" id="content">${content }</textarea>
+	<textarea name="content" style = "width : 90%" cols="80" rows="20" id="con">${content }</textarea>
 	
 	<c:remove var="memory"/>
 	<c:remove var="content"/>
 	<br />
 	<input class="button rosy medium" type="button" name="imgBtn" value="사진등록" onClick="openImage()"/>
-	<input class="button green medium" type="button" name="ok" value="완료" onClick="insertCar()"/>
+	<input class="button green medium" type="button" name="ok" value="등록 완료" onClick="insertCar()"/>
 	<br />
 </form>
 	</center>

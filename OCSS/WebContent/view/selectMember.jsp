@@ -68,27 +68,30 @@
 				<table width="100%" border="1" cellpadding="2">
 					<tr>
 						<!-- 							<td width="5%">선택</td> -->
-						<td width="18%" bgcolor="#8BBED3"><div align="center"><strong>아이디</strong></div></td>
-					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>이름</strong></div></td>
-					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>휴대폰번호</strong></div></td>
-					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>이메일</strong></div></td>
-					  <td width="18%" bgcolor="#8BBED3"><div align="center"><strong>회원유형</strong></div></td>
-						<td width="18%">회원상세보기</td>
-					</tr>
+						<td width="12%" bgcolor="#8BBED3"><div align="center"><strong>아이디</strong></div></td>
+					  <td width="14%" bgcolor="#8BBED3"><div align="center"><strong>이름</strong></div></td>
+					  <td width="15%" bgcolor="#8BBED3"><div align="center"><strong>휴대폰번호</strong></div></td>
+					  <td width="20%" bgcolor="#8BBED3"><div align="center"><strong>이메일</strong></div></td>
+					  <td width="12%" bgcolor="#8BBED3"><div align="center"><strong>회원유형</strong></div></td>
+						<td width="27%" bgcolor="#8BBED3"><div align="center">
+						  <p><strong>회원</strong></p>
+						  <p><strong>상세보기</strong></p>
+						</div></td>
+				  </tr>
 					<c:forEach var="p" items="${member_list}">
 						<tr>
-							<td>${p.memberId}</td>
-							<td>${p.memberName}</td>
-							<td>${p.phone}</td>
-							<td>${p.email}</td>
-							<td><c:if test="${p.powerList == 1}">판매자</c:if> <c:if
-									test="${p.powerList == 2}">구매자</c:if><c:if
-									test="${p.powerList == 3}">관리자</c:if></td>
-									<td> <input class="button" type="button" id="memberButton" value="보기" onclick="location.href='detailMember.do?memberId=${p.memberId}'" /></td>
+<td><div align="center">${p.memberId}</div></td>
+							<td><div align="center">${p.memberName}</div></td>
+							<td><div align="center">${p.phone}</div></td>
+							<td><div align="center">${p.email}</div></td>
+							<td><c:if test="${p.powerList == 1}"> <div align="center">판매자</div></c:if> <c:if
+									test="${p.powerList == 2}"><div align="center">구매자</div></c:if><c:if
+									test="${p.powerList == 3}"><div align="center">관리자</div></c:if></td>
+									<td> <input class="class="button orange medium"" type="button" id="memberButton" value="보기" onclick="location.href='detailMember.do?memberId=${p.memberId}'" /></td>
 						</tr>
 					</c:forEach>
 				</table>
-			</form>
+	</form>
 				<c:remove var="member_list" />
 		</div>
 	</div>

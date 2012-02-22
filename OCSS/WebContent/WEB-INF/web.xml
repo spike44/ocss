@@ -377,4 +377,14 @@
     <servlet-name>BuyCarServlet</servlet-name>
     <url-pattern>/buyCar.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchCarServlet</display-name>
+    <servlet-name>SearchCarServlet</servlet-name>
+    <servlet-class>disc.ocss.control.SearchCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchCarServlet</servlet-name>
+    <url-pattern>/searchcar.do</url-pattern>
+  </servlet-mapping>
 </web-app>

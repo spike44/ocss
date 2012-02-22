@@ -20,27 +20,35 @@
 	}
 
 	function typeCategory(){
-		$("#type").val($("#second").val());
+		$("#typeCode").val($("#second").val());
+	}
+	
+	function searchCar(){
+		document.frm.action = "searchcar.do";
+		document.frm.submit();
+		
 	}
 </script>
 </head>
 <body>
 <form name="frm" method="post">
-<input type="hidden" id="type"/>
+<input type="hidden" id="typeCode" name="typeCode"/>
+<input type="hidden" id="brand" name="brand" value="${sel}"/>
+
 	<div id="left">
-		<h1>차량정보조회</h1>
+		&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/selectCar.jpg" alt="" />
 		<p class="pred">※ Oranize Car Selling Service 에서 제공하는 검색 solution</p>
 		<div class="text">
 
 			<center>
 				<p align="justify"><br/> 브랜드 :
 		
-				<select name="first_category" id="first" onchange="getSecondCategory()" size=6>
+				<select name="first_category" id="first" onchange="getSecondCategory()" name="first">
+				<option>브랜드</option>
 					<c:forEach var="b" items="${brand }">
 						<c:if test="${sel==b }">
 							<option value="${b }" selected="selected">${b }</option>
 						</c:if>
-						
 						<c:if test="${sel!=b }">
 							<option value="${b }">${b }</option>
 						</c:if>
@@ -49,7 +57,8 @@
 				<c:remove var="sel" /> 
 							
 				&nbsp;&nbsp;&nbsp;
-				차종 : <select name="second_category" id="second" onChange="typeCategory()" size=6>
+				차종 : <select name="second_category" id="second" onChange="typeCategory()">
+				<option>차종</option>
 						<c:forEach var="t" items="${type }">
 							<option value="${t.carTypeCode }">${t.carType}</option>
 						</c:forEach>
@@ -57,31 +66,32 @@
 					</select>
 				&nbsp;&nbsp;&nbsp;사고유무 :&nbsp;
 				<select name="isAcci">
-						<option>사고유무</option>
-						<option>무</option>
-						<option>유</option>
+						<option value="-1" selected="selected">사고유무</option>
+						<option value="1">무</option>
+						<option value="0">유</option>
 				</select>
-				변속기 : <select name="isAoto">
-						<option>변속기</option>
-						<option>오토</option>
-						<option>수동</option>
+				변속기 : <select name="isAuto">
+						<option value="-1" selected="selected">변속기</option>
+						<option value="1">자동</option>
+						<option value="0">수동</option>
 					</select>
 				</p>
 				<p align="justify">
-					연료 : <select name="fual">
-						<option>휘발유</option>
-						<option>경유</option>
-						<option>LPG</option>
+					연료 : <select name="fuel">
+					<option value="-1" selected="selected" >연료</option>
+						<option value="1">휘발유</option>
+						<option value="2">경유</option>
+						<option value="3">LPG</option>
 					 </select>&nbsp;
-					 가격 : <input name="price" type="text" size="5" />만원
+					 가격 : <input name="minPrice" type="text" size="5" />만원 ~ <input name="maxPrice" type="text" size="5" />만원
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					연식 : <input name="carYears" type="text" size="5" />년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					색상 : <input name="color" type="text" size="10" /><br />
+					연식 : <input name="carYears" type="text" size="5" />년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+					색상 : <input name="color" type="text" size="10" />
 					지역 : <input name="locationList" type="text" size="10" /> &nbsp;<br />
 			    <br />
 			    </div>
 			    <center>
-				<input class="button" type="button"name="serchCar" value="차량정보조회" align="center"/><br /> <br />
+				<input class="button green medium" type="button"name="serchCar" value="차량 검색" align="center" onclick="searchCar()"/><br /> <br />
 			    </center>
 			    
 			     <div class = "text">
@@ -133,14 +143,26 @@
 					</table>
 
 				<div align="center"><br />
-				<c:forEach begin="1" end="${pageSize }" step="1" var="p">
-					<a href="selectcar.do?change=${p*10 }">&lt;${p }&gt;</a>
-				</c:forEach>
+				
+				
+				<%
+					String search = request.getParameter("search");
+					if(search==null || search.length()<=0 || search.isEmpty()){
+				%>
+					<c:forEach begin="1" end="${pageSize }" step="1" var="p">
+						<a href="selectcar.do?change=${p*10 }">&lt;${p }&gt;</a>
+					</c:forEach>
+				<%} else{%>
+					<c:forEach begin="1" end="${pageSize }" step="1" var="p">
+						<a href="searchcar.do?change=${p*10 }">&lt;${p }&gt;</a>
+					</c:forEach>
+				<%} %>
+				
 				<br />
 				  <p/>
 				  
 				  <br /> 
-				  <input class="button" type="button" name="keepingCar" value="차량비교 담기" /> 
+				  <input class="button green medium" type="button" name="keepingCar" value="관심상품 담기" onclick="keepingCar()" /> 
 				  <br /> 
 				  <br />
 				  </div>

@@ -51,10 +51,11 @@
 		(select min(image_id) from car_images where car_id in
 		(select car_id from (select row_number() over ( order by total_eval desc) as rnum, f.*
 		from car f) where rnum >=#num#-9 and rnum &lt;=#num#) group by car_id)
-</statement>-->
 
+	</statement>-->
 <statement id="selectPageImage" parameterClass="Integer" resultMap="resultsImage">
-	select * from car_images
-	where image_id = (select min(image_id) from car_images where car_id = #carId#)
+ select * from car_images
+ where image_id = (select min(image_id) from car_images where car_id = #carId#)
 </statement>
+
 </sqlMap>

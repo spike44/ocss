@@ -1,6 +1,7 @@
 package disc.ocss.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarTypeVO;
+import disc.ocss.model.CarVO;
 import disc.ocss.model.CommVO;
+import disc.ocss.model.MemberVO;
+import disc.ocss.service.CarImagesService;
+import disc.ocss.service.CarService;
 import disc.ocss.service.CommService;
 
 /**
@@ -49,6 +56,11 @@ public class DeleteCommServlet extends HttpServlet {
 		
 		session.setAttribute("comm", service.selectComm(carId));
 		
+		response.sendRedirect("detailCarSeller.page.tiles");
+		
+		session.setAttribute("comm", service.selectComm(carId));
+				
+			
 		response.sendRedirect("detailCarSeller.page.tiles");
 		
 	}

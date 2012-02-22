@@ -11,6 +11,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import disc.ocss.model.CarImagesVO;
+import disc.ocss.model.CarSearchVO;
 import disc.ocss.model.CarTypeVO;
 import disc.ocss.model.CarVO;
 
@@ -197,6 +198,44 @@ public class CarDAO {
 		
 		try {
 			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.selectPageCar", carId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public static ArrayList<CarVO> searchCar(CarSearchVO search){
+		ArrayList<CarVO> result = new ArrayList<CarVO>();
+		try {
+			result = (ArrayList<CarVO>) sqlMapper.queryForList("car.searchCar", search);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	public static String selectBrandCode(String brand){
+		String result="";
+		
+		try {
+			result = (String) sqlMapper.queryForObject("car.selectBrandCode", brand);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public static int searchCarCount(CarSearchVO search){
+		int result =0;
+		try {
+			result = (Integer) sqlMapper.queryForObject("car.searchCarCount", search);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
