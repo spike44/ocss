@@ -34,8 +34,13 @@ $(function(){
 });
 
 function insertComm(){
-	document.frm.action = "insertcomm.do";
-	document.frm.submit();
+	if($("#login").val().length<=0){
+		alert("로그인을 하셔야 댓글 등록이 가능합니다.");
+	}
+	else{
+		document.frm.action = "insertcomm.do";
+		document.frm.submit();
+	}
 }
 
 function deleteComm(commentId,carId){
@@ -55,6 +60,8 @@ function insertNotify(carId){
 	<body>
 	
 	<form name="frm" method="post">
+	<input type="hidden" id="login" value="${login.memberId }">
+	
 		&nbsp;&nbsp;&nbsp;<img src="/OCSS/images/detailCar.jpg" alt=""><br>
 	<div class="text">
         &nbsp;&nbsp;&nbsp;&nbsp;제목 : <span class="style3">${detail.title }</span><br>
@@ -88,13 +95,17 @@ function insertNotify(carId){
     <td bgcolor="#FFFF99"><div align="center" class="style3">연식</div></td>
     <td><div align="center">${detail.carYear }</div></td>
     <td bgcolor="#FFFF99"><div align="center" class="style3">사고유무</div></td>
-    <td><div align="center"></div></td>
+    <td><div align="center"><c:if test="${detail.isAcci == 1}">무</c:if> <c:if
+									test="${detail.isAcci == 0}">유</c:if></div></td>
     <td bgcolor="#FFFF99"><div align="center" class="style3">변속기</div></td>
-    <td><div align="center"></div></td>
+    <td><div align="center"><c:if test="${detail.isAuto == 1}">자동</c:if> <c:if
+									test="${detail.isAuto == 2}">수동</c:if></div></td>
   </tr>
   <tr>
     <td bgcolor="#FFFF99"><div align="center" class="style3">연료</div></td>
-    <td><div align="center"></div></td>
+    <td><div align="center"><c:if test="${detail.fuel == 1}">휘발유</c:if> <c:if
+									test="${detail.fuel == 2}">경유</c:if><c:if
+									test="${detail.fuel == 3}">LPG</c:if></div></td>
     <td bgcolor="#FFFF99"><div align="center" class="style3">색상</div></td>
     <td><div align="center">${detail.color }</div></td>
     <td bgcolor="#FFFF99"><div align="center" class="style3">지역</div></td>
@@ -115,14 +126,14 @@ function insertNotify(carId){
     <td width="12%"><div align="center" class="style3">아이디</div></td>
     <td width="13%"><div align="center" class="style3">등록일</div></td>
     <td width="60%"><div align="center" class="style3">내용</div></td>
-    <td width="15%"><div align="center" class="style3">회원유형</div></td>
+    <td width="15%"><div align="center" class="style3">댓글삭제</div></td>
   </tr>
    <c:forEach var="c" items="${ comm}">
   <tr>
-    <td><div align="center">&nbsp;</div>${c.memberId }</td>
-    <td><div align="center">&nbsp;</div>${c.commentDate }</td>
-    <td><div align="center">&nbsp;</div>${c.contentDal }</td>
-    <td><div align="center">&nbsp;</div></td>
+    <td><div align="center">${c.memberId }</div></td>
+    <td><div align="center">${c.commentDate }</div></td>
+    <td><div align="center">${c.contentDal }</div></td>
+    <td><div align="center"><input name="" type="button" value="삭제" onclick="deleteComm(${c.commentId },${detail.carId})"></div></td>
   </tr>
   </c:forEach>
 </table>
@@ -138,6 +149,6 @@ function insertNotify(carId){
     <input name="" type="button" value="관심상품등록"><br/>
     </div>
     </form>
-   
+  <c:remove var="comm" /> 
 	</body><br/>
 </html>

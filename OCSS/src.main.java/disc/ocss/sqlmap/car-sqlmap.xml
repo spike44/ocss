@@ -186,5 +186,129 @@
 		from car f) where rnum >= #num#-9 and rnum &lt;=#num#
 	</statement>	
 	
+	<typeAlias alias="carSearchVO" type="disc.ocss.model.CarSearchVO"/>
+	
+<!--  	<statement id="searchCar" parameterClass="carSearchVO" resultMap="resultsCar">
+		select * from car
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+			order by total_eval desc
+	</statement>
+	-->
+	
+	<statement id="searchCar" parameterClass="carSearchVO" resultMap="resultsCar">
+		select * from (select row_number() over ( order by total_eval desc) as rnum, c.* from
+		car c 
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+		) where rnum >=#num#-9 and rnum &lt;=#num#
+	</statement>
+	
+	<statement id="searchCarCount" parameterClass="carSearchVO" resultClass="Integer">
+		select count(car_id) from car
+			<dynamic prepend="where">
+				<isNotEqual property="minPrice" compareValue="0" prepend="and">
+					price &gt;= #minPrice#
+				</isNotEqual>
+				<isNotEqual property="maxPrice" compareValue="0" prepend="and">
+					price &lt;= #maxPrice#
+				</isNotEqual>
+				<isNotEqual property="carYear" compareValue="0" prepend="and">
+					car_year = #carYear#
+				</isNotEqual>
+				<isNotEqual property="isAcci" compareValue="-1" prepend="and">
+					is_acci = #isAcci#
+				</isNotEqual>
+				<isNotEqual property="isAuto" compareValue="-1" prepend="and">
+					is_auto = #isAuto#
+				</isNotEqual>
+				<isNotEqual property="fuel" compareValue="-1" prepend="and">
+					fuel = #fuel#
+				</isNotEqual>
+				<isNotEmpty property="color" prepend="and">
+					color = #color#
+				</isNotEmpty>
+				<isNotEmpty property="locationList" prepend="and">
+					location_list = #locationList#
+				</isNotEmpty>
+				<isNotEmpty property="carTypeCode" prepend="and">
+					cartype_Code = #carTypeCode#
+				</isNotEmpty>
+				<isEmpty property="carTypeCode">
+					<isNotEmpty property="brand" prepend="and">
+						cartype_Code like #brand#||'%'
+					</isNotEmpty>
+				</isEmpty>
+			</dynamic>
+	</statement>
+	
+	
+	<statement id="selectBrandCode" parameterClass="String" resultClass="String">
+		select min(cartype_code) from car_sort where brand= #brand#
+	</statement>
 	
 </sqlMap>

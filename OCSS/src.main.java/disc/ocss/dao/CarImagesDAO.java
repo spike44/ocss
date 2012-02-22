@@ -82,7 +82,7 @@ public class CarImagesDAO {
 		}
 	}
 	
-	public static ArrayList<CarImagesVO> selectPageImage(int num){
+/*	public static ArrayList<CarImagesVO> selectPageImage(int num){
 		ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
 		
 		try {
@@ -94,6 +94,21 @@ public class CarImagesDAO {
 		
 		return result;
 	}
-
+	
+	
+*/
+	
+	public static ArrayList<CarImagesVO> selectPageImage(int carId){
+		  ArrayList<CarImagesVO> result = new ArrayList<CarImagesVO>();
+		  
+		  try {
+		   result = (ArrayList<CarImagesVO>) sqlMapper.queryForList("carImages.selectPageImage", carId);
+		  } catch (SQLException e) {
+		   // TODO Auto-generated catch block
+		   e.printStackTrace();
+		  }
+		  
+		  return result;
+		 }
 }
 

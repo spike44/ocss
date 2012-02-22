@@ -86,5 +86,10 @@ public class MemberDAOTest extends TestCase {
 	public void testDeleteMember() {
 		fail("Not yet implemented");
 	}
+	
+	public void testest(){
+		String test = "test";
+		System.out.println(test.valueOf(0));
+	}
 
 }
